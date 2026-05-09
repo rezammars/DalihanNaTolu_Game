@@ -12,7 +12,7 @@ public class NPCInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerNear && Input.GetKeyDown(KeyCode.E))
+        if (playerNear && Input.GetMouseButtonDown(0))
         {
             DialogManager.instance.ShowDialog(npcName, dialogs);
         }
