@@ -10,17 +10,42 @@ public class DialogManager : MonoBehaviour
     public Text npcName;
     public Text dialogText;
 
+    string[] currentDialogs;
+    int dialogIndex;
+
     void Awake()
     {
         instance = this;
     }
 
-    public void ShowDialog(string name, string text)
+    public void ShowDialog(string name, string[] dialogs)
     {
         dialogPanel.SetActive(true);
 
         npcName.text = name;
-        dialogText.text = text;
+        currentDialogs = dialogs;
+        dialogIndex = 0;
+
+        ShowCurrentDialog();
+    }
+
+    void ShowCurrentDialog()
+    {
+        dialogText.text = currentDialogs[dialogIndex];
+    }
+    
+    public void NextDialog()
+    {
+        dialogIndex++;
+
+        if (dialogIndex >= currentDialogs.Length)
+        {
+            CloseDialog();
+        }
+        else
+        {
+            ShowCurrentDialog();
+        }
     }
 
     public void CloseDialog()

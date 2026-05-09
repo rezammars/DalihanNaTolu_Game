@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class NPCInteract : MonoBehaviour
 {
     public string npcName;
-    public string dialog;
+    public string[] dialogs;
 
     bool playerNear = false;
 
@@ -15,7 +14,7 @@ public class NPCInteract : MonoBehaviour
     {
         if (playerNear && Input.GetKeyDown(KeyCode.E))
         {
-            DialogManager.instance.ShowDialog(npcName, dialog);
+            DialogManager.instance.ShowDialog(npcName, dialogs);
         }
     }
 
