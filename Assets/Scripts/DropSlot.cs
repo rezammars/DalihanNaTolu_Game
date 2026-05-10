@@ -14,6 +14,15 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (item.correctSlot == slotName)
         {
             item.transform.position = transform.position;
+
+            item.transform.SetParent(transform);
+
+            item.enabled = false;
+
+            CanvasGroup cg =
+            item.GetComponent<CanvasGroup>();
+
+            cg.blocksRaycasts = true;
             Debug.Log("Benar");
         }
         else

@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 89ce4dbf3b1b2164bb4465fef839d8e9
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: c5d5df82006899d4dbd803a4f309b5c0
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 85525ef230a8cc2409ee09d7e836766f
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: b8775b5e58edf2246aa507028c533828
+  - enabled: 1
+    path: Assets/Scenes/MiniGameDrag&Drop.unity
+    guid: 15ed6399841af2e449be3098a7c4ee94
+  - enabled: 1
+    path: Assets/Scenes/MiniGameLagu.unity
+    guid: 09600847a89069d48a364004c15ffd7b
+  - enabled: 1
+    path: Assets/Scenes/MiniGameUlos.unity
+    guid: 70146bbc1eb07c04498f4f03ed9568f2
   m_configObjects: {}

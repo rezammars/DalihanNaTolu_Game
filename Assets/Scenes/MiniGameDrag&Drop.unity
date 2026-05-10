@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 726226070}
   - component: {fileID: 726226069}
   - component: {fileID: 726226068}
+  - component: {fileID: 726226071}
   m_Layer: 5
   m_Name: Char_Boru
   m_TagString: Untagged
@@ -789,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53233d3acb4d6004bad4b9a4ab7d2da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctSlot: Dongan
+  correctSlot: Boru
 --- !u!114 &726226069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +829,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726226066}
   m_CullTransparentMesh: 1
+--- !u!225 &726226071
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726226066}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1988701724
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1011,7 @@ GameObject:
   - component: {fileID: 2005702236}
   - component: {fileID: 2005702235}
   - component: {fileID: 2005702234}
+  - component: {fileID: 2005702237}
   m_Layer: 5
   m_Name: Char_Dongan
   m_TagString: Untagged
@@ -1075,6 +1089,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005702232}
   m_CullTransparentMesh: 1
+--- !u!225 &2005702237
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005702232}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2032949317
 GameObject:
   m_ObjectHideFlags: 0
