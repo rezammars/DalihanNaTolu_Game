@@ -9,17 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 89ce4dbf3b1b2164bb4465fef839d8e9
   - enabled: 1
+    path: Assets/Scenes/PilihLevel.unity
+    guid: 39b4b078e006ad14e8ce1ba45c3a492f
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
-    guid: c5d5df82006899d4dbd803a4f309b5c0
+    guid: 359effa758a52064aa5dfc0ce7505558
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
-    guid: 85525ef230a8cc2409ee09d7e836766f
+    guid: b3dac92c35c67ff46bf0d7a5afa63839
   - enabled: 1
     path: Assets/Scenes/Level 4.unity
-    guid: b8775b5e58edf2246aa507028c533828
+    guid: 36617ece2e7570d4d8e20c312b0615d4
   - enabled: 1
     path: Assets/Scenes/MiniGameDrag&Drop.unity
     guid: 15ed6399841af2e449be3098a7c4ee94
