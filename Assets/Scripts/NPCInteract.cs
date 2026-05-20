@@ -5,16 +5,31 @@ using UnityEngine;
 public class NPCInteract : MonoBehaviour
 {
     public string npcName;
+    [TextArea(3, 5)]
     public string[] dialogs;
 
     bool playerNear = false;
+    public bool alreadyTalked = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (playerNear && Input.GetMouseButtonDown(0))
+        if (playerNear)
         {
-            DialogManager.instance.ShowDialog(npcName, dialogs);
+            Debug.Log("Player dekat NPC: " + npcName);
+        }
+
+        if (playerNear && !DialogManager.instance.isTalking && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+        {
+            Debug.Log("Mulai dialog NPC: " + npcName);
+
+            DialogManager.instance.StartDialog(npcName, dialogs);
+
+            if (!alreadyTalked)
+            {
+
+                DialogManager.instance.currentNPC = this;
+            }
         }
     }
 

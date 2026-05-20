@@ -6,30 +6,50 @@ public class DialogManager : MonoBehaviour
     public static DialogManager instance;
 
     public GameObject dialogPanel;
+    public PlayerMovement playerMovement;
 
-    public Text npcName;
+    public Text npcNameText;
     public Text dialogText;
 
     string[] currentDialogs;
     int dialogIndex;
+    public bool isTalking = false;
+    public NPCInteract currentNPC;
 
     void Awake()
     {
         instance = this;
     }
 
-    public void ShowDialog(string name, string[] dialogs)
+    void Update()
+    {
+        if (isTalking)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                NextDialog();
+            }
+        }
+    }
+
+    public void StartDialog(string npcName, string[] dialogs)
     {
         dialogPanel.SetActive(true);
 
-        npcName.text = name;
+        isTalking = true;
+
+        playerMovement.canMove = false;
+
+        npcNameText.text = npcName;
+
         currentDialogs = dialogs;
+
         dialogIndex = 0;
 
-        ShowCurrentDialog();
+        ShowDialog();
     }
 
-    void ShowCurrentDialog()
+    public void ShowDialog()
     {
         dialogText.text = currentDialogs[dialogIndex];
     }
@@ -40,16 +60,26 @@ public class DialogManager : MonoBehaviour
 
         if (dialogIndex >= currentDialogs.Length)
         {
-            CloseDialog();
+           EndDialog();
         }
         else
         {
-            ShowCurrentDialog();
+            ShowDialog();
         }
     }
 
-    public void CloseDialog()
+    public void EndDialog()
     {
         dialogPanel.SetActive(false);
+        isTalking = false;
+        playerMovement.canMove = true;
+
+        if (currentNPC != null && !currentNPC.alreadyTalked)
+        {
+            currentNPC.alreadyTalked = true;
+            Debug.Log("Dialog NPC selesai: " + currentNPC.npcName);
+            LevelCompleted.instance.NPCFinished();
+            currentNPC = null;
+        }
     }
 }

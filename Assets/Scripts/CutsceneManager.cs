@@ -4,11 +4,19 @@ using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
-    public Text mcName;
+    public Text nameText;
     public Text dialogText;
-    [TextArea(3, 5)]
+
+    [TextArea(3, 6)]
+    public string[] names;
+
+    [TextArea(3, 6)]
     public string[] dialogs;
-    int dialogIndex = 0;
+
+    public Image mcImage;
+    public Image tetuaImage;
+
+    int index = 0;
 
     void Start()
     {
@@ -24,14 +32,56 @@ public class CutsceneManager : MonoBehaviour
     }
     void ShowDialog()
     {
-        mcName.text = "Alfredo";
-        dialogText.text = dialogs[dialogIndex];
+        nameText.text = names[index];
+        dialogText.text = dialogs[index];
+        UpdateCharacterUI();
+    }
+
+    void UpdateCharacterUI()
+    {
+        Color active= Color.white;
+
+        Color inactive = new Color(0.5f, 0.5f, 0.5f);
+
+        if (string.IsNullOrEmpty(names[index]))
+        {
+            nameText.gameObject.SetActive(false);
+
+            mcImage.gameObject.SetActive(false);
+
+            tetuaImage.gameObject.SetActive(false);
+
+            dialogText.alignment = TextAnchor.UpperLeft;
+
+            return;
+        }
+
+        if (names[index].Trim().ToLower() == "alfredo")
+        {
+            mcImage.gameObject.SetActive(true);
+            tetuaImage.gameObject.SetActive(true);
+
+            mcImage.color = active;
+            tetuaImage.color = inactive;
+
+            dialogText.alignment = TextAnchor.UpperLeft;
+        }
+        else
+        {
+            mcImage.gameObject.SetActive(true);
+            tetuaImage.gameObject.SetActive(true);
+
+            mcImage.color = inactive;
+            tetuaImage.color = active;
+
+            dialogText.alignment = TextAnchor.UpperLeft;
+        }
     }
 
     void NextDialog()
     {
-        dialogIndex++;
-        if (dialogIndex >= dialogs.Length)
+        index++;
+        if (index >= dialogs.Length)
         {
             SceneManager.LoadScene("Level 1");
         }

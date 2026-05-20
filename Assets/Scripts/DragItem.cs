@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,17 +10,20 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     Vector2 startPos;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+    }
 
+    void Start()
+    {
         startPos = rect.anchoredPosition;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
     }
 
@@ -39,5 +40,10 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void ResetPosition()
     {
         rect.anchoredPosition = startPos;
+    }
+
+    public void SaveStartPosition()
+    {
+        startPos = rect.anchoredPosition;
     }
 }
