@@ -16,6 +16,8 @@ public class CutsceneManager : MonoBehaviour
     public Image mcImage;
     public Image tetuaImage;
 
+    public string nextSceneName;
+
     int index = 0;
 
     void Start()
@@ -83,7 +85,7 @@ public class CutsceneManager : MonoBehaviour
         index++;
         if (index >= dialogs.Length)
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene(nextSceneName);
         }
         else
         {

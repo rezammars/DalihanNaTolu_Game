@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -7,6 +9,11 @@ public class PuzzleManager : MonoBehaviour
     public int gridSize = 3;
     public GameObject papanPuzzle;
     public GameObject fullImage;
+
+    [Header("Finish Dialog")]
+    public GameObject finishDialogPanel;
+    public Text finishDialogText;
+    public string nextSceneName;
 
     private int emptyIndex;
 
@@ -94,5 +101,15 @@ public class PuzzleManager : MonoBehaviour
     {
         papanPuzzle.SetActive(false);
         fullImage.SetActive(true);
+        finishDialogPanel.SetActive(true);
+
+        finishDialogText.text = "Bagus. Sekarang sudah siap digunakan.";
+
+        Invoke(nameof(LoadNextScene), 2f);
+    }
+
+    void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 }

@@ -3,12 +3,12 @@ using UnityEngine.EventSystems;
 
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public string correctSlot;
+    public string roleName;
 
     RectTransform rect;
     CanvasGroup canvasGroup;
 
-    Vector2 startPos;
+    public DropSlot currentSlot;
     
     void Awake()
     {
@@ -16,15 +16,15 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    void Start()
-    {
-        startPos = rect.anchoredPosition;
-    }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
         canvasGroup.blocksRaycasts = false;
+        if (currentSlot != null)
+        {
+            currentSlot.currentItem = null;
+            currentSlot = null;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -37,13 +37,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void ResetPosition()
+    public void SnapToSlot(DropSlot slot)
     {
-        rect.anchoredPosition = startPos;
-    }
+        currentSlot = slot;
 
-    public void SaveStartPosition()
-    {
-        startPos = rect.anchoredPosition;
+        transform.SetParent(slot.transform);
+
+        rect.anchoredPosition = Vector2.zero;
     }
 }

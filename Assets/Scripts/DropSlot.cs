@@ -6,29 +6,34 @@ using UnityEngine.EventSystems;
 public class DropSlot : MonoBehaviour, IDropHandler
 {
     public string slotName;
+    public DragItem currentItem;
 
     public void OnDrop(PointerEventData eventData)
     {
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
 
-        if (item.correctSlot == slotName)
+        if (item == null) return;
+
+        currentItem = item;
+
+        item.SnapToSlot(this);
+
+        if (IsCorrect())
         {
-            item.transform.position = transform.position;
-
-            item.transform.SetParent(transform);
-
-            item.enabled = false;
-
-            CanvasGroup cg =
-            item.GetComponent<CanvasGroup>();
-
-            cg.blocksRaycasts = true;
-            Debug.Log("Benar");
+            PuzzleRoleManager.instance.ShowCorrectPlacement();
         }
         else
         {
-            item.ResetPosition();
-            Debug.Log("Salah");
+            PuzzleRoleManager.instance.ShowWrongPlacement();
         }
+
+        PuzzleRoleManager.instance.CheckAllCorrect();
+    }
+
+    public bool IsCorrect()
+    {
+        if (currentItem == null) return false;
+
+        return currentItem.roleName == slotName;
     }
 }
