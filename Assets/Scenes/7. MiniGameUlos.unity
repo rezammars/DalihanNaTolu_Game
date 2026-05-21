@@ -376,7 +376,7 @@ MonoBehaviour:
   fullImage: {fileID: 273470253}
   finishDialogPanel: {fileID: 1897334083}
   finishDialogText: {fileID: 742885310}
-  nextSceneName: 
+  nextSceneName: EndLvl1
 --- !u!4 &389661860
 Transform:
   m_ObjectHideFlags: 0

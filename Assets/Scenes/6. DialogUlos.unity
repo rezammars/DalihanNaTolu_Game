@@ -161,7 +161,9 @@ MonoBehaviour:
   - Baik, saya coba.
   mcImage: {fileID: 230866908}
   tetuaImage: {fileID: 1518287510}
-  nextSceneName: MiniGameUlos
+  nextSceneName: 7. MiniGameUlos
+  unlockLevelAfterDialog: 0
+  unlockLevel: 2
 --- !u!4 &109097425
 Transform:
   m_ObjectHideFlags: 0

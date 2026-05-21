@@ -88,6 +88,6 @@ public class PuzzleRoleManager : MonoBehaviour
 
     void FinishPuzzle()
     {
-        SceneManager.LoadScene("DialogUlos");
+        SceneManager.LoadScene("6. DialogUlos");
     }
 }

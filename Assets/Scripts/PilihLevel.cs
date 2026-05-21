@@ -17,7 +17,7 @@ public class PilihLevel : MonoBehaviour
     }
     public void OpenLevel1()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("4. Level 1");
     }
 
     public void OpenLevel2()
@@ -37,6 +37,6 @@ public class PilihLevel : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("1. MainMenu");
     }
 }

@@ -4,19 +4,28 @@ using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
+    [Header("UI")]
     public Text nameText;
     public Text dialogText;
 
+    [Header("Dialog Data")]
     [TextArea(3, 6)]
     public string[] names;
 
     [TextArea(3, 6)]
     public string[] dialogs;
 
+    [Header("Character Images")]
     public Image mcImage;
     public Image tetuaImage;
 
+    [Header("Next Scene")]
     public string nextSceneName;
+
+    [Header("Unlock Level")]
+    public bool unlockLevelAfterDialog = false;
+
+    public int unlockLevel = 2;
 
     int index = 0;
 
@@ -32,18 +41,21 @@ public class CutsceneManager : MonoBehaviour
             NextDialog();
         }
     }
+
     void ShowDialog()
     {
         nameText.text = names[index];
         dialogText.text = dialogs[index];
+
         UpdateCharacterUI();
     }
 
     void UpdateCharacterUI()
     {
-        Color active= Color.white;
+        Color active = Color.white;
 
-        Color inactive = new Color(0.5f, 0.5f, 0.5f);
+        Color inactive =
+        new Color(0.5f, 0.5f, 0.5f);
 
         if (string.IsNullOrEmpty(names[index]))
         {
@@ -53,43 +65,61 @@ public class CutsceneManager : MonoBehaviour
 
             tetuaImage.gameObject.SetActive(false);
 
-            dialogText.alignment = TextAnchor.UpperLeft;
+            dialogText.alignment = TextAnchor.MiddleCenter;
 
             return;
         }
 
+        nameText.gameObject.SetActive(true);
+
+        mcImage.gameObject.SetActive(true);
+
+        tetuaImage.gameObject.SetActive(true);
+
+        dialogText.alignment = TextAnchor.UpperLeft;
+
         if (names[index].Trim().ToLower() == "alfredo")
         {
-            mcImage.gameObject.SetActive(true);
-            tetuaImage.gameObject.SetActive(true);
-
             mcImage.color = active;
             tetuaImage.color = inactive;
-
-            dialogText.alignment = TextAnchor.UpperLeft;
         }
+
         else
         {
-            mcImage.gameObject.SetActive(true);
-            tetuaImage.gameObject.SetActive(true);
-
             mcImage.color = inactive;
             tetuaImage.color = active;
-
-            dialogText.alignment = TextAnchor.UpperLeft;
         }
     }
 
     void NextDialog()
     {
         index++;
+
         if (index >= dialogs.Length)
         {
+            if (unlockLevelAfterDialog)
+            {
+                UnlockLevel();
+            }
+
             SceneManager.LoadScene(nextSceneName);
         }
         else
         {
             ShowDialog();
+        }
+    }
+
+    void UnlockLevel()
+    {
+        int unlockedLevel =
+        PlayerPrefs.GetInt("UnlockedLevel", 1);
+
+        if (unlockLevel > unlockedLevel)
+        {
+            PlayerPrefs.SetInt("UnlockedLevel", unlockLevel);
+
+            PlayerPrefs.Save();
         }
     }
 }
