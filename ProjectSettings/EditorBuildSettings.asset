@@ -12,30 +12,27 @@ EditorBuildSettings:
     path: Assets/Scenes/2. PilihLevel.unity
     guid: 39b4b078e006ad14e8ce1ba45c3a492f
   - enabled: 1
-    path: Assets/Scenes/3. CutsceneLvl1.unity
+    path: Assets/Scenes/3. Cutscene 1.unity
     guid: 6f7f5a4ebd18bc44894fdffdbab823b4
   - enabled: 1
     path: Assets/Scenes/4. Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 359effa758a52064aa5dfc0ce7505558
-  - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: b3dac92c35c67ff46bf0d7a5afa63839
-  - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: 36617ece2e7570d4d8e20c312b0615d4
-  - enabled: 1
     path: Assets/Scenes/5. PuzzlePeran.unity
     guid: 15ed6399841af2e449be3098a7c4ee94
   - enabled: 1
-    path: Assets/Scenes/MiniGameLagu.unity
-    guid: 09600847a89069d48a364004c15ffd7b
+    path: Assets/Scenes/6. DialogUlos.unity
+    guid: b181687b0791e4349bd466d5423c3164
   - enabled: 1
     path: Assets/Scenes/7. MiniGameUlos.unity
     guid: 70146bbc1eb07c04498f4f03ed9568f2
   - enabled: 1
-    path: Assets/Scenes/6. DialogUlos.unity
-    guid: b181687b0791e4349bd466d5423c3164
+    path: Assets/Scenes/8. EndLvl1.unity
+    guid: 40c68c62492b95c4e8e8961e9b6f3991
+  - enabled: 1
+    path: Assets/Scenes/9. Custscene 2.unity
+    guid: ecd7b9b2a767ffe4b8ec54270b8e15b0
+  - enabled: 1
+    path: Assets/Scenes/10. Level 2.unity
+    guid: 359effa758a52064aa5dfc0ce7505558
   m_configObjects: {}

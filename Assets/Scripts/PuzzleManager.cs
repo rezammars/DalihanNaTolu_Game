@@ -39,11 +39,22 @@ public class PuzzleManager : MonoBehaviour
 
     void Shuffle()
     {
-        for (int i = 0; i < tiles.Count; i++)
+        for (int i = 0; i < 15; i++)
+    {
+        List<int> adjacentTiles = new List<int>();
+
+        for (int j = 0; j < tiles.Count; j++)
         {
-            int rand = Random.Range(0, tiles.Count);
-            SwapTiles(i, rand);
+            if (IsAdjacent(j, emptyIndex))
+            {
+                adjacentTiles.Add(j);
+            }
         }
+
+        int rand = adjacentTiles[Random.Range(0, adjacentTiles.Count)];
+
+        SwapTiles(rand, emptyIndex);
+    }
     }
 
     public void TryMove(Tile tile)

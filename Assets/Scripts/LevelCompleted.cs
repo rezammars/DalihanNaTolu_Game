@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelCompleted : MonoBehaviour
 {
     public static LevelCompleted instance;
+    public string nextSceneName;
     int npcTalked = 0;
 
     void Awake()
@@ -20,7 +21,7 @@ public class LevelCompleted : MonoBehaviour
         if (npcTalked >= 3)
         {
             Debug.Log("Semua NPC selesai, pindah ke puzzle");
-            SceneManager.LoadScene("PuzzlePeran");
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }

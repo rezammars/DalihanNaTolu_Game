@@ -36,6 +36,8 @@ public class CutsceneManager : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+        
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             NextDialog();

@@ -17,12 +17,12 @@ public class PilihLevel : MonoBehaviour
     }
     public void OpenLevel1()
     {
-        SceneManager.LoadScene("4. Level 1");
+        SceneManager.LoadScene("3. Cutscene 1");
     }
 
     public void OpenLevel2()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("9. Cutscene 2");
     }
 
     public void OpenLevel3()

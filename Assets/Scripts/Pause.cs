@@ -26,7 +26,7 @@ public class Pause : MonoBehaviour
     public void ResumeGame()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         isPaused = false;
     }
 
@@ -40,6 +40,19 @@ public class Pause : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("1. MainMenu");
+    }
+
+    public void TogglePause()
+    {
+        if (isPaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    
     }
 }
