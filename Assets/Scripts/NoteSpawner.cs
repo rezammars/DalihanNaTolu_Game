@@ -3,11 +3,12 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     public GameObject notePrefab;
-    public RectTransform[] lanes;
+    public RectTransform[] spawnPoints;
     public Transform noteContainer;
-    public float spawnRate = 1f;
 
-    // Start is called before the first frame update
+    public float spawnRate = 1.2f;
+    public float noteSpeed = 300f;
+
     void Start()
     {
         InvokeRepeating(nameof(SpawnNote), 1f, spawnRate);
@@ -15,13 +16,15 @@ public class NoteSpawner : MonoBehaviour
 
     void SpawnNote()
     {
-        int lane = Random.Range(0, 5);
+        int lane = Random.Range(0, spawnPoints.Length);
 
-        GameObject note = Instantiate(notePrefab, noteContainer);
-        RectTransform rt = note.GetComponent<RectTransform>();
+        GameObject noteObj = Instantiate(notePrefab, noteContainer);
 
-        rt.anchoredPosition = lanes[lane].anchoredPosition + Vector2.up * 1000f;
+        RectTransform noteRect = noteObj.GetComponent<RectTransform>();
+        noteRect.anchoredPosition = spawnPoints[lane].anchoredPosition;
 
-        note.GetComponent<Note>().laneIndex = lane;
+        Note note = noteObj.GetComponent<Note>();
+        note.laneIndex = lane;
+        note.speed = noteSpeed;
     }
 }

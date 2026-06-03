@@ -2,19 +2,28 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float speed = 500f;
     public int laneIndex;
+    public float speed = 300f;
 
-    RectTransform rect;
+    private RectTransform rect;
 
-    void Start()
+    void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
+        rect.anchoredPosition += Vector2.left * speed * Time.deltaTime;
+
+        if (rect.anchoredPosition.x < -800f)
+        {
+            RhythmManager.instance.MissNote(this);
+        }
+    }
+
+    public RectTransform GetRect()
+    {
+        return rect;
     }
 }

@@ -2,11 +2,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class CharacterData
+{
+    public string characterName;
+    public Image characterImage;
+}
+
 public class CutsceneManager : MonoBehaviour
 {
     [Header("UI")]
     public Text nameText;
     public Text dialogText;
+    public GameObject dialogPanel;
+    public Text cutsceneText;
 
     [Header("Dialog Data")]
     [TextArea(3, 6)]
@@ -15,9 +24,8 @@ public class CutsceneManager : MonoBehaviour
     [TextArea(3, 6)]
     public string[] dialogs;
 
-    [Header("Character Images")]
-    public Image mcImage;
-    public Image tetuaImage;
+    [Header("Characters")]
+    public CharacterData[] characters;
 
     [Header("Next Scene")]
     public string nextSceneName;
@@ -46,8 +54,16 @@ public class CutsceneManager : MonoBehaviour
 
     void ShowDialog()
     {
-        nameText.text = names[index];
-        dialogText.text = dialogs[index];
+        if (index >= dialogs.Length) return;
+        if (string.IsNullOrEmpty(names[index]))
+        {
+            cutsceneText.text = dialogs[index];
+        }
+        else
+        {
+            nameText.text = names[index];
+            dialogText.text = dialogs[index];
+        }
 
         UpdateCharacterUI();
     }
@@ -55,42 +71,48 @@ public class CutsceneManager : MonoBehaviour
     void UpdateCharacterUI()
     {
         Color active = Color.white;
+        Color inactive = new Color(0.5f, 0.5f, 0.5f);
 
-        Color inactive =
-        new Color(0.5f, 0.5f, 0.5f);
+        bool isNarration = string.IsNullOrEmpty(names[index]);
 
-        if (string.IsNullOrEmpty(names[index]))
+        if (isNarration)
         {
-            nameText.gameObject.SetActive(false);
+            cutsceneText.gameObject.SetActive(true);
+            dialogPanel.SetActive(false);
 
-            mcImage.gameObject.SetActive(false);
-
-            tetuaImage.gameObject.SetActive(false);
-
-            dialogText.alignment = TextAnchor.MiddleCenter;
+            foreach (CharacterData character in characters)
+            {
+                if (character.characterImage != null)
+                {
+                    character.characterImage.gameObject.SetActive(false);
+                }
+            }
 
             return;
         }
 
+        cutsceneText.gameObject.SetActive(false);
+        dialogPanel.SetActive(true);
         nameText.gameObject.SetActive(true);
+        string currentSpeaker = names[index].Trim().ToLower();
 
-        mcImage.gameObject.SetActive(true);
-
-        tetuaImage.gameObject.SetActive(true);
-
-        dialogText.alignment = TextAnchor.UpperLeft;
-
-        if (names[index].Trim().ToLower() == "alfredo")
+        foreach (CharacterData character in characters)
         {
-            mcImage.color = active;
-            tetuaImage.color = inactive;
-        }
+            if (character.characterImage == null) continue;
 
-        else
-        {
-            mcImage.color = inactive;
-            tetuaImage.color = active;
-        }
+            character.characterImage.gameObject.SetActive(true);
+
+            string characterName = character.characterName.Trim().ToLower();
+
+            if (characterName == currentSpeaker)
+            {
+                character.characterImage.color = active;
+            }
+            else
+            {
+                character.characterImage.color = inactive;
+            }
+        } 
     }
 
     void NextDialog()

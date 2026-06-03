@@ -154,15 +154,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 768033212}
   dialogText: {fileID: 275463779}
+  dialogPanel: {fileID: 785027847}
+  cutsceneText: {fileID: 820601861}
   names:
-  - "Tetua\t"
+  - Ucok
+  - Ucok
   - Alfredo
   dialogs:
-  - Sebelum lanjut, bantu kami merapikan ulos ini.
+  - 'Hey nak, kamu tau alat musik ini? ini adalah gondang
+
+'
+  - Coba ikuti irama ini. Gondang harus dimainkan dengan tepat.
   - Baik, saya coba.
-  mcImage: {fileID: 230866908}
-  tetuaImage: {fileID: 1518287510}
-  nextSceneName: 7. MiniGameUlos
+  characters:
+  - characterName: Pemusik
+    characterImage: {fileID: 1518287510}
+  - characterName: Alfredo
+    characterImage: {fileID: 230866908}
+  nextSceneName: 12. MiniGameLagu
   unlockLevelAfterDialog: 0
   unlockLevel: 2
 --- !u!4 &109097425
@@ -583,6 +592,7 @@ RectTransform:
   - {fileID: 1142102080}
   - {fileID: 230866906}
   - {fileID: 1518287512}
+  - {fileID: 820601860}
   - {fileID: 785027848}
   - {fileID: 476871341}
   - {fileID: 900072495}
@@ -811,6 +821,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785027847}
+  m_CullTransparentMesh: 1
+--- !u!1 &820601859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820601860}
+  - component: {fileID: 820601862}
+  - component: {fileID: 820601861}
+  m_Layer: 5
+  m_Name: CutsceneTxt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &820601860
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820601859}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 702984265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &820601861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820601859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &820601862
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820601859}
   m_CullTransparentMesh: 1
 --- !u!1001 &900072493
 PrefabInstance:
@@ -1090,7 +1179,7 @@ GameObject:
   - component: {fileID: 1518287511}
   - component: {fileID: 1518287510}
   m_Layer: 5
-  m_Name: Tetua
+  m_Name: PEMUSIK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -478,6 +478,85 @@ RectTransform:
   m_AnchoredPosition: {x: -560, y: -50}
   m_SizeDelta: {x: 500, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &824840875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824840876}
+  - component: {fileID: 824840878}
+  - component: {fileID: 824840877}
+  m_Layer: 5
+  m_Name: CutsceneTxt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &824840876
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824840875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1858074389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &824840877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824840875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &824840878
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824840875}
+  m_CullTransparentMesh: 1
 --- !u!1 &841033459
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,34 +791,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 841033462}
   dialogText: {fileID: 154491113}
+  dialogPanel: {fileID: 1838760246}
+  cutsceneText: {fileID: 824840877}
   names:
-  - Tetua
-  - Alfredo
-  - Tetua
   - 
+  - NPC A
+  - NPC B
+  - Alfredo
+  - Tetua Adat
   dialogs:
-  - 'Kau sudah mulai mengerti.
+  - 'Hari ini suasana desa terasa berbeda.
 
-    Setiap peran punya tempatnya masing-masing.'
-  - "Awalnya terlihat sederhana\u2026 tapi ternyata ada aturannya."
-  - 'Itu baru permulaan.
+    Beberapa orang mulai berselisih,
+    dan prosesi tidak berjalan lancar.
 
-    Masih banyak yang harus kau pelajari.'
-  - 'Menempatkan orang pada posisinya ternyata penting.
+    Untuk pertama kalinya, aku harus mengambil
+    keputusan sendiri.'
+  - Kami seharusnya didahulukan!
+  - Itu bukan keputusanmu!
+  - "Kenapa semuanya jadi ribut begini\u2026"
+  - 'Karena adat bukan hanya aturan.
 
-
-    Tapi aku mulai merasa...
-
-    ini
-    bukan hanya soal posisi.
-
-
-    Mungkin ada sesuatu yang lebih dari itu.'
-  mcImage: {fileID: 1374988638}
-  tetuaImage: {fileID: 267805931}
+    Adat juga tentang menjaga perasaan orang
+    lain.'
+  characters: []
   nextSceneName: 2. PilihLevel
   unlockLevelAfterDialog: 1
-  unlockLevel: 2
+  unlockLevel: 3
 --- !u!4 &1108586137
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,6 +1100,7 @@ RectTransform:
   - {fileID: 1915038188}
   - {fileID: 1374988636}
   - {fileID: 267805933}
+  - {fileID: 824840876}
   - {fileID: 1838760247}
   - {fileID: 87330952}
   - {fileID: 851722005}

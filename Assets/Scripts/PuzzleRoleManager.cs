@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PuzzleRoleManager : MonoBehaviour
 {
     public static PuzzleRoleManager instance;
+    public string nextScene;
 
     public DropSlot[] slots;
 
@@ -88,6 +89,6 @@ public class PuzzleRoleManager : MonoBehaviour
 
     void FinishPuzzle()
     {
-        SceneManager.LoadScene("6. DialogUlos");
+        SceneManager.LoadScene(nextScene);
     }
 }
