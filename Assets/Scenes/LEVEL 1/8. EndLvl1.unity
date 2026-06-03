@@ -737,8 +737,11 @@ MonoBehaviour:
 
 
     Mungkin ada sesuatu yang lebih dari itu.'
-  mcImage: {fileID: 1374988638}
-  tetuaImage: {fileID: 267805931}
+  characters:
+  - characterName: Tetua Adat
+    characterImage: {fileID: 267805931}
+  - characterName: Alfredo
+    characterImage: {fileID: 1374988638}
   nextSceneName: 2. PilihLevel
   unlockLevelAfterDialog: 1
   unlockLevel: 2

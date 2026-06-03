@@ -187,8 +187,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -240,8 +240,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -492,6 +492,7 @@ MonoBehaviour:
   - Alfredo
   - Tetua Adat
   - Tetua Adat
+  - Tetua Adat
   - Alfredo
   dialogs:
   - "Aku tumbuh di kota, jauh dari kampung halaman.\nSebagai orang Batak, aku tahu
@@ -521,9 +522,16 @@ MonoBehaviour:
 
     Tugasmu sederhana: tempatkan mereka
     di posisi yang tepat.'
+  - 'Gunakan tombol WASD untuk bergerak.
+
+    Dekati mereka lalu tekan E atau klik
+    mouse kiri untuk berinteraksi.'
   - "Tiga orang\u2026 tapi posisinya berbeda semua."
-  mcImage: {fileID: 82439846}
-  tetuaImage: {fileID: 150967982}
+  characters:
+  - characterName: Tetua Adat
+    characterImage: {fileID: 150967982}
+  - characterName: Alfredo
+    characterImage: {fileID: 82439846}
   nextSceneName: 4. Level 1
   unlockLevelAfterDialog: 0
   unlockLevel: 2

@@ -417,8 +417,11 @@ MonoBehaviour:
     Sekarang, kau harus belajar urutannya.'
   - Memangnya kalau urutannya salah bisa jadi masalah?
   - Dalam adat, langkah kecil pun punya arti.
-  mcImage: {fileID: 82439846}
-  tetuaImage: {fileID: 150967982}
+  characters:
+  - characterName: Tetua Adat
+    characterImage: {fileID: 0}
+  - characterName: Alfredo
+    characterImage: {fileID: 150967982}
   nextSceneName: 10. Level 2
   unlockLevelAfterDialog: 0
   unlockLevel: 2

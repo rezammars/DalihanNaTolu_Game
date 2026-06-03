@@ -798,12 +798,10 @@ MonoBehaviour:
   - Tetua Adat
   - 
   dialogs:
-  - Ternyata adat seperti rangkaian yang saling menyambung.
-  - Benar. Jika satu bagian salah, yang lain ikut terganggu.
-  - 'Aku mulai memahami pola dalam adat.
-
-    Tapi semakin banyak orang terlibat,
-    semakin banyak juga masalah yang muncul.'
+  - "Tidak semua masalah bisa diselesaikan dengan aturan saja\u2026"
+  - Karena menjaga adat berarti menjaga keseimbangan manusia di dalamnya.
+  - "Aku mulai mengerti kenapa semua orang sangat menjaga adat ini.\nBukan karena
+    takut salah\u2026\ntapi karena mereka ingin tetap saling menghormati"
   characters:
   - characterName: Alfredo
     characterImage: {fileID: 1374988638}

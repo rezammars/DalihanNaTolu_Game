@@ -157,13 +157,16 @@ MonoBehaviour:
   dialogPanel: {fileID: 785027847}
   cutsceneText: {fileID: 1783460256}
   names:
-  - "Tetua\t"
+  - Tetua Adat
   - Alfredo
   dialogs:
   - Sebelum lanjut, bantu kami merapikan ulos ini.
   - Baik, saya coba.
-  mcImage: {fileID: 230866908}
-  tetuaImage: {fileID: 1518287510}
+  characters:
+  - characterName: Tetua Adat
+    characterImage: {fileID: 1518287510}
+  - characterName: Alfredo
+    characterImage: {fileID: 230866908}
   nextSceneName: 7. MiniGameUlos
   unlockLevelAfterDialog: 0
   unlockLevel: 2
