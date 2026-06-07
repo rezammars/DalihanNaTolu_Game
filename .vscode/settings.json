@@ -56,9 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-<<<<<<< HEAD
+    "DalihanNaTolu.sln=======dotnet.defaultSolution": "GameTA.sln>>>>>>>5760a26a882d115d6a6646d3383a5e45f8b375b5",
     "dotnet.defaultSolution": "DalihanNaTolu.sln"
-=======
-    "dotnet.defaultSolution": "GameTA.sln"
->>>>>>> 5760a26a882d115d6a6646d3383a5e45f8b375b5
 }

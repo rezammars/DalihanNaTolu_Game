@@ -6,10 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-=======
     path: Assets/Scenes/1. MainMenu.unity
     guid: 89ce4dbf3b1b2164bb4465fef839d8e9
   - enabled: 1
@@ -20,7 +16,7 @@ EditorBuildSettings:
     guid: 6f7f5a4ebd18bc44894fdffdbab823b4
   - enabled: 1
     path: Assets/Scenes/LEVEL 1/4. Level 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: be6d012513fda4245966303beacfff35
   - enabled: 1
     path: Assets/Scenes/LEVEL 1/5. PuzzlePeran.unity
     guid: 15ed6399841af2e449be3098a7c4ee94
@@ -48,5 +44,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVEL 2/13. EndLvl2.unity
     guid: 66282446434c0ff408608b15ca65986e
->>>>>>> 5760a26a882d115d6a6646d3383a5e45f8b375b5
+  - enabled: 1
+    path: Assets/Scenes/LEVEL 3/14. Custscene 3.unity
+    guid: 7879b84dc1a112644b93601e637c6ae2
+  - enabled: 1
+    path: Assets/Scenes/LEVEL 3/15. Stage 3.unity
+    guid: 9ffb9a93ea6b638469ea70b8e8cb174a
+  - enabled: 1
+    path: Assets/Scenes/LEVEL 3/16. MiniGameSimbolAdat.unity
+    guid: 9ab14d42b1c76704cbace9e8251c24fd
+  - enabled: 1
+    path: Assets/Scenes/LEVEL 3/17. EndLvl3.unity
+    guid: 249867f5e31659542a8e9a9ed27287bc
   m_configObjects: {}
