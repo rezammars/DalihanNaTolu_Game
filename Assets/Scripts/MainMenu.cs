@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("2.PilihLevel");
+        SceneManager.LoadScene("2.PilihStage");
     }
 
     public void OpenCredit()

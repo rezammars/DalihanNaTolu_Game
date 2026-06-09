@@ -272,7 +272,7 @@ MonoBehaviour:
     characterImage: {fileID: 910576322}
   - characterName: Tetua Adat
     characterImage: {fileID: 1770778146}
-  nextSceneName: 19. Level 4
+  nextSceneName: 19.Stage4
   unlockLevelAfterDialog: 0
   unlockLevel: 2
 --- !u!4 &273949727

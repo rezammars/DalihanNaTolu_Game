@@ -2832,7 +2832,7 @@ MonoBehaviour:
   progressText: {fileID: 905888974}
   resultPanel: {fileID: 1736198376}
   resultText: {fileID: 1054461598}
-  nextSceneName: 16. MiniGameSimbolAdat
+  nextSceneName: 16.MiniGameSimbolAdat
   maxStep: 3
   successScore: 6
 --- !u!114 &1308070557
@@ -2851,20 +2851,19 @@ MonoBehaviour:
   tutorText: {fileID: 768626179}
   tutorMessages: 'Pilih tindakan yang menurutmu paling tepat.
 
-    
 
-    Setiap
-    keputusan akan memengaruhi perasaan para tokoh adat.
 
-    
+    Setiap keputusan
+    akan memengaruhi perasaan para tokoh adat.
 
-    Jagalah agar
-    hubungan sosial tetap seimbang.
 
-    
 
-    Klik Mouse Kiri atau tekan Space
-    untuk mulai.'
+    Jagalah agar hubungan sosial
+    tetap seimbang.
+
+
+
+    Klik Mouse Kiri atau tekan Space untuk mulai.'
 --- !u!1 &1421873945
 GameObject:
   m_ObjectHideFlags: 0

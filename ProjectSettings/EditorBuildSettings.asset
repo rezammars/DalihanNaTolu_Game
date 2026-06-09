@@ -44,4 +44,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 2/13.EndSt2.unity
     guid: 66282446434c0ff408608b15ca65986e
+  - enabled: 1
+    path: Assets/Scenes/Stage 3/14.Custscene3.unity
+    guid: 7879b84dc1a112644b93601e637c6ae2
+  - enabled: 1
+    path: Assets/Scenes/Stage 3/15.Stage3.unity
+    guid: 9ffb9a93ea6b638469ea70b8e8cb174a
+  - enabled: 1
+    path: Assets/Scenes/Stage 3/16.MiniGameSimbolAdat.unity
+    guid: 9ab14d42b1c76704cbace9e8251c24fd
+  - enabled: 1
+    path: Assets/Scenes/Stage 3/17.EndSt3.unity
+    guid: 249867f5e31659542a8e9a9ed27287bc
+  - enabled: 1
+    path: Assets/Scenes/Stage 4/18.Custscene4.unity
+    guid: dd39adab2de8f484883b7586ed4985bc
+  - enabled: 1
+    path: Assets/Scenes/Stage 4/19.Stage4.unity
+    guid: 6ada344e78e7b9e4fbb5070b79e589f7
   m_configObjects: {}

@@ -9,6 +9,7 @@ public class PuzzleManager : MonoBehaviour
     public int gridSize = 3;
     public GameObject papanPuzzle;
     public GameObject fullImage;
+    public GameObject hintImage;
 
     [Header("Finish Dialog")]
     public GameObject finishDialogPanel;
@@ -112,6 +113,7 @@ public class PuzzleManager : MonoBehaviour
     {
         papanPuzzle.SetActive(false);
         fullImage.SetActive(true);
+        hintImage.SetActive(false);
         finishDialogPanel.SetActive(true);
 
         finishDialogText.text = "Bagus. Sekarang sudah siap digunakan.";

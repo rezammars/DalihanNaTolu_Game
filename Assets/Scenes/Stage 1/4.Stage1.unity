@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e642343acebca44fac4e5a31bc46177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 5. PuzzlePeran
+  nextSceneName: 5.PuzzlePeran
 --- !u!1 &816722127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1453,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953805944}
   m_CullTransparentMesh: 1
+--- !u!95 &963756803 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8357281552488461998, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+  m_PrefabInstance: {fileID: 7431184171197380891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &963756804 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2143314953281096875, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+  m_PrefabInstance: {fileID: 7431184171197380891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043397614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1732,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291942591}
   m_CullTransparentMesh: 1
+--- !u!50 &1433121264 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3986993226065679814, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+  m_PrefabInstance: {fileID: 7431184171197380891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1439006509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2331,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277548751667621661, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1753157234761163847, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2359,6 +2378,26 @@ PrefabInstance:
     - target: {fileID: 6939599339750714220, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115652218257083334, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1433121264}
+    - target: {fileID: 8115652218257083334, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 963756803}
+    - target: {fileID: 8115652218257083334, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 963756804}
+    - target: {fileID: 8557869465881183823, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557869465881183823, guid: 0e4372cc2eff00c49abd4d86da8c8eb9, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

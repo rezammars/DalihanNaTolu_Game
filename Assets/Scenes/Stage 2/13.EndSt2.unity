@@ -734,7 +734,7 @@ MonoBehaviour:
     characterImage: {fileID: 0}
   - characterName: Tetua Adat
     characterImage: {fileID: 0}
-  nextSceneName: 2. PilihLevel
+  nextSceneName: 2.PilihStage
   unlockLevelAfterDialog: 1
   unlockLevel: 3
 --- !u!4 &1108586137

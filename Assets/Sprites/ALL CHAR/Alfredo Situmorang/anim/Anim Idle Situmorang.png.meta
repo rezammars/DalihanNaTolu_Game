@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 815
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f2a13596cd3fe40979c228638d91db
+      internalID: 2119022025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_1
+      rect:
+        serializedVersion: 2
+        x: 2157
+        y: 0
+        width: 827
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623813c30a88fa44eb427ddce26ab369
+      internalID: -1401199994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_2
+      rect:
+        serializedVersion: 2
+        x: 4326
+        y: 0
+        width: 826
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36581e5097724394fad83875be7791d9
+      internalID: 666297310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_3
+      rect:
+        serializedVersion: 2
+        x: 6487
+        y: 0
+        width: 833
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8b24070008f0348996eb51bb2296e7
+      internalID: -1569734563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_4
+      rect:
+        serializedVersion: 2
+        x: 8655
+        y: 0
+        width: 827
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f3b6b48fe52c848ad83694f6dd5c16
+      internalID: 559334710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_5
+      rect:
+        serializedVersion: 2
+        x: 10824
+        y: 0
+        width: 826
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22117251700213448b62454aa11836cb
+      internalID: 1669803191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_6
+      rect:
+        serializedVersion: 2
+        x: 12992
+        y: 0
+        width: 827
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19b46707b9ed214b99e2b98e82951d1
+      internalID: -1060474438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anim Idle Situmorang_7
+      rect:
+        serializedVersion: 2
+        x: 15161
+        y: 0
+        width: 815
+        height: 1779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318ea7fd963501246bd49f3c71a1b469
+      internalID: 746220903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Anim Idle Situmorang_0: 2119022025
+      Anim Idle Situmorang_1: -1401199994
+      Anim Idle Situmorang_2: 666297310
+      Anim Idle Situmorang_3: -1569734563
+      Anim Idle Situmorang_4: 559334710
+      Anim Idle Situmorang_5: 1669803191
+      Anim Idle Situmorang_6: -1060474438
+      Anim Idle Situmorang_7: 746220903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

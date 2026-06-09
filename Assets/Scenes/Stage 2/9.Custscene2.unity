@@ -271,8 +271,8 @@ MonoBehaviour:
   - characterName: Tetua Adat
     characterImage: {fileID: 0}
   - characterName: Alfredo
-    characterImage: {fileID: 0}
-  nextSceneName: 10. Level 2
+    characterImage: {fileID: 1988505915}
+  nextSceneName: 10.Stage2
   unlockLevelAfterDialog: 0
   unlockLevel: 2
 --- !u!4 &273949727
@@ -1082,6 +1082,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
   m_PrefabInstance: {fileID: 1988505913}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1988505915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6602490793942197854, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
+  m_PrefabInstance: {fileID: 1988505913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &141431165818307518
 PrefabInstance:
   m_ObjectHideFlags: 0

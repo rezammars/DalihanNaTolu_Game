@@ -1053,7 +1053,7 @@ MonoBehaviour:
   feedbackText: {fileID: 543246626}
   scoreText: {fileID: 1282780203}
   targetScore: 1500
-  nextSceneName: 13. EndLvl2
+  nextSceneName: 13.EndSt2
 --- !u!4 &1052870471
 Transform:
   m_ObjectHideFlags: 0

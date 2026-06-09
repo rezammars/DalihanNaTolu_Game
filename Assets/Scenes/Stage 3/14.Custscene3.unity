@@ -283,7 +283,7 @@ MonoBehaviour:
     characterImage: {fileID: 940431424}
   - characterName: NPC B
     characterImage: {fileID: 931276584}
-  nextSceneName: 15. Level 3
+  nextSceneName: 15.Stage3
   unlockLevelAfterDialog: 0
   unlockLevel: 2
 --- !u!4 &273949727
