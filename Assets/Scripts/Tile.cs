@@ -6,12 +6,12 @@ public class Tile : MonoBehaviour
     public int correctIndex;
     public int currentIndex;
 
-    private PuzzleManager manager;
+    private SlidingPuzzleManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = FindObjectOfType<PuzzleManager>();
+        manager = FindObjectOfType<SlidingPuzzleManager>();
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
 

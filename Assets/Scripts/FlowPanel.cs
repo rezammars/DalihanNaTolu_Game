@@ -3,42 +3,52 @@ using UnityEngine.SceneManagement;
 
 public class FlowPanel : MonoBehaviour
 {
-    [Header("Panels")]
-    public GameObject[] panels;
+    [System.Serializable]
+    public class PanelStep
+    {
+        public string stepName;
+        public GameObject[] objectsToShow;
+    }
+
+    [Header("Panel Steps")]
+    public PanelStep[] steps;
 
     [Header("Start Setting")]
-    public bool showPanelOnEnable = true;
-    public int startPanelIndex = 0;
+    public bool showStepOnEnable = true;
+    public int startStepIndex = 0;
 
     [Header("Level Finish")]
-    public int unlockLevelAfterFinish = 3;
-    public string levelSelectSceneName = "LevelSelect";
+    public int unlockLevelAfterFinish = 2;
+    public string levelSelectSceneName = "PilihStage";
 
     void OnEnable()
     {
-        if (showPanelOnEnable)
+        if (showStepOnEnable)
         {
-            ShowPanel(startPanelIndex);
+            ShowStep(startStepIndex);
         }
     }
 
-    public void ShowPanel(int index)
+    public void ShowStep(int index)
     {
-        if (panels == null || panels.Length == 0)
+        if (steps == null || steps.Length == 0)
         {
-            Debug.LogWarning("Panel belum diisi di " + gameObject.name);
+            Debug.LogWarning("Steps belum diisi di " + gameObject.name);
             return;
         }
 
-        for (int i = 0; i < panels.Length; i++)
+        for (int i = 0; i < steps.Length; i++)
         {
-            if (panels[i] != null)
+            if (steps[i].objectsToShow == null) continue;
+
+            foreach (GameObject obj in steps[i].objectsToShow)
             {
-                panels[i].SetActive(i == index);
+                if (obj != null)
+                    obj.SetActive(i == index);
             }
         }
 
-        Debug.Log(gameObject.name + " membuka panel index: " + index);
+        Debug.Log(gameObject.name + " membuka step index: " + index);
     }
 
     public void FinishLevel()

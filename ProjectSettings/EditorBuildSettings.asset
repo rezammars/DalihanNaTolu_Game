@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PilihStage.unity
     guid: 39b4b078e006ad14e8ce1ba45c3a492f
   - enabled: 1
+    path: Assets/Scenes/Stage1.unity
+    guid: 80fb8ba34b327ef468a3db2c59544e4c
+  - enabled: 1
     path: Assets/Scenes/Stage2.unity
     guid: fd1f567fbe5916e4089844db9db85b9f
   m_configObjects: {}

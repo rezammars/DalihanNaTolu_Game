@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PuzzleManager : MonoBehaviour
+public class SlidingPuzzleManager : MonoBehaviour
 {
     public List<Tile> tiles;
     public int gridSize = 3;
@@ -14,7 +14,10 @@ public class PuzzleManager : MonoBehaviour
     [Header("Finish Dialog")]
     public GameObject finishDialogPanel;
     public Text finishDialogText;
-    public string nextSceneName;
+
+    [Header("Panel Flow")]
+    public FlowPanel panelFlow;
+    public int nextStepIndex = 2;
 
     private int emptyIndex;
 
@@ -123,6 +126,7 @@ public class PuzzleManager : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(nextSceneName);
+        if (panelFlow != null)
+            panelFlow.ShowStep(nextStepIndex);
     }
 }

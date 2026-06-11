@@ -1,51 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCInteract : MonoBehaviour
 {
+    [Header("NPC Data")]
     public string npcName;
-    [TextArea(3, 5)]
+
+    [TextArea(3, 6)]
     public string[] dialogs;
 
-    bool playerNear = false;
+    [Header("State")]
     public bool alreadyTalked = false;
 
-    // Update is called once per frame
+    bool playerNear = false;
+
     void Update()
     {
-        if (playerNear)
+        if (!playerNear) return;
+        if (alreadyTalked) return;
+        if (NPCDialogManager.instance == null) return;
+        if (NPCDialogManager.instance.IsTalking()) return;
+
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Player dekat NPC: " + npcName);
-        }
-
-        //if (playerNear && !DialogManager.instance.isTalking && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
-        {
-            Debug.Log("Mulai dialog NPC: " + npcName);
-
-            //DialogManager.instance.StartDialog(npcName, dialogs);
-
-            if (!alreadyTalked)
-            {
-
-                //DialogManager.instance.currentNPC = this;
-            }
+            NPCDialogManager.instance.StartDialog(this);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerNear = true;
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerNear = false;
-        }
     }
 }
