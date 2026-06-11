@@ -6,60 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/1.MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 89ce4dbf3b1b2164bb4465fef839d8e9
   - enabled: 1
-    path: Assets/Scenes/2.PilihStage.unity
+    path: Assets/Scenes/PilihStage.unity
     guid: 39b4b078e006ad14e8ce1ba45c3a492f
   - enabled: 1
-    path: Assets/Scenes/Stage 1/3.Cutscene1.unity
-    guid: 6f7f5a4ebd18bc44894fdffdbab823b4
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/4.Stage1.unity
-    guid: a08b93d91739b3d4093ed679cdeffb23
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/5.PuzzlePeran.unity
-    guid: 15ed6399841af2e449be3098a7c4ee94
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/6.DialogUlos.unity
-    guid: b181687b0791e4349bd466d5423c3164
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/7.MiniGameUlos.unity
-    guid: 70146bbc1eb07c04498f4f03ed9568f2
-  - enabled: 1
-    path: Assets/Scenes/Stage 1/8.EndSt1.unity
-    guid: 40c68c62492b95c4e8e8961e9b6f3991
-  - enabled: 1
-    path: Assets/Scenes/Stage 2/9.Custscene2.unity
-    guid: ecd7b9b2a767ffe4b8ec54270b8e15b0
-  - enabled: 1
-    path: Assets/Scenes/Stage 2/10.Stage2.unity
-    guid: 359effa758a52064aa5dfc0ce7505558
-  - enabled: 1
-    path: Assets/Scenes/Stage 2/11.DialogGondang.unity
-    guid: be86c138d357b3c4db71282d6ca80551
-  - enabled: 1
-    path: Assets/Scenes/Stage 2/12.MiniGameLagu.unity
-    guid: 09600847a89069d48a364004c15ffd7b
-  - enabled: 1
-    path: Assets/Scenes/Stage 2/13.EndSt2.unity
-    guid: 66282446434c0ff408608b15ca65986e
-  - enabled: 1
-    path: Assets/Scenes/Stage 3/14.Custscene3.unity
-    guid: 7879b84dc1a112644b93601e637c6ae2
-  - enabled: 1
-    path: Assets/Scenes/Stage 3/15.Stage3.unity
-    guid: 9ffb9a93ea6b638469ea70b8e8cb174a
-  - enabled: 1
-    path: Assets/Scenes/Stage 3/16.MiniGameSimbolAdat.unity
-    guid: 9ab14d42b1c76704cbace9e8251c24fd
-  - enabled: 1
-    path: Assets/Scenes/Stage 3/17.EndSt3.unity
-    guid: 249867f5e31659542a8e9a9ed27287bc
-  - enabled: 1
-    path: Assets/Scenes/Stage 4/18.Custscene4.unity
-    guid: dd39adab2de8f484883b7586ed4985bc
-  - enabled: 1
-    path: Assets/Scenes/Stage 4/19.Stage4.unity
-    guid: 6ada344e78e7b9e4fbb5070b79e589f7
+    path: Assets/Scenes/Stage2.unity
+    guid: fd1f567fbe5916e4089844db9db85b9f
   m_configObjects: {}

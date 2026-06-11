@@ -17,26 +17,26 @@ public class PilihLevel : MonoBehaviour
     }
     public void OpenLevel1()
     {
-        SceneManager.LoadScene("3.Cutscene1");
+        SceneManager.LoadScene("Stage1");
     }
 
     public void OpenLevel2()
     {
-        SceneManager.LoadScene("9.Cutscene2");
+        SceneManager.LoadScene("Stage2");
     }
 
     public void OpenLevel3()
     {
-        SceneManager.LoadScene("14.Cutscene3");
+        SceneManager.LoadScene("Stage3");
     }
 
     public void OpenLevel4()
     {
-        SceneManager.LoadScene("18.Cutscene4");
+        SceneManager.LoadScene("Stage4");
     }
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("1.MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }

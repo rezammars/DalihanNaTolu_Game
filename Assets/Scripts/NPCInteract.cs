@@ -19,16 +19,16 @@ public class NPCInteract : MonoBehaviour
             Debug.Log("Player dekat NPC: " + npcName);
         }
 
-        if (playerNear && !DialogManager.instance.isTalking && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+        //if (playerNear && !DialogManager.instance.isTalking && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
             Debug.Log("Mulai dialog NPC: " + npcName);
 
-            DialogManager.instance.StartDialog(npcName, dialogs);
+            //DialogManager.instance.StartDialog(npcName, dialogs);
 
             if (!alreadyTalked)
             {
 
-                DialogManager.instance.currentNPC = this;
+                //DialogManager.instance.currentNPC = this;
             }
         }
     }

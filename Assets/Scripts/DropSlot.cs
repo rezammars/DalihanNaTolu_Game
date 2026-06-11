@@ -1,39 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    public string slotName;
+    public string correctItemId;
     public DragItem currentItem;
+    public bool isCorrect = false;
+
+    public DragDropPuzzle puzzleManager;
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (isCorrect) return;
+
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
 
         if (item == null) return;
 
         currentItem = item;
-
         item.SnapToSlot(this);
 
-        if (IsCorrect())
+        if (item.itemId == correctItemId)
         {
-            PuzzleRoleManager.instance.ShowCorrectPlacement();
+            isCorrect = true;
+            item.SetLocked(true);
+
+            if (puzzleManager != null)
+                puzzleManager.CheckPuzzle();
         }
         else
         {
-            PuzzleRoleManager.instance.ShowWrongPlacement();
+            if (puzzleManager != null)
+                puzzleManager.ShowWrongFeedback();
         }
-
-        PuzzleRoleManager.instance.CheckAllCorrect();
     }
 
-    public bool IsCorrect()
+    public void ClearSlot()
     {
-        if (currentItem == null) return false;
-
-        return currentItem.roleName == slotName;
+        currentItem = null;
+        isCorrect = false;
     }
 }

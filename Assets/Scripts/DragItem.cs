@@ -3,37 +3,59 @@ using UnityEngine.EventSystems;
 
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public string roleName;
+    public string itemId;
 
-    RectTransform rect;
+    RectTransform rectTransform;
     CanvasGroup canvasGroup;
 
-    public DropSlot currentSlot;
-    
+    Transform startParent;
+    Vector2 startPosition;
+
+    DropSlot currentSlot;
+    bool locked = false;
+
     void Awake()
     {
-        rect = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+    }
+
+    void Start()
+    {
+        startParent = transform.parent;
+        startPosition = rectTransform.anchoredPosition;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        transform.SetAsLastSibling();
+        if (locked) return;
+
         canvasGroup.blocksRaycasts = false;
+
         if (currentSlot != null)
         {
-            currentSlot.currentItem = null;
+            currentSlot.ClearSlot();
             currentSlot = null;
         }
+
+        transform.SetParent(startParent);
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rect.anchoredPosition += eventData.delta;
+        if (locked) return;
+
+        rectTransform.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (locked) return;
+
         canvasGroup.blocksRaycasts = true;
     }
 
@@ -42,7 +64,21 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         currentSlot = slot;
 
         transform.SetParent(slot.transform);
+        rectTransform.anchoredPosition = Vector2.zero;
+    }
 
-        rect.anchoredPosition = Vector2.zero;
+    public void SetLocked(bool value)
+    {
+        locked = value;
+        canvasGroup.blocksRaycasts = !value;
+    }
+
+    public void ResetPosition()
+    {
+        transform.SetParent(startParent);
+        rectTransform.anchoredPosition = startPosition;
+        currentSlot = null;
+        locked = false;
+        canvasGroup.blocksRaycasts = true;
     }
 }

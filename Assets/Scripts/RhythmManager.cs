@@ -1,99 +1,180 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using System.Collections;
 
 public class RhythmManager : MonoBehaviour
 {
-    public static RhythmManager instance;
-
-    [Header("Lane")]
+    [Header("Lane Settings")]
     public RectTransform playhead;
     public RectTransform[] lanePositions;
 
-    [Header("Hit")]
-    public float perfectRange = 35f;
-    public float goodRange = 70f;
+    [Header("Note Spawn")]
+    public GameObject notePrefab;
+    public RectTransform[] spawnPoints;
+    public Transform noteContainer;
+    public float spawnRate = 1.2f;
+    public float noteSpeed = 300f;
+
+    [Header("Hit Settings")]
+    public float hitRange = 80f;
 
     [Header("Score Settings")]
-    public int perfectScore = 100;
-    public int goodScore = 50;
+    public int hitScore = 100;
+    public int targetScore = 1000;
 
     [Header("UI")]
     public Text feedbackText;
     public Text scoreText;
 
-    [Header("Result")]
-    public int targetScore = 1500;
-    public string nextSceneName;
+    [Header("After Finished")]
+    public UnityEvent onRhythmFinished;
 
-    private int currentLane = 2;
-    private int score = 0;
+    public bool IsPlaying { get; private set; }
 
-    private bool isFinished = false;
+    int currentLane = 2;
+    int score = 0;
+    bool finished = false;
 
-    void Awake()
-    {
-        instance = this;
-    }
+    Coroutine spawnRoutine;
 
     void Start()
     {
-        UpdatePlayheadPosition();
-        UpdateUI();
+        StopGame();
     }
 
     void Update()
     {
         if (Time.timeScale == 0f) return;
-        if (isFinished) return;
+        if (!IsPlaying) return;
+        if (finished) return;
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
             MoveLane(-1);
-        }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
             MoveLane(1);
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             TryHit();
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1f;
+
+        score = 0;
+        currentLane = 2;
+        finished = false;
+        IsPlaying = true;
+
+        ClearNotes();
+        UpdatePlayheadPosition();
+        UpdateUI();
+
+        if (feedbackText != null)
+            feedbackText.text = "";
+
+        if (spawnRoutine != null)
+            StopCoroutine(spawnRoutine);
+
+        spawnRoutine = StartCoroutine(SpawnRoutine());
+
+        Debug.Log("RhythmManager: StartGame");
+    }
+
+    public void StopGame()
+    {
+        IsPlaying = false;
+
+        if (spawnRoutine != null)
+        {
+            StopCoroutine(spawnRoutine);
+            spawnRoutine = null;
         }
+
+        ClearNotes();
+    }
+
+    IEnumerator SpawnRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (IsPlaying && !finished)
+        {
+            SpawnNote();
+            yield return new WaitForSeconds(spawnRate);
+        }
+    }
+
+    void SpawnNote()
+    {
+        if (notePrefab == null)
+        {
+            Debug.LogWarning("Note Prefab belum diisi.");
+            return;
+        }
+
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogWarning("Spawn Points belum diisi.");
+            return;
+        }
+
+        if (noteContainer == null)
+        {
+            Debug.LogWarning("Note Container belum diisi.");
+            return;
+        }
+
+        int lane = Random.Range(0, spawnPoints.Length);
+
+        GameObject noteObj = Instantiate(notePrefab, noteContainer);
+
+        RectTransform noteRect = noteObj.GetComponent<RectTransform>();
+        noteRect.anchoredPosition = spawnPoints[lane].anchoredPosition;
+
+        RhythmNote note = noteObj.GetComponent<RhythmNote>();
+
+        if (note == null)
+            note = noteObj.AddComponent<RhythmNote>();
+
+        note.Init(lane, noteSpeed, this);
     }
 
     void MoveLane(int direction)
     {
         currentLane += direction;
-
         currentLane = Mathf.Clamp(currentLane, 0, lanePositions.Length - 1);
 
         UpdatePlayheadPosition();
-        UpdateUI();
     }
 
     void UpdatePlayheadPosition()
     {
+        if (playhead == null) return;
+        if (lanePositions == null || lanePositions.Length == 0) return;
+
         Vector2 pos = playhead.anchoredPosition;
-
         pos.y = lanePositions[currentLane].anchoredPosition.y;
-
         playhead.anchoredPosition = pos;
     }
 
     void TryHit()
     {
-        Note[] notes = FindObjectsOfType<Note>();
+        RhythmNote[] notes = FindObjectsOfType<RhythmNote>();
 
-        Note closestNote = null;
+        RhythmNote closestNote = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (Note note in notes)
+        foreach (RhythmNote note in notes)
         {
+            if (note == null) continue;
             if (note.laneIndex != currentLane) continue;
 
-            float distance = Mathf.Abs(note.GetRect().anchoredPosition.x - playhead.anchoredPosition.x);
+            float distance = Mathf.Abs(
+                note.GetRect().anchoredPosition.x - playhead.anchoredPosition.x
+            );
 
             if (distance < closestDistance)
             {
@@ -104,60 +185,92 @@ public class RhythmManager : MonoBehaviour
 
         if (closestNote == null)
         {
-            feedbackText.text = "Miss!";
+            Miss();
             return;
         }
 
-        if (closestDistance <= perfectRange)
+        if (closestDistance <= hitRange)
         {
-            score += perfectScore;
-            feedbackText.text = "Perfect!";
-            Destroy(closestNote.gameObject);
-        }
-        else if (closestDistance <= goodRange)
-        {
-            score += goodScore;
-            feedbackText.text = "Good!";
-            Destroy(closestNote.gameObject);
+            Hit(closestNote);
         }
         else
         {
-            feedbackText.text = "Miss!";
+            Miss();
         }
-
-        UpdateUI();
-        CheckFinish();
     }
 
-    public void MissNote(Note note)
+    void Hit(RhythmNote note)
     {
-        if (note == null) return;
-        if (isFinished) return;
+        score += hitScore;
+        UpdateUI();
 
-        feedbackText.text = "Miss!";
+        if (feedbackText != null)
+            feedbackText.text = "Hit!";
+
+        Destroy(note.gameObject);
+
+        if (score >= targetScore)
+            FinishGame();
+    }
+
+    void Miss()
+    {
+        if (feedbackText != null)
+            feedbackText.text = "Miss!";
+    }
+
+    public void MissNote(RhythmNote note)
+    {
+        if (!IsPlaying) return;
+        if (finished) return;
+        if (note == null) return;
+
+        if (feedbackText != null)
+            feedbackText.text = "Miss!";
 
         Destroy(note.gameObject);
     }
 
     void UpdateUI()
     {
-        scoreText.text = "Score: " + score;
+        if (scoreText != null)
+            scoreText.text = "Score : " + score;
     }
 
-    void CheckFinish()
+    void FinishGame()
     {
-        if (score >= targetScore)
-        {
-            isFinished = true;
+        if (finished) return;
 
+        finished = true;
+        IsPlaying = false;
+
+        if (spawnRoutine != null)
+        {
+            StopCoroutine(spawnRoutine);
+            spawnRoutine = null;
+        }
+
+        ClearNotes();
+
+        if (feedbackText != null)
             feedbackText.text = "Gondang terdengar harmonis!";
 
-            Invoke(nameof(LoadNextScene), 2f);
-        }
+        Invoke(nameof(CallFinishEvent), 1.2f);
     }
 
-    void LoadNextScene()
+    void CallFinishEvent()
     {
-        SceneManager.LoadScene(nextSceneName);
+        onRhythmFinished.Invoke();
+    }
+
+    void ClearNotes()
+    {
+        RhythmNote[] notes = FindObjectsOfType<RhythmNote>();
+
+        foreach (RhythmNote note in notes)
+        {
+            if (note != null)
+                Destroy(note.gameObject);
+        }
     }
 }

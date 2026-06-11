@@ -1,16 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-[System.Serializable]
-public class CharacterData
-{
-    public string characterName;
-    public Image characterImage;
-}
+using UnityEngine.Events;
 
 public class CutsceneManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class CharacterData
+    {
+        public string characterName;
+        public Image characterImage;
+    }
+
     [Header("UI")]
     public Text nameText;
     public Text dialogText;
@@ -18,7 +18,6 @@ public class CutsceneManager : MonoBehaviour
     public Text cutsceneText;
 
     [Header("Dialog Data")]
-    [TextArea(3, 6)]
     public string[] names;
 
     [TextArea(3, 6)]
@@ -27,25 +26,24 @@ public class CutsceneManager : MonoBehaviour
     [Header("Characters")]
     public CharacterData[] characters;
 
-    [Header("Next Scene")]
-    public string nextSceneName;
-
-    [Header("Unlock Level")]
-    public bool unlockLevelAfterDialog = false;
-
-    public int unlockLevel = 2;
+    [Header("After Dialog Finished")]
+    public UnityEvent onFinished;
 
     int index = 0;
+    bool finished = false;
 
-    void Start()
+    void OnEnable()
     {
+        index = 0;
+        finished = false;
         ShowDialog();
     }
 
     void Update()
     {
         if (Time.timeScale == 0f) return;
-        
+        if (finished) return;
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             NextDialog();
@@ -54,15 +52,40 @@ public class CutsceneManager : MonoBehaviour
 
     void ShowDialog()
     {
-        if (index >= dialogs.Length) return;
-        if (string.IsNullOrEmpty(names[index]))
+        if (dialogs == null || dialogs.Length == 0)
         {
-            cutsceneText.text = dialogs[index];
+            Debug.LogWarning("Dialog belum diisi di " + gameObject.name);
+            return;
+        }
+
+        if (index >= dialogs.Length) return;
+
+        bool isNarration = string.IsNullOrEmpty(names[index]);
+
+        if (isNarration)
+        {
+            if (cutsceneText != null)
+            {
+                cutsceneText.gameObject.SetActive(true);
+                cutsceneText.text = dialogs[index];
+            }
+
+            if (dialogPanel != null)
+                dialogPanel.SetActive(false);
         }
         else
         {
-            nameText.text = names[index];
-            dialogText.text = dialogs[index];
+            if (cutsceneText != null)
+                cutsceneText.gameObject.SetActive(false);
+
+            if (dialogPanel != null)
+                dialogPanel.SetActive(true);
+
+            if (nameText != null)
+                nameText.text = names[index];
+
+            if (dialogText != null)
+                dialogText.text = dialogs[index];
         }
 
         UpdateCharacterUI();
@@ -70,49 +93,30 @@ public class CutsceneManager : MonoBehaviour
 
     void UpdateCharacterUI()
     {
-        Color active = Color.white;
-        Color inactive = new Color(0.5f, 0.5f, 0.5f);
+        if (characters == null) return;
 
         bool isNarration = string.IsNullOrEmpty(names[index]);
-
-        if (isNarration)
-        {
-            cutsceneText.gameObject.SetActive(true);
-            dialogPanel.SetActive(false);
-
-            foreach (CharacterData character in characters)
-            {
-                if (character.characterImage != null)
-                {
-                    character.characterImage.gameObject.SetActive(false);
-                }
-            }
-
-            return;
-        }
-
-        cutsceneText.gameObject.SetActive(false);
-        dialogPanel.SetActive(true);
-        nameText.gameObject.SetActive(true);
-        string currentSpeaker = names[index].Trim().ToLower();
 
         foreach (CharacterData character in characters)
         {
             if (character.characterImage == null) continue;
 
+            if (isNarration)
+            {
+                character.characterImage.gameObject.SetActive(false);
+                continue;
+            }
+
             character.characterImage.gameObject.SetActive(true);
 
+            string currentSpeaker = names[index].Trim().ToLower();
             string characterName = character.characterName.Trim().ToLower();
 
-            if (characterName == currentSpeaker)
-            {
-                character.characterImage.color = active;
-            }
+            if (currentSpeaker == characterName)
+                character.characterImage.color = Color.white;
             else
-            {
-                character.characterImage.color = inactive;
-            }
-        } 
+                character.characterImage.color = new Color(0.5f, 0.5f, 0.5f);
+        }
     }
 
     void NextDialog()
@@ -121,12 +125,7 @@ public class CutsceneManager : MonoBehaviour
 
         if (index >= dialogs.Length)
         {
-            if (unlockLevelAfterDialog)
-            {
-                UnlockLevel();
-            }
-
-            SceneManager.LoadScene(nextSceneName);
+            FinishDialog();
         }
         else
         {
@@ -134,16 +133,9 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    void UnlockLevel()
+    void FinishDialog()
     {
-        int unlockedLevel =
-        PlayerPrefs.GetInt("UnlockedLevel", 1);
-
-        if (unlockLevel > unlockedLevel)
-        {
-            PlayerPrefs.SetInt("UnlockedLevel", unlockLevel);
-
-            PlayerPrefs.Save();
-        }
+        finished = true;
+        onFinished.Invoke();
     }
 }
