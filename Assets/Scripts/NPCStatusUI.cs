@@ -3,20 +3,21 @@ using UnityEngine.UI;
 
 public class NPCStatusUI : MonoBehaviour
 {
-    public Text roleNameText;
+    [Header("UI")]
+    public Text nameText;
+    public Text roleText;
     public Text statusText;
-    public Image iconImage;
 
+    [Header("Data")]
     public string npcName;
     public string roleName;
-
     public int emotionValue;
 
-    public void Setup(string npc, string role, int value)
+    public void Setup(string newName, string newRole, int startEmotion)
     {
-        npcName = npc;
-        roleName = role;
-        emotionValue = value;
+        npcName = newName;
+        roleName = newRole;
+        emotionValue = startEmotion;
 
         UpdateUI();
     }
@@ -31,16 +32,30 @@ public class NPCStatusUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        roleNameText.text = npcName + "\n" + roleName;
-        statusText.text = GetStatusName();
+        if (nameText != null)
+            nameText.text = npcName;
+
+        if (roleText != null)
+            roleText.text = roleName;
+
+        if (statusText != null)
+            statusText.text = GetStatusName();
     }
 
     string GetStatusName()
     {
-        if (emotionValue <= -2) return "Marah";
-        if (emotionValue == -1) return "Kesal";
-        if (emotionValue == 0) return "Netral";
-        if (emotionValue == 1) return "Senang";
+        if (emotionValue <= -2)
+            return "Marah";
+
+        if (emotionValue == -1)
+            return "Kesal";
+
+        if (emotionValue == 0)
+            return "Netral";
+
+        if (emotionValue == 1)
+            return "Senang";
+
         return "Puas";
     }
 }

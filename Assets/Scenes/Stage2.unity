@@ -969,7 +969,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1539701337}
         m_TargetAssemblyTypeName: FlowPanel, Assembly-CSharp
-        m_MethodName: ShowPanel
+        m_MethodName: ShowStep
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1767,12 +1767,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7133e920cc2557440845996b98789675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels:
-  - {fileID: 1557795010}
-  - {fileID: 711888094}
-  - {fileID: 1083032375}
-  showPanelOnEnable: 1
-  startPanelIndex: 0
+  steps:
+  - stepName: DialogAwal
+    objectsToShow:
+    - {fileID: 1557795010}
+  - stepName: Gameplay
+    objectsToShow:
+    - {fileID: 711888094}
+  - stepName: DialogAkhir
+    objectsToShow:
+    - {fileID: 1083032375}
+  showStepOnEnable: 1
+  startStepIndex: 0
   unlockLevelAfterFinish: 3
   levelSelectSceneName: PilihStage
 --- !u!1001 &586014166
@@ -4740,12 +4746,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7133e920cc2557440845996b98789675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels:
-  - {fileID: 285906397}
-  - {fileID: 1716011548}
-  - {fileID: 580835180}
-  showPanelOnEnable: 1
-  startPanelIndex: 0
+  steps:
+  - stepName: Intro
+    objectsToShow:
+    - {fileID: 285906397}
+  - stepName: SusunAktivitas
+    objectsToShow:
+    - {fileID: 1716011548}
+  - stepName: MiniGameLagu
+    objectsToShow:
+    - {fileID: 580835180}
+  showStepOnEnable: 1
+  startStepIndex: 0
   unlockLevelAfterFinish: 3
   levelSelectSceneName: PilihStage
 --- !u!1 &1557795010
@@ -5631,7 +5643,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1539701337}
         m_TargetAssemblyTypeName: FlowPanel, Assembly-CSharp
-        m_MethodName: ShowPanel
+        m_MethodName: ShowStep
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

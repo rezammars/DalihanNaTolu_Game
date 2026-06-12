@@ -6124,7 +6124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 243640579}
         m_TargetAssemblyTypeName: FlowPanel, Assembly-CSharp
-        m_MethodName: ShowPanel
+        m_MethodName: ShowStep
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
