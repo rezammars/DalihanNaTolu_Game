@@ -36,7 +36,6 @@ public class KeseimbanganSosial : MonoBehaviour
 
     [Header("Rules")]
     public int maxStep = 3;
-    public int successScore = 5;
 
     [Header("After Complete")]
     public UnityEvent onPuzzleComplete;
@@ -174,13 +173,14 @@ public class KeseimbanganSosial : MonoBehaviour
         option3Button.interactable = false;
 
         rajaParhata.AddEmotion(2);
+
         hulaHulaA.AddEmotion(1);
         hulaHulaB.AddEmotion(1);
         donganA.AddEmotion(1);
         donganB.AddEmotion(1);
         anakBoru.AddEmotion(1);
 
-        feedbackText.text = "Nasihat Raja Parhata membantu menenangkan suasana.";
+        feedbackText.text = "Nasihat Raja Parhata membantu semua pihak lebih tenang.";
 
         NextStep();
     }
@@ -215,7 +215,6 @@ public class KeseimbanganSosial : MonoBehaviour
         hulaHulaB.AddEmotion(1);
         rajaParhata.AddEmotion(-2);
         donganA.AddEmotion(-1);
-        anakBoru.AddEmotion(-1);
 
         feedbackText.text = "Acara dimulai terlalu cepat. Beberapa pihak merasa diabaikan.";
 
@@ -241,38 +240,75 @@ public class KeseimbanganSosial : MonoBehaviour
     {
         finished = true;
 
+        DisableAllOptions();
+
+        bool allAtLeastNeutral = CheckAllAtLeastNeutral();
+        bool hulaHulaHappy = CheckHulaHulaHappy();
+
+        if (resultPanel != null)
+            resultPanel.SetActive(true);
+
+        if (allAtLeastNeutral && hulaHulaHappy)
+        {
+            resultText.text =
+                "Prosesi berjalan harmonis.\n" +
+                "Semua pihak sudah tenang, dan Hula-hula merasa dihormati.";
+
+            Invoke(nameof(CompletePuzzle), 2f);
+        }
+        else if (allAtLeastNeutral)
+        {
+            resultText.text =
+                "Suasana sudah cukup stabil.\n" +
+                "Namun Hula-hula belum sepenuhnya merasa dihormati.";
+
+            Invoke(nameof(CompletePuzzle), 2f);
+        }
+        else
+        {
+            resultText.text =
+                "Keseimbangan belum tercapai.\n" +
+                "Masih ada pihak yang merasa kecewa.";
+
+            Invoke(nameof(RestartPuzzle), 2f);
+        }
+    }
+
+    bool CheckAllAtLeastNeutral()
+    {
+        return
+            rajaParhata.emotionValue >= 0 &&
+            hulaHulaA.emotionValue >= 0 &&
+            hulaHulaB.emotionValue >= 0 &&
+            donganA.emotionValue >= 0 &&
+            donganB.emotionValue >= 0 &&
+            anakBoru.emotionValue >= 0;
+    }
+
+    bool CheckHulaHulaHappy()
+    {
+        return
+            hulaHulaA.emotionValue >= 1 &&
+            hulaHulaB.emotionValue >= 1;
+    }
+
+    void DisableAllOptions()
+    {
         option1Button.interactable = false;
         option2Button.interactable = false;
         option3Button.interactable = false;
         option4Button.interactable = false;
         option5Button.interactable = false;
         option6Button.interactable = false;
-
-        int total =
-            rajaParhata.emotionValue +
-            hulaHulaA.emotionValue +
-            hulaHulaB.emotionValue +
-            donganA.emotionValue +
-            donganB.emotionValue +
-            anakBoru.emotionValue;
-
-        if (resultPanel != null)
-            resultPanel.SetActive(true);
-
-        if (total >= successScore)
-        {
-            resultText.text = "Prosesi berjalan harmonis.\nKamu berhasil menjaga keseimbangan sosial.";
-        }
-        else
-        {
-            resultText.text = "Keseimbangan belum tercapai.\nBeberapa pihak masih merasa diabaikan.";
-        }
-
-        Invoke(nameof(CompletePuzzle), 2f);
     }
 
     void CompletePuzzle()
     {
         onPuzzleComplete.Invoke();
+    }
+
+    void RestartPuzzle()
+    {
+        ResetGame();
     }
 }
