@@ -3,7 +3,8 @@ using UnityEngine.EventSystems;
 
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public string itemId;
+    [Header("Nama Item")]
+    public string itemNama;
 
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
@@ -11,7 +12,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     Transform startParent;
     Vector2 startPosition;
 
-    DropSlot currentSlot;
     bool locked = false;
 
     void Awake()
@@ -34,13 +34,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (locked) return;
 
         canvasGroup.blocksRaycasts = false;
-
-        if (currentSlot != null)
-        {
-            currentSlot.ClearSlot();
-            currentSlot = null;
-        }
-
         transform.SetParent(startParent);
         transform.SetAsLastSibling();
     }
@@ -57,14 +50,13 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (locked) return;
 
         canvasGroup.blocksRaycasts = true;
+        ResetPosition();
     }
 
-    public void SnapToSlot(DropSlot slot)
+    public void ResetPosition()
     {
-        currentSlot = slot;
-
-        transform.SetParent(slot.transform);
-        rectTransform.anchoredPosition = Vector2.zero;
+        transform.SetParent(startParent);
+        rectTransform.anchoredPosition = startPosition;
     }
 
     public void SetLocked(bool value)
@@ -72,13 +64,5 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         locked = value;
         canvasGroup.blocksRaycasts = !value;
     }
-
-    public void ResetPosition()
-    {
-        transform.SetParent(startParent);
-        rectTransform.anchoredPosition = startPosition;
-        currentSlot = null;
-        locked = false;
-        canvasGroup.blocksRaycasts = true;
-    }
+   
 }

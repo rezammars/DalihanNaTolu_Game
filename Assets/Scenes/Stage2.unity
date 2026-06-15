@@ -2289,7 +2289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &711888095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1083032376
 Transform:
   m_ObjectHideFlags: 0
@@ -3644,11 +3644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 500
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3684,7 +3684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3697,6 +3697,22 @@ PrefabInstance:
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720921097137666156, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720921097137666156, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720921097137666156, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
+      propertyPath: m_FillMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720921097137666156, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5239805216742009146, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_Name

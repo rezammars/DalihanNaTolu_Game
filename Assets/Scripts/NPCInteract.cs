@@ -3,38 +3,42 @@ using UnityEngine;
 public class NPCInteract : MonoBehaviour
 {
     [Header("NPC Data")]
-    public string npcName;
+    public string namaNPC;
+    public Sprite npcDialogSprite;
 
     [TextArea(3, 6)]
     public string[] dialogs;
 
-    [Header("State")]
-    public bool alreadyTalked = false;
+    public NPCDialogManager dialogManager;
 
-    bool playerNear = false;
+    bool pemainDekat = false;
 
     void Update()
     {
-        if (!playerNear) return;
-        if (alreadyTalked) return;
-        if (NPCDialogManager.instance == null) return;
-        if (NPCDialogManager.instance.IsTalking()) return;
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
+        if (pemainDekat && (Input.GetKeyDown(KeyCode.E)))
         {
-            NPCDialogManager.instance.StartDialog(this);
+            Debug.Log("Tombol E ditekan dekat NPC: " + namaNPC);
+            if (dialogManager != null)
+            {
+                dialogManager.MulaiDialog(namaNPC, npcDialogSprite, dialogs);
+            }
+            else
+            {
+                Debug.LogWarning("NPCDialogManager tidak ditemukan di scene.");
+            }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
-            playerNear = true;
+        if (collision.CompareTag("Player"))
+            pemainDekat = true;
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
-            playerNear = false;
+        if (collision.CompareTag("Player"))
+            pemainDekat = false;
     }
 }

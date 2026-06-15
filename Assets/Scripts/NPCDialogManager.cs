@@ -4,117 +4,120 @@ using UnityEngine.Events;
 
 public class NPCDialogManager : MonoBehaviour
 {
-    public static NPCDialogManager instance;
 
     [Header("UI")]
-    public GameObject dialogPanel;
-    public Text nameText;
-    public Text dialogText;
+    public GameObject panelDialog;
+    public Image gambarNPC;
+    public Text teksNama;
+    public Text teksDialog;
 
     [Header("Player")]
-    public PlayerMovement playerMovement;
+    public PlayerMovement pergerakanPemain;
 
     [Header("Progress")]
     public int totalNPC = 3;
     public UnityEvent onAllNPCFinished;
 
     string[] currentDialogs;
-    int index = 0;
-
-    bool isTalking = false;
-    NPCInteract currentNPC;
-
-    int talkedCount = 0;
-
-    void Awake()
-    {
-        instance = this;
-    }
+    int indexDialog = 0;
+    bool isDialogAktif = false;
+    string npcSedangBicara;
+    int jumlahNPCSelesai = 0;
+    string[] npcYangSudahDiajakBicara = new string[10];
 
     void Start()
     {
-        if (dialogPanel != null)
-            dialogPanel.SetActive(false);
+        if (panelDialog != null)
+            panelDialog.SetActive(false);
     }
 
     void Update()
     {
-        if (!isTalking) return;
-        if (Time.timeScale == 0f) return;
+        if (!isDialogAktif) return;
 
-        if (Input.GetMouseButtonDown(0) ||
-            Input.GetKeyDown(KeyCode.Space) ||
-            Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             NextDialog();
         }
     }
 
-    public void StartDialog(NPCInteract npc)
+    public void MulaiDialog(string namaNPC, Sprite spriteNPC, string[] dialogs)
     {
-        if (npc == null) return;
+        npcSedangBicara = namaNPC;
 
-        currentNPC = npc;
-        currentDialogs = npc.dialogs;
-        index = 0;
-        isTalking = true;
+        if (panelDialog != null)
+            panelDialog.SetActive(true);
 
-        if (dialogPanel != null)
-            dialogPanel.SetActive(true);
+        if (gambarNPC != null)
+            gambarNPC.sprite = spriteNPC;
 
-        if (nameText != null)
-            nameText.text = npc.npcName;
+        if (teksNama != null)
+            teksNama.text = namaNPC;
 
-        if (playerMovement != null)
-            playerMovement.canMove = false;
+        currentDialogs = dialogs;
+        indexDialog = 0;
+        isDialogAktif = true;
+
+        if (pergerakanPemain != null)
+            pergerakanPemain.canMove = false;
 
         ShowDialog();
     }
-
+    
     void ShowDialog()
     {
-        if (currentDialogs == null || currentDialogs.Length == 0) return;
+        if (currentDialogs == null || currentDialogs.Length == 0)
+        {
+            AkhiriDialog();
+            return;
+        }
 
-        if (dialogText != null)
-            dialogText.text = currentDialogs[index];
+        if (teksDialog != null)
+            teksDialog.text = currentDialogs[indexDialog];
     }
 
     void NextDialog()
     {
-        index++;
+        indexDialog++;
 
-        if (index >= currentDialogs.Length)
-            EndDialog();
+        if (indexDialog >= currentDialogs.Length)
+            AkhiriDialog();
         else
             ShowDialog();
     }
 
-    void EndDialog()
+    void AkhiriDialog()
     {
-        isTalking = false;
+        isDialogAktif = false;
 
-        if (dialogPanel != null)
-            dialogPanel.SetActive(false);
+        if (panelDialog != null)
+            panelDialog.SetActive(false);
 
-        if (playerMovement != null)
-            playerMovement.canMove = true;
-
-        if (currentNPC != null && !currentNPC.alreadyTalked)
-        {
-            currentNPC.alreadyTalked = true;
-            talkedCount++;
-
-            if (talkedCount >= totalNPC)
-            {
-                onAllNPCFinished.Invoke();
-            }
-        }
-
-        currentNPC = null;
+        if (pergerakanPemain != null)
+            pergerakanPemain.canMove = true;
+        
+        TandaiNPCSelesai(npcSedangBicara);
     }
 
-    public bool IsTalking()
+    void TandaiNPCSelesai(string namaNPC)
     {
-        return isTalking;
+        if (string.IsNullOrEmpty(namaNPC)) return;
+
+        for (int i = 0; i < jumlahNPCSelesai; i++)
+        {
+            if (npcYangSudahDiajakBicara[i] == namaNPC)
+                return;
+        }
+
+        npcYangSudahDiajakBicara[jumlahNPCSelesai] = namaNPC;
+        jumlahNPCSelesai++;
+
+        Debug.Log("NPC selesai diajak bicara: " + jumlahNPCSelesai + "/" + totalNPC);
+
+        if (jumlahNPCSelesai >= totalNPC)
+        {
+            Debug.Log("Semua NPC sudah diajak bicara.");
+            onAllNPCFinished.Invoke();
+        }
     }
 }
