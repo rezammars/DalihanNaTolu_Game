@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3249692594068046284}
   - component: {fileID: 6678370315719401911}
   m_Layer: 5
-  m_Name: NPC B
+  m_Name: HulaHulaB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

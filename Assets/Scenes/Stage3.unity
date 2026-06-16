@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 45423275}
   - component: {fileID: 45423274}
   m_Layer: 5
-  m_Name: NameTxt
+  m_Name: TeksNama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 452338668}
   - component: {fileID: 452338667}
   m_Layer: 5
-  m_Name: ResultTxt
+  m_Name: TeksHasil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 456294469}
   - component: {fileID: 456294468}
   m_Layer: 5
-  m_Name: ProgressTxt
+  m_Name: TeksProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1989,6 +1989,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483121664}
   m_CullTransparentMesh: 1
+--- !u!1001 &498660584
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917931965105291255, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 558810474737a9344a7b8392133da282, type: 3}
 --- !u!1 &508904702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,7 +2059,7 @@ GameObject:
   - component: {fileID: 508904705}
   - component: {fileID: 508904704}
   m_Layer: 5
-  m_Name: BtnNext
+  m_Name: TmblLnjt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,7 +2839,7 @@ GameObject:
   - component: {fileID: 607635944}
   - component: {fileID: 607635943}
   m_Layer: 5
-  m_Name: DialogTxt
+  m_Name: TeksDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3244,7 +3301,7 @@ GameObject:
   - component: {fileID: 646109415}
   - component: {fileID: 646109414}
   m_Layer: 5
-  m_Name: BtnNext
+  m_Name: TmblLnjt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3376,7 +3433,7 @@ GameObject:
   - component: {fileID: 649936902}
   - component: {fileID: 649936901}
   m_Layer: 5
-  m_Name: DialogTxt
+  m_Name: TeksDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3728,7 +3785,7 @@ GameObject:
   - component: {fileID: 771305812}
   - component: {fileID: 771305811}
   m_Layer: 5
-  m_Name: CutsceneTeks
+  m_Name: TeksCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3807,7 +3864,7 @@ GameObject:
   - component: {fileID: 792628170}
   - component: {fileID: 792628169}
   m_Layer: 5
-  m_Name: FeedbackTxt
+  m_Name: TeksPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3965,7 +4022,7 @@ GameObject:
   - component: {fileID: 822573795}
   - component: {fileID: 822573794}
   m_Layer: 5
-  m_Name: ResultPanel
+  m_Name: HasilPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5284,7 +5341,7 @@ GameObject:
   - component: {fileID: 1106499565}
   - component: {fileID: 1106499564}
   m_Layer: 5
-  m_Name: FeebackTxt
+  m_Name: TeksFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5563,7 +5620,7 @@ GameObject:
   - component: {fileID: 1174288582}
   - component: {fileID: 1174288581}
   m_Layer: 5
-  m_Name: ResultTxt
+  m_Name: TeksHasil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5642,7 +5699,7 @@ GameObject:
   - component: {fileID: 1261003800}
   - component: {fileID: 1261003799}
   m_Layer: 5
-  m_Name: ProgressTxt
+  m_Name: TeksProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5722,7 +5779,7 @@ GameObject:
   - component: {fileID: 1266026124}
   - component: {fileID: 1266026123}
   m_Layer: 5
-  m_Name: BtnRetry
+  m_Name: TmblRetry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7121,6 +7178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 658728225}
+  namaSceneMainMenu: MainMenu
+  sceneLoadDelay: 0.15
 --- !u!114 &1539701337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7318,7 +7377,7 @@ GameObject:
   - component: {fileID: 1611370631}
   - component: {fileID: 1611370630}
   m_Layer: 5
-  m_Name: TitleTxt
+  m_Name: TeksJudul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8113,7 +8172,7 @@ GameObject:
   - component: {fileID: 1761984139}
   - component: {fileID: 1761984138}
   m_Layer: 5
-  m_Name: NameTxt
+  m_Name: TeksNama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8192,7 +8251,7 @@ GameObject:
   - component: {fileID: 1846437564}
   - component: {fileID: 1846437563}
   m_Layer: 5
-  m_Name: CutsceneTeks
+  m_Name: TeksCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8727,7 +8786,7 @@ GameObject:
   - component: {fileID: 1870702328}
   - component: {fileID: 1870702327}
   m_Layer: 5
-  m_Name: JudulTxt
+  m_Name: TeksJudul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9113,7 +9172,7 @@ GameObject:
   - component: {fileID: 1963695459}
   - component: {fileID: 1963695458}
   m_Layer: 5
-  m_Name: Result
+  m_Name: Hasil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9501,3 +9560,4 @@ SceneRoots:
   - {fileID: 1033820692}
   - {fileID: 1097017156}
   - {fileID: 1539701334}
+  - {fileID: 498660584}

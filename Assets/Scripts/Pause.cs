@@ -1,9 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Pause : MonoBehaviour
 {
+    [Header("UI")]
     public GameObject pausePanel;
+
+    [Header("Scene")]
+    public string namaSceneMainMenu = "MainMenu";
+
+    [Header("Delay")]
+    public float sceneLoadDelay = 0.15f;
 
     bool isPaused = false;
 
@@ -18,12 +26,10 @@ public class Pause : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+            TombolPause();
     }
 
-    public void TogglePause()
+    public void TombolPause()
     {
         if (isPaused)
             ResumeGame();
@@ -33,6 +39,8 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
+        PlayKlikSFX();
+
         if (pausePanel != null)
             pausePanel.SetActive(true);
 
@@ -42,6 +50,8 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        PlayKlikSFX();
+
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
@@ -51,7 +61,23 @@ public class Pause : MonoBehaviour
 
     public void MainMenu()
     {
+        StartCoroutine(MainMenuDenganSFX());
+    }
+
+    IEnumerator MainMenuDenganSFX()
+    {
+        PlayKlikSFX();
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+
+        yield return new WaitForSecondsRealtime(sceneLoadDelay);
+
+        SceneManager.LoadScene(namaSceneMainMenu);
+    }
+
+    void PlayKlikSFX()
+    {
+        if (SFXManager.Instance != null)
+            SFXManager.Instance.MainkanSFXKlikTombol();
     }
 }

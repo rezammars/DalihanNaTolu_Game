@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 40582273}
   - component: {fileID: 40582272}
   m_Layer: 5
-  m_Name: FeedbackTxt
+  m_Name: TeksFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 45423275}
   - component: {fileID: 45423274}
   m_Layer: 5
-  m_Name: NameTxt
+  m_Name: TeksNama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53233d3acb4d6004bad4b9a4ab7d2da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: PenyerahanAdat
+  itemNama: 
 --- !u!114 &110717596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 200875752}
   - component: {fileID: 200875751}
   m_Layer: 5
-  m_Name: DialogTxt
+  m_Name: TeksDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 222318515}
   - component: {fileID: 222318514}
   m_Layer: 5
-  m_Name: HintTxt
+  m_Name: TeksHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,8 +844,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98d71995e938b943839029605087d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctItemId: DoaPenutup
-  currentItem: {fileID: 0}
+  ItemID: 
+  gambarSlot: {fileID: 0}
+  spriteAwal: {fileID: 0}
+  spriteSenang: {fileID: 0}
+  spriteMarah: {fileID: 0}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &285906397
@@ -1333,6 +1336,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396001345}
   m_CullTransparentMesh: 1
+--- !u!1001 &440199904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917931965105291255, guid: 558810474737a9344a7b8392133da282, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 558810474737a9344a7b8392133da282, type: 3}
 --- !u!1 &461189355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1480,7 @@ GameObject:
   - component: {fileID: 466593043}
   - component: {fileID: 466593042}
   m_Layer: 5
-  m_Name: CutsceneTxt
+  m_Name: TeksCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1499,7 +1559,7 @@ GameObject:
   - component: {fileID: 498542693}
   - component: {fileID: 498542692}
   m_Layer: 5
-  m_Name: ScoreTxt
+  m_Name: TeksSkor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1906,6 +1966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3985222442214321417, guid: 38ea7a25488534844bbc93c0c183d111, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7298528870972860240, guid: 38ea7a25488534844bbc93c0c183d111, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2008,7 +2072,7 @@ GameObject:
   - component: {fileID: 607635944}
   - component: {fileID: 607635943}
   m_Layer: 5
-  m_Name: DialogTxt
+  m_Name: TeksDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2182,6 +2246,10 @@ PrefabInstance:
     - target: {fileID: 6207039217695405165, guid: 6b7c089c8f901df44b35514dd1607436, type: 3}
       propertyPath: m_Name
       value: PausePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207039217695405165, guid: 6b7c089c8f901df44b35514dd1607436, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2438,8 +2506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98d71995e938b943839029605087d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctItemId: PenyambutanKeluarga
-  currentItem: {fileID: 0}
+  ItemID: 
+  gambarSlot: {fileID: 0}
+  spriteAwal: {fileID: 0}
+  spriteSenang: {fileID: 0}
+  spriteMarah: {fileID: 0}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!114 &756531526 stripped
@@ -2634,7 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53233d3acb4d6004bad4b9a4ab7d2da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: PenyambutanKeluarga
+  itemNama: 
 --- !u!114 &849073327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3877,7 +3948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53233d3acb4d6004bad4b9a4ab7d2da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: DoaPenutup
+  itemNama: 
 --- !u!114 &1345324114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4016,8 +4087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98d71995e938b943839029605087d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctItemId: PenyerahanAdat
-  currentItem: {fileID: 0}
+  ItemID: 
+  gambarSlot: {fileID: 0}
+  spriteAwal: {fileID: 0}
+  spriteSenang: {fileID: 0}
+  spriteMarah: {fileID: 0}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &1427743196
@@ -4032,7 +4106,7 @@ GameObject:
   - component: {fileID: 1427743199}
   - component: {fileID: 1427743198}
   m_Layer: 5
-  m_Name: NameTxt
+  m_Name: TeksNama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4263,7 +4337,7 @@ GameObject:
   - component: {fileID: 1479140611}
   - component: {fileID: 1479140610}
   m_Layer: 5
-  m_Name: TitleTxt
+  m_Name: TeksJudul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4509,6 +4583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3985222442214321417, guid: 38ea7a25488534844bbc93c0c183d111, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6763984279970579381, guid: 38ea7a25488534844bbc93c0c183d111, type: 3}
       propertyPath: tutorialText
       value: 
@@ -4658,6 +4736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 658728225}
+  namaSceneMainMenu: MainMenu
+  sceneLoadDelay: 0.15
 --- !u!114 &1539701337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,8 +4817,8 @@ MonoBehaviour:
   dialogPanel: {fileID: 1689472169}
   cutsceneText: {fileID: 0}
   names:
-  - Ucok
-  - Ucok
+  - Sando
+  - Sando
   - Alfredo
   dialogs:
   - Hey nak, kamu tau alat musik ini? ini adalah gondang.
@@ -4747,7 +4827,7 @@ MonoBehaviour:
   characters:
   - characterName: Alfredo
     characterImage: {fileID: 586014168}
-  - characterName: Ucok
+  - characterName: Sando
     characterImage: {fileID: 1278823346}
   onFinished:
     m_PersistentCalls:
@@ -4853,7 +4933,7 @@ GameObject:
   - component: {fileID: 1628626266}
   - component: {fileID: 1628626265}
   m_Layer: 5
-  m_Name: HasilTxt
+  m_Name: TeksHasil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4983,7 +5063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53233d3acb4d6004bad4b9a4ab7d2da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: PersiapanUlos
+  itemNama: 
 --- !u!114 &1637582929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5122,7 +5202,7 @@ GameObject:
   - component: {fileID: 1657925515}
   - component: {fileID: 1657925514}
   m_Layer: 5
-  m_Name: NameTxt
+  m_Name: TeksNama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5588,7 +5668,7 @@ GameObject:
   - component: {fileID: 1846437564}
   - component: {fileID: 1846437563}
   m_Layer: 5
-  m_Name: CutsceneTeks
+  m_Name: TeksCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5667,7 +5747,7 @@ GameObject:
   - component: {fileID: 1868550363}
   - component: {fileID: 1868550362}
   m_Layer: 5
-  m_Name: DialogTxt
+  m_Name: TeksDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5973,8 +6053,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98d71995e938b943839029605087d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctItemId: PersiapanUlos
-  currentItem: {fileID: 0}
+  ItemID: 
+  gambarSlot: {fileID: 0}
+  spriteAwal: {fileID: 0}
+  spriteSenang: {fileID: 0}
+  spriteMarah: {fileID: 0}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &2094629709
@@ -6219,3 +6302,4 @@ SceneRoots:
   - {fileID: 1097017156}
   - {fileID: 887619546}
   - {fileID: 1539701334}
+  - {fileID: 440199904}
