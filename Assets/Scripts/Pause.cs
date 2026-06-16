@@ -5,7 +5,9 @@ using System.Collections;
 public class Pause : MonoBehaviour
 {
     [Header("UI")]
-    public GameObject pausePanel;
+    public GameObject panelPause;
+    public GameObject panelAudio;
+    public GameObject panelIndex;
 
     [Header("Scene")]
     public string namaSceneMainMenu = "MainMenu";
@@ -17,8 +19,14 @@ public class Pause : MonoBehaviour
 
     void Start()
     {
-        if (pausePanel != null)
-            pausePanel.SetActive(false);
+        if (panelPause != null)
+            panelPause.SetActive(false);
+        
+        if (panelAudio != null)
+            panelAudio.SetActive(false);
+        
+        if (panelIndex != null)
+            panelIndex.SetActive(false);
 
         Time.timeScale = 1f;
     }
@@ -41,8 +49,14 @@ public class Pause : MonoBehaviour
     {
         PlayKlikSFX();
 
-        if (pausePanel != null)
-            pausePanel.SetActive(true);
+        if (panelPause != null)
+            panelPause.SetActive(true);
+
+        if (panelAudio != null)
+            panelAudio.SetActive(false);
+
+        if (panelIndex != null)
+            panelIndex.SetActive(false);
 
         Time.timeScale = 0f;
         isPaused = true;
@@ -52,13 +66,61 @@ public class Pause : MonoBehaviour
     {
         PlayKlikSFX();
 
-        if (pausePanel != null)
-            pausePanel.SetActive(false);
+        if (panelPause != null)
+            panelPause.SetActive(false);
+        
+        if (panelAudio != null)
+            panelAudio.SetActive(false);
+
+        if (panelIndex != null)
+            panelIndex.SetActive(false);
 
         Time.timeScale = 1f;
         isPaused = false;
     }
 
+    public void BukaAudio()
+    {
+        PlayKlikSFX();
+
+        if (panelPause != null)
+            panelPause.SetActive(false);
+
+        if (panelAudio != null)
+            panelAudio.SetActive(true);
+
+        if (panelIndex != null)
+            panelIndex.SetActive(false);
+    }
+
+    public void BukaIndex()
+    {
+        PlayKlikSFX();
+
+        if (panelPause != null)
+            panelPause.SetActive(false);
+
+        if (panelAudio != null)
+            panelAudio.SetActive(false);
+
+        if (panelIndex != null)
+            panelIndex.SetActive(true);
+    }
+
+    public void KembaliKePause()
+    {
+        PlayKlikSFX();
+
+        if (panelPause != null)
+            panelPause.SetActive(true);
+
+        if (panelAudio != null)
+            panelAudio.SetActive(false);
+
+        if (panelIndex != null)
+            panelIndex.SetActive(false);
+    }
+    
     public void MainMenu()
     {
         StartCoroutine(MainMenuDenganSFX());
@@ -77,7 +139,7 @@ public class Pause : MonoBehaviour
 
     void PlayKlikSFX()
     {
-        if (SFXManager.Instance != null)
-            SFXManager.Instance.MainkanSFXKlikTombol();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayKlikTombol();
     }
 }

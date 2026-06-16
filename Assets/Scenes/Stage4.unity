@@ -322,63 +322,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58162748}
   m_CullTransparentMesh: 1
---- !u!1001 &111967376
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917931965105291255, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 558810474737a9344a7b8392133da282, type: 3}
 --- !u!1001 &169393328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,6 +858,7 @@ MonoBehaviour:
   dialogText: {fileID: 202037356}
   dialogPanel: {fileID: 297227714}
   cutsceneText: {fileID: 320530522}
+  overlayGelap: {fileID: 0}
   names:
   - 
   - Tetua Adat
@@ -1189,7 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6081691, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 0.6081691, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4401,7 +4345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4415,6 +4359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6602490793942197854, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1930274d6f0a2a46bb17d4e234fee32, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5358,6 +5306,7 @@ MonoBehaviour:
   dialogText: {fileID: 1824087751}
   dialogPanel: {fileID: 2106441074}
   cutsceneText: {fileID: 1855373584}
+  overlayGelap: {fileID: 0}
   names:
   - Tetua Adat
   - Alfredo
@@ -6753,7 +6702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6767,6 +6716,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6602490793942197854, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1930274d6f0a2a46bb17d4e234fee32, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10132,4 +10085,3 @@ SceneRoots:
   - {fileID: 1370120368}
   - {fileID: 1415453712}
   - {fileID: 1686486108}
-  - {fileID: 111967376}

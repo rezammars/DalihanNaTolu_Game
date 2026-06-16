@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
 
     void PlayClickSFX()
     {
-        if (SFXManager.Instance != null)
-            SFXManager.Instance.MainkanSFXKlikTombol();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayKlikTombol();
     }
 }

@@ -16,6 +16,7 @@ public class CutsceneManager : MonoBehaviour
     public Text dialogText;
     public GameObject dialogPanel;
     public Text cutsceneText;
+    public GameObject overlayGelap;
 
     [Header("Dialog Data")]
     public string[] names;
@@ -64,6 +65,9 @@ public class CutsceneManager : MonoBehaviour
 
         if (isNarration)
         {
+            if (overlayGelap != null)
+                overlayGelap.SetActive(true);
+
             if (cutsceneText != null)
             {
                 cutsceneText.gameObject.SetActive(true);
@@ -75,6 +79,9 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
+            if (overlayGelap != null)
+                overlayGelap.SetActive(false);
+                
             if (cutsceneText != null)
                 cutsceneText.gameObject.SetActive(false);
 

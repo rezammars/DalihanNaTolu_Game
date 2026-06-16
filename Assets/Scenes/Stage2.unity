@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -883,6 +883,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1961685629}
+  - {fileID: 1155087045}
   - {fileID: 1846437562}
   - {fileID: 122079163}
   - {fileID: 1431379894}
@@ -948,6 +949,7 @@ MonoBehaviour:
   dialogText: {fileID: 607635943}
   dialogPanel: {fileID: 1598292476}
   cutsceneText: {fileID: 1846437563}
+  overlayGelap: {fileID: 1155087044}
   names:
   - 
   - Tetua Adat
@@ -1336,63 +1338,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396001345}
   m_CullTransparentMesh: 1
---- !u!1001 &440199904
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2506407210559126210, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917931965105291255, guid: 558810474737a9344a7b8392133da282, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 558810474737a9344a7b8392133da282, type: 3}
 --- !u!1 &461189355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3007,7 +2952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -71
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3254,6 +3199,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1484955323}
+  - {fileID: 1545268561}
   - {fileID: 466593041}
   - {fileID: 1031562808}
   - {fileID: 39507421}
@@ -3276,6 +3222,7 @@ MonoBehaviour:
   dialogText: {fileID: 200875751}
   dialogPanel: {fileID: 1163669074}
   cutsceneText: {fileID: 466593042}
+  overlayGelap: {fileID: 1545268558}
   names:
   - Alfredo
   - Tetua Adat
@@ -3380,6 +3327,81 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3985222442214321417, guid: 38ea7a25488534844bbc93c0c183d111, type: 3}
   m_PrefabInstance: {fileID: 606005692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1155087044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155087045}
+  - component: {fileID: 1155087047}
+  - component: {fileID: 1155087046}
+  m_Layer: 5
+  m_Name: OverlayGelap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1155087045
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155087044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 285906398}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1155087046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155087044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1155087047
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155087044}
+  m_CullTransparentMesh: 1
 --- !u!1 &1159168288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6081691, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 0.6081691, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4764,6 +4786,81 @@ MonoBehaviour:
   startStepIndex: 0
   unlockLevelAfterFinish: 3
   levelSelectSceneName: PilihStage
+--- !u!1 &1545268558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545268561}
+  - component: {fileID: 1545268560}
+  - component: {fileID: 1545268559}
+  m_Layer: 5
+  m_Name: OverlayGelap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1545268559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545268558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1545268560
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545268558}
+  m_CullTransparentMesh: 1
+--- !u!224 &1545268561
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545268558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1083032376}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1557795010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,6 +4913,7 @@ MonoBehaviour:
   dialogText: {fileID: 1868550362}
   dialogPanel: {fileID: 1689472169}
   cutsceneText: {fileID: 0}
+  overlayGelap: {fileID: 0}
   names:
   - Sando
   - Sando
@@ -4896,7 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6081691, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 0.6081691, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5486,7 +5584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6081691, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 0.6081691, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6302,4 +6400,3 @@ SceneRoots:
   - {fileID: 1097017156}
   - {fileID: 887619546}
   - {fileID: 1539701334}
-  - {fileID: 440199904}
