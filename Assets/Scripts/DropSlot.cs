@@ -36,6 +36,9 @@ public class DropSlot : MonoBehaviour, IDropHandler
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
         if (item == null) return;
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDrop();
+
         if (item.itemNama == ItemID)
         {
             isCorrect = true;

@@ -446,10 +446,6 @@ MonoBehaviour:
   tombolStage2: {fileID: 1192896918}
   tombolStage3: {fileID: 1483247358}
   tombolStage4: {fileID: 1278904129}
-  kunciStage2: {fileID: 1192896916}
-  kunciStage3: {fileID: 1483247356}
-  kunciStage4: {fileID: 1278904127}
-  teksFeedback: {fileID: 0}
   sceneLoadDelay: 0.2
 --- !u!4 &690840223
 Transform:
@@ -460,7 +456,7 @@ Transform:
   m_GameObject: {fileID: 690840221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 979.066, y: 518.0817, z: 0.8106818}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

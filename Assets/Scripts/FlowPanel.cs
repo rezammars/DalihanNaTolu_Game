@@ -37,6 +37,12 @@ public class FlowPanel : MonoBehaviour
             return;
         }
 
+        if (index < 0 || index >= steps.Length)
+        {
+            Debug.LogWarning("Index step tidak valid: " + index);
+            return;
+        }
+
         for (int i = 0; i < steps.Length; i++)
         {
             if (steps[i].objectsToShow == null) continue;
@@ -61,8 +67,22 @@ public class FlowPanel : MonoBehaviour
         {
             PlayerPrefs.SetInt("UnlockedLevel", unlockLevelAfterFinish);
             PlayerPrefs.Save();
+
+            Debug.Log("Progress disimpan. UnlockedLevel = " + unlockLevelAfterFinish);
+        }
+        else
+        {
+            Debug.Log("Progress tidak berubah. UnlockedLevel saat ini = " + unlockedLevel);
         }
 
         SceneManager.LoadScene(levelSelectSceneName);
+    }
+
+    public void ResetProgress()
+    {
+        PlayerPrefs.DeleteKey("UnlockedLevel");
+        PlayerPrefs.Save();
+
+        Debug.Log("Progress level direset.");
     }
 }

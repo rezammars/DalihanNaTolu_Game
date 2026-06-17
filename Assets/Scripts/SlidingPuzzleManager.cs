@@ -68,6 +68,10 @@ public class SlidingPuzzleManager : MonoBehaviour
         if (IsAdjacent(index, emptyIndex))
         {
             SwapTiles(index, emptyIndex);
+
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayGeser();
+        
             CheckWin();
         }
     }

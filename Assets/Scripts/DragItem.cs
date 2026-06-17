@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [Header("Nama Item")]
     public string itemNama;
 
     RectTransform rectTransform;
@@ -11,6 +10,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     Transform startParent;
     Vector2 startPosition;
+    Quaternion startRotation;
 
     bool locked = false;
 
@@ -27,15 +27,22 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         startParent = transform.parent;
         startPosition = rectTransform.anchoredPosition;
+        startRotation = rectTransform.localRotation;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (locked) return;
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDrag();
+
         canvasGroup.blocksRaycasts = false;
+
         transform.SetParent(startParent);
         transform.SetAsLastSibling();
+
+        rectTransform.localRotation = Quaternion.identity;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -57,6 +64,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         transform.SetParent(startParent);
         rectTransform.anchoredPosition = startPosition;
+        rectTransform.localRotation = startRotation;
     }
 
     public void SetLocked(bool value)
@@ -64,5 +72,4 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         locked = value;
         canvasGroup.blocksRaycasts = !value;
     }
-   
 }

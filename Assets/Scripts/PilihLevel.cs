@@ -20,14 +20,6 @@ public class PilihLevel : MonoBehaviour
     public Button tombolStage3;
     public Button tombolStage4;
 
-    [Header("Objek Terkunci")]
-    public GameObject kunciStage2;
-    public GameObject kunciStage3;
-    public GameObject kunciStage4;
-
-    [Header("Feedback")]
-    public Text teksFeedback;
-
     [Header("Delay")]
     public float sceneLoadDelay = 0.15f;
 
@@ -38,35 +30,37 @@ public class PilihLevel : MonoBehaviour
         Time.timeScale = 1f;
 
         unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        Debug.Log("UnlockedLevel sekarang: " + unlockedLevel);
 
         UpdateLevelButtons();
 
-        if (teksFeedback != null)
-            teksFeedback.text = "";
     }
 
     void UpdateLevelButtons()
     {
         if (tombolStage1 != null)
+        {
+            tombolStage1.gameObject.SetActive(true);
             tombolStage1.interactable = true;
+        }
 
         if (tombolStage2 != null)
+        {
+            tombolStage2.gameObject.SetActive(true);
             tombolStage2.interactable = unlockedLevel >= 2;
+        }
 
         if (tombolStage3 != null)
+        {
+            tombolStage3.gameObject.SetActive(true);
             tombolStage3.interactable = unlockedLevel >= 3;
+        }
 
         if (tombolStage4 != null)
+        {
+            tombolStage4.gameObject.SetActive(true);
             tombolStage4.interactable = unlockedLevel >= 4;
-
-        if (kunciStage2 != null)
-            kunciStage2.SetActive(unlockedLevel < 2);
-
-        if (kunciStage3 != null)
-            kunciStage3.SetActive(unlockedLevel < 3);
-
-        if (kunciStage4 != null)
-            kunciStage4.SetActive(unlockedLevel < 4);
+        }
     }
 
     public void PilihStage1()
@@ -78,24 +72,18 @@ public class PilihLevel : MonoBehaviour
     {
         if (unlockedLevel >= 2)
             StartCoroutine(LoadSceneDenganSFX(namaSceneStage2));
-        else
-            TampilkanStageTerkunci();
     }
 
     public void PilihStage3()
     {
         if (unlockedLevel >= 3)
             StartCoroutine(LoadSceneDenganSFX(namaSceneStage3));
-        else
-            TampilkanStageTerkunci();
     }
 
     public void PilihStage4()
     {
         if (unlockedLevel >= 4)
             StartCoroutine(LoadSceneDenganSFX(namaSceneStage4));
-        else
-            TampilkanStageTerkunci();
     }
 
     public void KembaliKeMainMenu()
@@ -103,19 +91,11 @@ public class PilihLevel : MonoBehaviour
         StartCoroutine(LoadSceneDenganSFX(namaSceneMainMenu));
     }
 
-    void TampilkanStageTerkunci()
-    {
-        PlayClickSFX();
-
-        if (teksFeedback != null)
-            teksFeedback.text = "Stage masih terkunci. Selesaikan stage sebelumnya terlebih dahulu.";
-    }
-
     IEnumerator LoadSceneDenganSFX(string sceneName)
     {
         PlayClickSFX();
 
-        yield return new WaitForSeconds(sceneLoadDelay);
+        yield return new WaitForSecondsRealtime(sceneLoadDelay);
 
         SceneManager.LoadScene(sceneName);
     }
@@ -136,7 +116,5 @@ public class PilihLevel : MonoBehaviour
         unlockedLevel = 1;
         UpdateLevelButtons();
 
-        if (teksFeedback != null)
-            teksFeedback.text = "Progress berhasil direset.";
     }
 }
