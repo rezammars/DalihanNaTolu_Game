@@ -655,7 +655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Katsin
+  m_Text: KATSIN
 --- !u!222 &320530523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 435
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1722,6 +1722,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3013595191042883896, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a97a55c8d975e458d6e001ad5ea038, type: 3}
     - target: {fileID: 8917265773004595209, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_Name
       value: Tetua
@@ -2654,7 +2658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 435
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3645,6 +3649,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3013595191042883896, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8a97a55c8d975e458d6e001ad5ea038, type: 3}
     - target: {fileID: 8917265773004595209, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_Name
       value: Tetua
