@@ -10,6 +10,7 @@ public class NPCDialogManager : MonoBehaviour
     public Image gambarNPC;
     public Text teksNama;
     public Text teksDialog;
+    public Text teksTugas;
 
     [Header("Player")]
     public PlayerMovement pergerakanPemain;
@@ -29,6 +30,8 @@ public class NPCDialogManager : MonoBehaviour
     {
         if (panelDialog != null)
             panelDialog.SetActive(false);
+
+        UpdateTeksTugas();
     }
 
     void Update()
@@ -112,12 +115,22 @@ public class NPCDialogManager : MonoBehaviour
         npcYangSudahDiajakBicara[jumlahNPCSelesai] = namaNPC;
         jumlahNPCSelesai++;
 
+        UpdateTeksTugas();
+
         Debug.Log("NPC selesai diajak bicara: " + jumlahNPCSelesai + "/" + totalNPC);
 
         if (jumlahNPCSelesai >= totalNPC)
         {
             Debug.Log("Semua NPC sudah diajak bicara.");
             onAllNPCFinished.Invoke();
+        }
+    }
+
+    void UpdateTeksTugas()
+    {
+        if (teksTugas != null)
+        {
+            teksTugas.text =    "Tugas: Bicara dengan keluarga " + jumlahNPCSelesai + "/" + totalNPC;
         }
     }
 }

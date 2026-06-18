@@ -156,11 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,11 +192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -560
+      value: -490
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -490,11 +490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 535
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -618,6 +618,33 @@ PrefabInstance:
 --- !u!224 &182720083 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7795780113463953212, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 182720082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &182720084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6804157078468692715, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 182720082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &182720085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3034494654993853531, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 182720082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &182720086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4804695948522828044, guid: 2508c71b631a06841a61617d531af503, type: 3}
   m_PrefabInstance: {fileID: 182720082}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &222318512
@@ -813,7 +840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &285906398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,30 +916,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc396ea8f68c7a48ba97646c138b1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialogPanel: {fileID: 0}
-  cutsceneText: {fileID: 1846437563}
+  teksNama: {fileID: 182720085}
+  teksDialog: {fileID: 182720084}
+  panelDialog: {fileID: 182720086}
+  teksCutscene: {fileID: 1846437563}
   overlayGelap: {fileID: 1155087044}
-  names:
+  bubbleNPC_A: {fileID: 0}
+  teksBubbleA: {fileID: 0}
+  bubbleNPC_B: {fileID: 0}
+  teksBubbleB: {fileID: 0}
+  namaNPC_A: NPC A
+  namaNPC_B: NPC B
+  semuaNama:
   - 
   - Tetua Adat
   - Alfredo
   - Tetua Adat
-  dialogs:
+  semuaDialog:
   - "Setelah memahami dasar peran dalam adat, aku mulai membantu lebih jauh.\nKali
-    ini, bukan hanya soal siapa berada di mana\u2026\nTapi juga apa yang harus dilakukan
+    ini, bukan hanya soal siapa berada di mana\u2026\ntapi juga apa yang harus dilakukan
     terlebih dahulu."
   - 'Kau sudah tahu tempat masing-masing.
 
     Sekarang, kau harus belajar urutannya.'
   - Memangnya kalau urutannya salah bisa jadi masalah?
   - Dalam adat, langkah kecil pun punya arti.
-  characters:
-  - characterName: Alfredo
-    characterImage: {fileID: 1674332855}
-  - characterName: Tetua Adat
-    characterImage: {fileID: 1431379895}
+  semuaKarakter:
+  - namaKarakter: Alfredo
+    gambarKarakter: {fileID: 1674332855}
+  - namaKarakter: Tetua Adat
+    gambarKarakter: {fileID: 1431379895}
   onFinished:
     m_PersistentCalls:
       m_Calls:
@@ -1549,6 +1582,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7795780113463953212, guid: 2508c71b631a06841a61617d531af503, type: 3}
   m_PrefabInstance: {fileID: 470100212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &470100214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6804157078468692715, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 470100212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &470100215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3034494654993853531, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 470100212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &470100216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4804695948522828044, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 470100212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &498542690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,11 +1977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 535
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2521,7 +2581,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6ea1045cb90eeb048a04f02abc9ea2f4, type: 3}
+    m_Font: {fileID: 12800000, guid: ad828047dc5a98a4eaad37990f89d60f, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -3061,11 +3121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 535
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4643746278871775032, guid: d15b6f5a5b76c2a4382e520f74ed9627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3333,27 +3393,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc396ea8f68c7a48ba97646c138b1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialogPanel: {fileID: 0}
-  cutsceneText: {fileID: 466593042}
+  teksNama: {fileID: 470100215}
+  teksDialog: {fileID: 470100214}
+  panelDialog: {fileID: 470100216}
+  teksCutscene: {fileID: 466593042}
   overlayGelap: {fileID: 1545268558}
-  names:
+  bubbleNPC_A: {fileID: 0}
+  teksBubbleA: {fileID: 0}
+  bubbleNPC_B: {fileID: 0}
+  teksBubbleB: {fileID: 0}
+  namaNPC_A: NPC A
+  namaNPC_B: NPC B
+  semuaNama:
   - Alfredo
   - Tetua Adat
   - 
-  dialogs:
+  semuaDialog:
   - Ternyata adat seperti rangkaian yang saling menyambung.
   - Benar. Jika satu bagian salah, yang lain ikut terganggu.
   - 'Aku mulai memahami pola dalam adat.
 
     Tapi semakin banyak orang terlibat,
     semakin banyak juga masalah yang muncul.'
-  characters:
-  - characterName: Alfredo
-    characterImage: {fileID: 1031562809}
-  - characterName: Tetua Adat
-    characterImage: {fileID: 39507422}
+  semuaKarakter:
+  - namaKarakter: Alfredo
+    gambarKarakter: {fileID: 1031562809}
+  - namaKarakter: Tetua Adat
+    gambarKarakter: {fileID: 39507422}
   onFinished:
     m_PersistentCalls:
       m_Calls:
@@ -3775,11 +3841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3811,11 +3877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -535
+      value: -490
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1286224860532500566, guid: 707b69df5d3d2a4458033bf50b4adc6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3881,6 +3947,10 @@ PrefabInstance:
     - target: {fileID: 4604745532945530615, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
       propertyPath: m_Name
       value: IndexPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604745532945530615, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782157652678149453, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3989,6 +4059,54 @@ PrefabInstance:
     - target: {fileID: 6584548259352976761, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TampilkanIndex
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 165
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269069399829625978, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605450638865873344, guid: fb7a81972d5c7b64690ad81f76b34380, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4345,11 +4463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4381,11 +4499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -560
+      value: -490
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 2067462743476996724, guid: 91d077e5598cee34b8f6c29080922c31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5079,24 +5197,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc396ea8f68c7a48ba97646c138b1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialogPanel: {fileID: 0}
-  cutsceneText: {fileID: 0}
+  teksNama: {fileID: 1960474531}
+  teksDialog: {fileID: 1960474530}
+  panelDialog: {fileID: 1960474529}
+  teksCutscene: {fileID: 0}
   overlayGelap: {fileID: 0}
-  names:
+  bubbleNPC_A: {fileID: 0}
+  teksBubbleA: {fileID: 0}
+  bubbleNPC_B: {fileID: 0}
+  teksBubbleB: {fileID: 0}
+  namaNPC_A: NPC A
+  namaNPC_B: NPC B
+  semuaNama:
   - Sando
   - Sando
   - Alfredo
-  dialogs:
+  semuaDialog:
   - Hey nak, kamu tau alat musik ini? ini adalah gondang.
   - Coba ikuti irama ini. Gondang harus dimainkan dengan tepat.
-  - Baik, saya coba
-  characters:
-  - characterName: Alfredo
-    characterImage: {fileID: 586014168}
-  - characterName: Sando
-    characterImage: {fileID: 1278823346}
+  - Baik, saya coba.
+  semuaKarakter:
+  - namaKarakter: Alfredo
+    gambarKarakter: {fileID: 586014168}
+  - namaKarakter: Sando
+    gambarKarakter: {fileID: 1278823346}
   onFinished:
     m_PersistentCalls:
       m_Calls:
@@ -5439,7 +5563,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6ea1045cb90eeb048a04f02abc9ea2f4, type: 3}
+    m_Font: {fileID: 12800000, guid: ad828047dc5a98a4eaad37990f89d60f, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -5872,6 +5996,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7795780113463953212, guid: 2508c71b631a06841a61617d531af503, type: 3}
   m_PrefabInstance: {fileID: 1960474527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1960474529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4804695948522828044, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 1960474527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1960474530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6804157078468692715, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 1960474527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1960474531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3034494654993853531, guid: 2508c71b631a06841a61617d531af503, type: 3}
+  m_PrefabInstance: {fileID: 1960474527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961685628
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,7 +6327,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6ea1045cb90eeb048a04f02abc9ea2f4, type: 3}
+    m_Font: {fileID: 12800000, guid: ad828047dc5a98a4eaad37990f89d60f, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -6330,12 +6481,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6ea1045cb90eeb048a04f02abc9ea2f4, type: 3}
+    m_Font: {fileID: 12800000, guid: ad828047dc5a98a4eaad37990f89d60f, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 120
+    m_MaxSize: 219
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
