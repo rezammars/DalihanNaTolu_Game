@@ -4,34 +4,25 @@ using UnityEngine.Events;
 
 public class NPCDialogManager : MonoBehaviour
 {
-
     [Header("UI")]
     public GameObject panelDialog;
     public Image gambarNPC;
     public Text teksNama;
     public Text teksDialog;
-    public Text teksTugas;
 
     [Header("Player")]
     public PlayerMovement pergerakanPemain;
 
-    [Header("Progress")]
-    public int totalNPC = 3;
-    public UnityEvent onAllNPCFinished;
-
     string[] currentDialogs;
     int indexDialog = 0;
     bool isDialogAktif = false;
-    string npcSedangBicara;
-    int jumlahNPCSelesai = 0;
-    string[] npcYangSudahDiajakBicara = new string[10];
+
+    UnityAction aksiSetelahDialog;
 
     void Start()
     {
         if (panelDialog != null)
             panelDialog.SetActive(false);
-
-        UpdateTeksTugas();
     }
 
     void Update()
@@ -44,9 +35,9 @@ public class NPCDialogManager : MonoBehaviour
         }
     }
 
-    public void MulaiDialog(string namaNPC, Sprite spriteNPC, string[] dialogs)
+    public void MulaiDialog(string namaNPC, Sprite spriteNPC, string[] dialogs, UnityAction onDialogFinished = null)
     {
-        npcSedangBicara = namaNPC;
+        aksiSetelahDialog = onDialogFinished;
 
         if (panelDialog != null)
             panelDialog.SetActive(true);
@@ -66,7 +57,7 @@ public class NPCDialogManager : MonoBehaviour
 
         ShowDialog();
     }
-    
+
     void ShowDialog()
     {
         if (currentDialogs == null || currentDialogs.Length == 0)
@@ -98,39 +89,11 @@ public class NPCDialogManager : MonoBehaviour
 
         if (pergerakanPemain != null)
             pergerakanPemain.canMove = true;
-        
-        TandaiNPCSelesai(npcSedangBicara);
-    }
 
-    void TandaiNPCSelesai(string namaNPC)
-    {
-        if (string.IsNullOrEmpty(namaNPC)) return;
-
-        for (int i = 0; i < jumlahNPCSelesai; i++)
+        if (aksiSetelahDialog != null)
         {
-            if (npcYangSudahDiajakBicara[i] == namaNPC)
-                return;
-        }
-
-        npcYangSudahDiajakBicara[jumlahNPCSelesai] = namaNPC;
-        jumlahNPCSelesai++;
-
-        UpdateTeksTugas();
-
-        Debug.Log("NPC selesai diajak bicara: " + jumlahNPCSelesai + "/" + totalNPC);
-
-        if (jumlahNPCSelesai >= totalNPC)
-        {
-            Debug.Log("Semua NPC sudah diajak bicara.");
-            onAllNPCFinished.Invoke();
-        }
-    }
-
-    void UpdateTeksTugas()
-    {
-        if (teksTugas != null)
-        {
-            teksTugas.text =    "Tugas: Bicara dengan keluarga " + jumlahNPCSelesai + "/" + totalNPC;
+            aksiSetelahDialog.Invoke();
+            aksiSetelahDialog = null;
         }
     }
 }

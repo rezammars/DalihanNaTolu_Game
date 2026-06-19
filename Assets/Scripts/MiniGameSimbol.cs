@@ -46,6 +46,10 @@ public class MiniGameSimbol : MonoBehaviour
     public GameObject resultPanel;
     public Text resultText;
 
+    [Header("Unlock Index")]
+    public IndexManager indexManager;
+    public int unlockGroupIndex = 5;
+
     [Header("After Finished")]
     public UnityEvent onQuizFinished;
 
@@ -60,6 +64,8 @@ public class MiniGameSimbol : MonoBehaviour
 
     void ResetQuiz()
     {
+        CancelInvoke();
+
         currentQuestion = 0;
         score = 0;
         answered = false;
@@ -96,16 +102,29 @@ public class MiniGameSimbol : MonoBehaviour
 
         Question q = questions[currentQuestion];
 
-        conflictText.text = q.conflictText;
-        hintText.text = q.hintText;
+        if (conflictText != null)
+            conflictText.text = q.conflictText;
 
-        optionText1.text = q.option1;
-        optionText2.text = q.option2;
-        optionText3.text = q.option3;
-        optionText4.text = q.option4;
+        if (hintText != null)
+            hintText.text = q.hintText;
 
-        progressText.text = "Soal " + (currentQuestion + 1) + "/" + questions.Length;
-        feedbackText.text = "";
+        if (optionText1 != null)
+            optionText1.text = q.option1;
+
+        if (optionText2 != null)
+            optionText2.text = q.option2;
+
+        if (optionText3 != null)
+            optionText3.text = q.option3;
+
+        if (optionText4 != null)
+            optionText4.text = q.option4;
+
+        if (progressText != null)
+            progressText.text = "Soal " + (currentQuestion + 1) + "/" + questions.Length;
+
+        if (feedbackText != null)
+            feedbackText.text = "";
 
         SetButtonsInteractable(true);
     }
@@ -123,11 +142,13 @@ public class MiniGameSimbol : MonoBehaviour
         {
             score++;
 
-            feedbackText.text = "Suasana mulai kembali tenang.";
+            if (feedbackText != null)
+                feedbackText.text = "Suasana mulai kembali tenang.";
         }
         else
         {
-            feedbackText.text = "Beberapa orang masih merasa kecewa.";
+            if (feedbackText != null)
+                feedbackText.text = "Beberapa orang masih merasa kecewa.";
         }
 
         Invoke(nameof(NextQuestion), 1.5f);
@@ -154,14 +175,24 @@ public class MiniGameSimbol : MonoBehaviour
 
         if (score >= 2)
         {
-            resultText.text = "Kamu berhasil memahami simbol adat.";
+            if (resultText != null)
+                resultText.text = "Kamu berhasil memahami simbol adat.";
         }
         else
         {
-            resultText.text = "Masih ada simbol adat yang perlu dipelajari.";
+            if (resultText != null)
+                resultText.text = "Masih ada simbol adat yang perlu dipelajari.";
         }
 
+        UnlockIndexKhusus();
+
         Invoke(nameof(CallFinishEvent), 2f);
+    }
+
+    void UnlockIndexKhusus()
+    {
+        if (indexManager != null)
+            indexManager.UnlockGroup(unlockGroupIndex);
     }
 
     void CallFinishEvent()
@@ -171,9 +202,16 @@ public class MiniGameSimbol : MonoBehaviour
 
     void SetButtonsInteractable(bool value)
     {
-        optionButton1.interactable = value;
-        optionButton2.interactable = value;
-        optionButton3.interactable = value;
-        optionButton4.interactable = value;
+        if (optionButton1 != null)
+            optionButton1.interactable = value;
+
+        if (optionButton2 != null)
+            optionButton2.interactable = value;
+
+        if (optionButton3 != null)
+            optionButton3.interactable = value;
+
+        if (optionButton4 != null)
+            optionButton4.interactable = value;
     }
 }

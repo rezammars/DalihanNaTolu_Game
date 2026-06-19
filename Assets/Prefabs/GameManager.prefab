@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2105621401456345060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8323362551481031445}
+  - component: {fileID: 7056018110540573712}
+  - component: {fileID: 2930278192266415630}
+  - component: {fileID: 1650669628936600425}
+  - component: {fileID: 5843437856068605590}
+  - component: {fileID: 7211863544941803132}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8323362551481031445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7056018110540573712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f7ef2f9ea6bf7449c1e687e56e8283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pilihStageNamaScene: PilihStage
+  creditPanel: {fileID: 0}
+  sceneLoadDelay: 0.15
+--- !u!114 &2930278192266415630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69477794bead744bb793eaefb3e155d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexPanel: {fileID: 3417717606924069959, guid: 0390bd8e3b28fe4488d3de3eb316d533, type: 3}
+  namaText: {fileID: 0}
+  deskripsiText: {fileID: 0}
+  indexData:
+  - nama: Dalihan Na Tolu
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Rumah Bolon
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Tetua Adat
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Hula-Hula
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Dongan Tubu
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Boru
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Ulos
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Persiapan Ulos
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Penyambutan Keluarga
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Penyerahan Adat
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Doa Penutup
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Gondang
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Pemain Gondang
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Perlakuan pada Hula-Hula
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Perlakuan pada Dongan Tubu
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Perlakuan pada Boru
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Dekke
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Piso Gaja Dompak
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  - nama: Ritual Adat Batak
+    deskripsi: 
+    button: {fileID: 0}
+    iconImage: {fileID: 0}
+    lockOverlay: {fileID: 0}
+  unlockGroups:
+  - groupName: Stage 1
+    indexToUnlock: 000000000100000002000000030000000400000005000000
+  - groupName: Mini Game Ulos
+    indexToUnlock: 06000000
+  - groupName: Stage 2
+    indexToUnlock: 0700000008000000090000000a000000
+  - groupName: Mini Game Lagu
+    indexToUnlock: 0b0000000c000000
+  - groupName: Stage 3
+    indexToUnlock: 0d0000000e0000000f000000
+  - groupName: Mini Game Simbol
+    indexToUnlock: 1000000011000000
+  - groupName: Stage 4
+    indexToUnlock: 12000000
+--- !u!114 &1650669628936600425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd6acd7cd8d7943a7b057e9ac3986f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pengaturanPanel: {fileID: 0}
+  audioPanel: {fileID: 5939458880110382452, guid: 5697f70491ad42e41a5cf41fd1725a07, type: 3}
+  kontrolPanel: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  namaSceneMainMenu: MainMenu
+  delay: 0.15
+--- !u!114 &5843437856068605590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a263138c41543c04d821745ecd2b825d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPause: {fileID: 4137995852855245349, guid: 944ae6313361b9e408f23b0394ccc23d, type: 3}
+  panelAudio: {fileID: 5939458880110382452, guid: 5697f70491ad42e41a5cf41fd1725a07, type: 3}
+  panelIndex: {fileID: 3417717606924069959, guid: 0390bd8e3b28fe4488d3de3eb316d533, type: 3}
+  namaSceneMainMenu: MainMenu
+  sceneLoadDelay: 0.15
+--- !u!114 &7211863544941803132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105621401456345060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7133e920cc2557440845996b98789675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steps: []
+  showStepOnEnable: 1
+  startStepIndex: 0
+  unlockLevelAfterFinish: 2
+  levelSelectSceneName: PilihStage

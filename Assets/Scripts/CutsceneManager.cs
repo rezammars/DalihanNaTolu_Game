@@ -208,7 +208,9 @@ public class CutsceneManager : MonoBehaviour
 
             bool isMainDialogCharacter =
                 character.namaKarakter == "Alfredo" ||
-                character.namaKarakter == "Tetua Adat";
+                character.namaKarakter == "Tetua Adat" ||
+                character.namaKarakter == "Boru" ||
+                character.namaKarakter == "Sando";
 
             if (isMainDialogCharacter)
             {

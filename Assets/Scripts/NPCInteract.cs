@@ -9,24 +9,50 @@ public class NPCInteract : MonoBehaviour
     [TextArea(3, 6)]
     public string[] dialogs;
 
+    [Header("Dialog Manager")]
     public NPCDialogManager dialogManager;
+
+    [Header("Lanjut ke Puzzle")]
+    public bool langsungKePuzzle = false;
+    public FlowPanel panelFlowManager;
+    public int nextStepIndex = 2;
 
     bool pemainDekat = false;
 
     void Update()
     {
+        if (!pemainDekat) return;
 
-        if (pemainDekat && (Input.GetKeyDown(KeyCode.E)))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Tombol E ditekan dekat NPC: " + namaNPC);
+            Debug.Log("Interaksi NPC: " + namaNPC);
+
+            if (langsungKePuzzle)
+            {
+                LanjutKePuzzle();
+                return;
+            }
+
             if (dialogManager != null)
             {
                 dialogManager.MulaiDialog(namaNPC, npcDialogSprite, dialogs);
             }
             else
             {
-                Debug.LogWarning("NPCDialogManager tidak ditemukan di scene.");
+                Debug.LogWarning("DialogManager belum diisi pada NPC: " + gameObject.name);
             }
+        }
+    }
+
+    void LanjutKePuzzle()
+    {
+        if (panelFlowManager != null)
+        {
+            panelFlowManager.ShowStep(nextStepIndex);
+        }
+        else
+        {
+            Debug.LogWarning("PanelFlowManager belum diisi pada NPC: " + gameObject.name);
         }
     }
 

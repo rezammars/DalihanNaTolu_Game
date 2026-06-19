@@ -1,10 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System.Collections;
 
 public class RhythmManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class NoteData
+    {
+        public float spawnTime;
+        public int laneIndex;
+    }
+
+    [Header("Music")]
+    public AudioSource rhythmMusicSource;
+    public AudioClip rhythmMusicClip;
+    public float songDuration = 60f;
+
+    [Header("Note Pattern")]
+    public NoteData[] notePattern;
+
     [Header("Lane Settings")]
     public RectTransform playhead;
     public RectTransform[] lanePositions;
@@ -13,7 +27,6 @@ public class RhythmManager : MonoBehaviour
     public GameObject notePrefab;
     public RectTransform[] spawnPoints;
     public Transform noteContainer;
-    public float spawnRate = 1.2f;
     public float noteSpeed = 300f;
 
     [Header("Hit Settings")]
@@ -21,26 +34,38 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Score Settings")]
     public int hitScore = 100;
-    public int targetScore = 1000;
+    public int minScore = 1200;
 
     [Header("UI")]
     public Text feedbackText;
     public Text scoreText;
+    public Text resultText;
+    public GameObject resultPanel;
 
-    [Header("After Finished")]
-    public UnityEvent onRhythmFinished;
+    [Header("Unlock Index")]
+    public IndexManager indexManager;
+    public int unlockGroupIndex = 3;
+
+    [Header("After Success")]
+    public UnityEvent onRhythmSuccess;
+    public float delayLanjut = 2f;
 
     public bool IsPlaying { get; private set; }
 
     int currentLane = 2;
     int score = 0;
-    bool finished = false;
+    int spawnedNoteIndex = 0;
+    int maxScore = 0;
 
-    Coroutine spawnRoutine;
+    float timer = 0f;
+    bool finished = false;
 
     void Start()
     {
         StopGame();
+
+        if (resultPanel != null)
+            resultPanel.SetActive(false);
     }
 
     void Update()
@@ -48,6 +73,10 @@ public class RhythmManager : MonoBehaviour
         if (Time.timeScale == 0f) return;
         if (!IsPlaying) return;
         if (finished) return;
+
+        timer += Time.deltaTime;
+
+        SpawnNotesByTime();
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             MoveLane(-1);
@@ -57,6 +86,9 @@ public class RhythmManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             TryHit();
+
+        if (timer >= songDuration)
+            FinishGame();
     }
 
     public void StartGame()
@@ -64,73 +96,63 @@ public class RhythmManager : MonoBehaviour
         Time.timeScale = 1f;
 
         score = 0;
+        timer = 0f;
+        spawnedNoteIndex = 0;
         currentLane = 2;
         finished = false;
         IsPlaying = true;
+
+        maxScore = notePattern.Length * hitScore;
 
         ClearNotes();
         UpdatePlayheadPosition();
         UpdateUI();
 
+        if (resultPanel != null)
+            resultPanel.SetActive(false);
+
         if (feedbackText != null)
             feedbackText.text = "";
 
-        if (spawnRoutine != null)
-            StopCoroutine(spawnRoutine);
-
-        spawnRoutine = StartCoroutine(SpawnRoutine());
-
-        Debug.Log("RhythmManager: StartGame");
+        if (rhythmMusicSource != null && rhythmMusicClip != null)
+        {
+            rhythmMusicSource.clip = rhythmMusicClip;
+            rhythmMusicSource.loop = false;
+            rhythmMusicSource.Play();
+        }
     }
 
     public void StopGame()
     {
         IsPlaying = false;
 
-        if (spawnRoutine != null)
-        {
-            StopCoroutine(spawnRoutine);
-            spawnRoutine = null;
-        }
+        if (rhythmMusicSource != null)
+            rhythmMusicSource.Stop();
 
         ClearNotes();
     }
 
-    IEnumerator SpawnRoutine()
+    void SpawnNotesByTime()
     {
-        yield return new WaitForSeconds(1f);
+        if (notePattern == null || notePattern.Length == 0) return;
 
-        while (IsPlaying && !finished)
+        while (spawnedNoteIndex < notePattern.Length &&
+               timer >= notePattern[spawnedNoteIndex].spawnTime)
         {
-            SpawnNote();
-            yield return new WaitForSeconds(spawnRate);
+            SpawnNote(notePattern[spawnedNoteIndex].laneIndex);
+            spawnedNoteIndex++;
         }
     }
 
-    void SpawnNote()
+    void SpawnNote(int lane)
     {
-        if (notePrefab == null)
-        {
-            Debug.LogWarning("Note Prefab belum diisi.");
-            return;
-        }
+        if (notePrefab == null) return;
+        if (spawnPoints == null || spawnPoints.Length == 0) return;
+        if (noteContainer == null) return;
 
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogWarning("Spawn Points belum diisi.");
-            return;
-        }
-
-        if (noteContainer == null)
-        {
-            Debug.LogWarning("Note Container belum diisi.");
-            return;
-        }
-
-        int lane = Random.Range(0, spawnPoints.Length);
+        lane = Mathf.Clamp(lane, 0, spawnPoints.Length - 1);
 
         GameObject noteObj = Instantiate(notePrefab, noteContainer);
-
         RectTransform noteRect = noteObj.GetComponent<RectTransform>();
         noteRect.anchoredPosition = spawnPoints[lane].anchoredPosition;
 
@@ -146,7 +168,6 @@ public class RhythmManager : MonoBehaviour
     {
         currentLane += direction;
         currentLane = Mathf.Clamp(currentLane, 0, lanePositions.Length - 1);
-
         UpdatePlayheadPosition();
     }
 
@@ -172,9 +193,7 @@ public class RhythmManager : MonoBehaviour
             if (note == null) continue;
             if (note.laneIndex != currentLane) continue;
 
-            float distance = Mathf.Abs(
-                note.GetRect().anchoredPosition.x - playhead.anchoredPosition.x
-            );
+            float distance = Mathf.Abs(note.GetRect().anchoredPosition.x - playhead.anchoredPosition.x);
 
             if (distance < closestDistance)
             {
@@ -190,13 +209,9 @@ public class RhythmManager : MonoBehaviour
         }
 
         if (closestDistance <= hitRange)
-        {
             Hit(closestNote);
-        }
         else
-        {
             Miss();
-        }
     }
 
     void Hit(RhythmNote note)
@@ -208,9 +223,6 @@ public class RhythmManager : MonoBehaviour
             feedbackText.text = "Hit!";
 
         Destroy(note.gameObject);
-
-        if (score >= targetScore)
-            FinishGame();
     }
 
     void Miss()
@@ -234,7 +246,7 @@ public class RhythmManager : MonoBehaviour
     void UpdateUI()
     {
         if (scoreText != null)
-            scoreText.text = "Score : " + score;
+            scoreText.text = "Score: " + score + " / " + maxScore;
     }
 
     void FinishGame()
@@ -244,23 +256,38 @@ public class RhythmManager : MonoBehaviour
         finished = true;
         IsPlaying = false;
 
-        if (spawnRoutine != null)
-        {
-            StopCoroutine(spawnRoutine);
-            spawnRoutine = null;
-        }
+        if (rhythmMusicSource != null)
+            rhythmMusicSource.Stop();
 
         ClearNotes();
 
-        if (feedbackText != null)
-            feedbackText.text = "Gondang terdengar harmonis!";
+        if (resultPanel != null)
+            resultPanel.SetActive(true);
 
-        Invoke(nameof(CallFinishEvent), 1.2f);
+        if (score >= minScore)
+        {
+            UnlockIndexKhusus();
+            if (resultText != null)
+                resultText.text = "Berhasil!\nScore: " + score + " / " + maxScore;
+
+            if (feedbackText != null)
+                feedbackText.text = "Irama yang indah! Anda berhasil memainkan gondang dengan baik.";
+        }
+        else
+        {
+            if (resultText != null)
+                resultText.text = "Belum berhasil.\nScore: " + score + " / " + maxScore;
+
+            if (feedbackText != null)
+                feedbackText.text = "Kurang indah memainkan gondang.";
+        }
+        Invoke(nameof(LanjutOtomatis), delayLanjut);
     }
 
-    void CallFinishEvent()
+    void UnlockIndexKhusus()
     {
-        onRhythmFinished.Invoke();
+        if (indexManager != null)
+            indexManager.UnlockGroup(unlockGroupIndex);
     }
 
     void ClearNotes()
@@ -272,5 +299,10 @@ public class RhythmManager : MonoBehaviour
             if (note != null)
                 Destroy(note.gameObject);
         }
+    }
+
+    void LanjutOtomatis()
+    {
+        onRhythmSuccess.Invoke();
     }
 }

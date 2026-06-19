@@ -13,7 +13,6 @@ public class RhythmNote : MonoBehaviour
         laneIndex = lane;
         speed = noteSpeed;
         rhythmManager = manager;
-
         rectTransform = GetComponent<RectTransform>();
     }
 
@@ -30,9 +29,7 @@ public class RhythmNote : MonoBehaviour
         rectTransform.anchoredPosition += Vector2.left * speed * Time.deltaTime;
 
         if (rectTransform.anchoredPosition.x < -900f)
-        {
             rhythmManager.MissNote(this);
-        }
     }
 
     public RectTransform GetRect()
