@@ -5,57 +5,62 @@ using UnityEngine.Events;
 public class MiniGameSimbol : MonoBehaviour
 {
     [System.Serializable]
-    public class Question
+    public class Soal
     {
+        [Header("Pertanyaan")]
         [TextArea(2, 5)]
-        public string conflictText;
+        public string teksPertanyaan;
 
-        [TextArea(2, 5)]
-        public string hintText;
+        [Header("Gambar")]
+        public Sprite gambarSimbol;
 
-        public string option1;
-        public string option2;
-        public string option3;
-        public string option4;
+        [Header("Pilihan Jawaban")]
+        public string pilihan1;
+        public string pilihan2;
+        public string pilihan3;
+        public string pilihan4;
 
-        public int correctAnswerIndex;
+        [Header("Jawaban Benar")]
+        public int jawabanBenarIndex;
     }
 
-    [Header("Questions")]
-    public Question[] questions;
+    [Header("Data Soal")]
+    public Soal[] daftarSoal;
 
-    [Header("UI")]
-    public Text conflictText;
-    public Text hintText;
-    public Text feedbackText;
-    public Text progressText;
+    [Header("UI Soal")]
+    public Text teksPertanyaan;
+    public Image gambarSimbol;
 
-    [Header("Buttons")]
-    public Button optionButton1;
-    public Button optionButton2;
-    public Button optionButton3;
-    public Button optionButton4;
+    [Header("Tombol Pilihan")]
+    public Button tombolPilihan1;
+    public Button tombolPilihan2;
+    public Button tombolPilihan3;
+    public Button tombolPilihan4;
 
-    [Header("Button Text")]
-    public Text optionText1;
-    public Text optionText2;
-    public Text optionText3;
-    public Text optionText4;
+    [Header("Teks Tombol Pilihan")]
+    public Text teksPilihan1;
+    public Text teksPilihan2;
+    public Text teksPilihan3;
+    public Text teksPilihan4;
 
-    [Header("Result")]
-    public GameObject resultPanel;
-    public Text resultText;
+    [Header("Hasil")]
+    public GameObject panelHasil;
+    public Text teksHasil;
+
+    [Header("Aturan Skor")]
+    public int skorMinimalBukaIndex = 3;
 
     [Header("Unlock Index")]
     public IndexManager indexManager;
     public int unlockGroupIndex = 5;
 
-    [Header("After Finished")]
+    [Header("Setelah Selesai")]
+    public float delayLanjut = 2f;
     public UnityEvent onQuizFinished;
 
-    int currentQuestion = 0;
-    int score = 0;
-    bool answered = false;
+    int nomorSoal = 0;
+    int skor = 0;
+    bool sudahMenjawab = false;
 
     void OnEnable()
     {
@@ -66,152 +71,135 @@ public class MiniGameSimbol : MonoBehaviour
     {
         CancelInvoke();
 
-        currentQuestion = 0;
-        score = 0;
-        answered = false;
+        nomorSoal = 0;
+        skor = 0;
+        sudahMenjawab = false;
 
-        if (resultPanel != null)
-            resultPanel.SetActive(false);
+        if (panelHasil != null)
+            panelHasil.SetActive(false);
 
-        SetupButtons();
-        ShowQuestion();
+        SetupTombol();
+        TampilkanSoal();
     }
 
-    void SetupButtons()
+    void SetupTombol()
     {
-        optionButton1.onClick.RemoveAllListeners();
-        optionButton2.onClick.RemoveAllListeners();
-        optionButton3.onClick.RemoveAllListeners();
-        optionButton4.onClick.RemoveAllListeners();
+        tombolPilihan1.onClick.RemoveAllListeners();
+        tombolPilihan2.onClick.RemoveAllListeners();
+        tombolPilihan3.onClick.RemoveAllListeners();
+        tombolPilihan4.onClick.RemoveAllListeners();
 
-        optionButton1.onClick.AddListener(() => ChooseAnswer(0));
-        optionButton2.onClick.AddListener(() => ChooseAnswer(1));
-        optionButton3.onClick.AddListener(() => ChooseAnswer(2));
-        optionButton4.onClick.AddListener(() => ChooseAnswer(3));
+        tombolPilihan1.onClick.AddListener(() => PilihJawaban(0));
+        tombolPilihan2.onClick.AddListener(() => PilihJawaban(1));
+        tombolPilihan3.onClick.AddListener(() => PilihJawaban(2));
+        tombolPilihan4.onClick.AddListener(() => PilihJawaban(3));
     }
 
-    void ShowQuestion()
+    void TampilkanSoal()
     {
-        if (questions == null || questions.Length == 0)
+        if (daftarSoal == null || daftarSoal.Length == 0)
         {
-            Debug.LogWarning("Questions belum diisi.");
+            Debug.LogWarning("Daftar soal belum diisi.");
             return;
         }
 
-        answered = false;
+        sudahMenjawab = false;
 
-        Question q = questions[currentQuestion];
+        Soal soal = daftarSoal[nomorSoal];
 
-        if (conflictText != null)
-            conflictText.text = q.conflictText;
+        if (teksPertanyaan != null)
+            teksPertanyaan.text = soal.teksPertanyaan;
 
-        if (hintText != null)
-            hintText.text = q.hintText;
+        if (gambarSimbol != null)
+            gambarSimbol.sprite = soal.gambarSimbol;
 
-        if (optionText1 != null)
-            optionText1.text = q.option1;
+        if (teksPilihan1 != null)
+            teksPilihan1.text = soal.pilihan1;
 
-        if (optionText2 != null)
-            optionText2.text = q.option2;
+        if (teksPilihan2 != null)
+            teksPilihan2.text = soal.pilihan2;
 
-        if (optionText3 != null)
-            optionText3.text = q.option3;
+        if (teksPilihan3 != null)
+            teksPilihan3.text = soal.pilihan3;
 
-        if (optionText4 != null)
-            optionText4.text = q.option4;
+        if (teksPilihan4 != null)
+            teksPilihan4.text = soal.pilihan4;
 
-        if (progressText != null)
-            progressText.text = "Soal " + (currentQuestion + 1) + "/" + questions.Length;
-
-        if (feedbackText != null)
-            feedbackText.text = "";
-
-        SetButtonsInteractable(true);
+        SetTombolAktif(true);
     }
 
-    void ChooseAnswer(int answerIndex)
+    void PilihJawaban(int jawabanIndex)
     {
-        if (answered) return;
+        if (sudahMenjawab) return;
 
-        answered = true;
-        SetButtonsInteractable(false);
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayKlikTombol();
 
-        Question q = questions[currentQuestion];
+        sudahMenjawab = true;
+        SetTombolAktif(false);
 
-        if (answerIndex == q.correctAnswerIndex)
+        Soal soal = daftarSoal[nomorSoal];
+
+        if (jawabanIndex == soal.jawabanBenarIndex)
+            skor++;
+
+        Invoke(nameof(LanjutSoal), 0.7f);
+    }
+
+    void LanjutSoal()
+    {
+        nomorSoal++;
+
+        if (nomorSoal >= daftarSoal.Length)
+            SelesaikanQuiz();
+        else
+            TampilkanSoal();
+    }
+
+    void SelesaikanQuiz()
+    {
+        if (panelHasil != null)
+            panelHasil.SetActive(true);
+
+        if (skor >= skorMinimalBukaIndex)
         {
-            score++;
+            if (teksHasil != null)
+                teksHasil.text = "Kamu berhasil memahami simbol adat.\nSkor: " + skor + "/" + daftarSoal.Length;
 
-            if (feedbackText != null)
-                feedbackText.text = "Suasana mulai kembali tenang.";
+            BukaIndexKhusus();
         }
         else
         {
-            if (feedbackText != null)
-                feedbackText.text = "Beberapa orang masih merasa kecewa.";
+            if (teksHasil != null)
+                teksHasil.text = "Masih ada simbol adat yang perlu dipelajari.\nSkor: " + skor + "/" + daftarSoal.Length;
         }
 
-        Invoke(nameof(NextQuestion), 1.5f);
+        Invoke(nameof(LanjutSetelahQuiz), delayLanjut);
     }
 
-    void NextQuestion()
-    {
-        currentQuestion++;
-
-        if (currentQuestion >= questions.Length)
-        {
-            FinishQuiz();
-        }
-        else
-        {
-            ShowQuestion();
-        }
-    }
-
-    void FinishQuiz()
-    {
-        if (resultPanel != null)
-            resultPanel.SetActive(true);
-
-        if (score >= 2)
-        {
-            if (resultText != null)
-                resultText.text = "Kamu berhasil memahami simbol adat.";
-        }
-        else
-        {
-            if (resultText != null)
-                resultText.text = "Masih ada simbol adat yang perlu dipelajari.";
-        }
-
-        UnlockIndexKhusus();
-
-        Invoke(nameof(CallFinishEvent), 2f);
-    }
-
-    void UnlockIndexKhusus()
+    void BukaIndexKhusus()
     {
         if (indexManager != null)
             indexManager.UnlockGroup(unlockGroupIndex);
     }
 
-    void CallFinishEvent()
+    void LanjutSetelahQuiz()
     {
         onQuizFinished.Invoke();
     }
 
-    void SetButtonsInteractable(bool value)
+    void SetTombolAktif(bool aktif)
     {
-        if (optionButton1 != null)
-            optionButton1.interactable = value;
+        if (tombolPilihan1 != null)
+            tombolPilihan1.interactable = aktif;
 
-        if (optionButton2 != null)
-            optionButton2.interactable = value;
+        if (tombolPilihan2 != null)
+            tombolPilihan2.interactable = aktif;
 
-        if (optionButton3 != null)
-            optionButton3.interactable = value;
+        if (tombolPilihan3 != null)
+            tombolPilihan3.interactable = aktif;
 
-        if (optionButton4 != null)
-            optionButton4.interactable = value;
+        if (tombolPilihan4 != null)
+            tombolPilihan4.interactable = aktif;
     }
 }

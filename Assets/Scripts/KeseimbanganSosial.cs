@@ -1,9 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class KeseimbanganSosial : MonoBehaviour
 {
+    [System.Serializable]
+    public class OptionData
+    {
+        public string optionText;
+
+        [Header("Efek Emosi")]
+        public int efekRajaParhata;
+        public int efekHulaHulaA;
+        public int efekHulaHulaB;
+        public int efekDonganA;
+        public int efekDonganB;
+        public int efekAnakBoru;
+
+        [Header("UI")]
+        public Button button;
+        public Text buttonText;
+    }
+
     [Header("NPC Status")]
     public NPCStatusUI rajaParhata;
     public NPCStatusUI hulaHulaA;
@@ -12,43 +31,24 @@ public class KeseimbanganSosial : MonoBehaviour
     public NPCStatusUI donganB;
     public NPCStatusUI anakBoru;
 
-    [Header("Option Buttons")]
-    public Button option1Button;
-    public Button option2Button;
-    public Button option3Button;
-    public Button option4Button;
-    public Button option5Button;
-    public Button option6Button;
+    [Header("Option Data")]
+    public OptionData[] options;
 
-    [Header("Option Text")]
-    public Text option1Text;
-    public Text option2Text;
-    public Text option3Text;
-    public Text option4Text;
-    public Text option5Text;
-    public Text option6Text;
+    [Header("Control Button")]
+    public Button lanjutButton;
 
-    [Header("UI")]
-    public Text feedbackText;
-    public Text progressText;
+    [Header("Result")]
     public GameObject resultPanel;
     public Text resultText;
 
     [Header("Rules")]
-    public int maxStep = 3;
+    public int maxPilihan = 3;
 
     [Header("After Complete")]
     public UnityEvent onPuzzleComplete;
 
-    int step = 0;
+    List<int> selectedOptions = new List<int>();
     bool finished = false;
-
-    bool usedOption1 = false;
-    bool usedOption2 = false;
-    bool usedOption3 = false;
-    bool usedOption4 = false;
-    bool usedOption5 = false;
-    bool usedOption6 = false;
 
     void OnEnable()
     {
@@ -57,25 +57,17 @@ public class KeseimbanganSosial : MonoBehaviour
 
     void ResetGame()
     {
-        step = 0;
-        finished = false;
+        CancelInvoke();
 
-        usedOption1 = false;
-        usedOption2 = false;
-        usedOption3 = false;
-        usedOption4 = false;
-        usedOption5 = false;
-        usedOption6 = false;
+        finished = false;
+        selectedOptions.Clear();
 
         if (resultPanel != null)
             resultPanel.SetActive(false);
 
         SetupNPC();
         SetupOptions();
-        UpdateProgress();
-
-        if (feedbackText != null)
-            feedbackText.text = "Pilih tindakan yang dapat menjaga keseimbangan sosial.";
+        SetupLanjutButton();
     }
 
     void SetupNPC()
@@ -90,187 +82,129 @@ public class KeseimbanganSosial : MonoBehaviour
 
     void SetupOptions()
     {
-        option1Text.text = "Berikan Ulos kepada Hula-hula";
-        option2Text.text = "Dengarkan Keluhan Dongan Tubu";
-        option3Text.text = "Minta Nasihat Raja Parhata";
-        option4Text.text = "Adakan Musyawarah";
-        option5Text.text = "Mulai Acara Terlalu Cepat";
-        option6Text.text = "Tugaskan Anak Boru Membantu Persiapan";
+        for (int i = 0; i < options.Length; i++)
+        {
+            int index = i;
 
-        option1Button.interactable = true;
-        option2Button.interactable = true;
-        option3Button.interactable = true;
-        option4Button.interactable = true;
-        option5Button.interactable = true;
-        option6Button.interactable = true;
+            if (options[i].buttonText != null)
+                options[i].buttonText.text = options[i].optionText;
 
-        option1Button.onClick.RemoveAllListeners();
-        option2Button.onClick.RemoveAllListeners();
-        option3Button.onClick.RemoveAllListeners();
-        option4Button.onClick.RemoveAllListeners();
-        option5Button.onClick.RemoveAllListeners();
-        option6Button.onClick.RemoveAllListeners();
-
-        option1Button.onClick.AddListener(ChooseGiveUlos);
-        option2Button.onClick.AddListener(ChooseListenDongan);
-        option3Button.onClick.AddListener(ChooseAskRaja);
-        option4Button.onClick.AddListener(ChooseMusyawarah);
-        option5Button.onClick.AddListener(ChooseStartTooFast);
-        option6Button.onClick.AddListener(ChooseBoruHelp);
+            if (options[i].button != null)
+            {
+                options[i].button.onClick.RemoveAllListeners();
+                options[i].button.onClick.AddListener(() => ToggleOption(index));
+                options[i].button.interactable = true;
+                SetButtonNormal(options[i].button);
+            }
+        }
     }
 
-    void UpdateProgress()
+    void SetupLanjutButton()
     {
-        if (progressText != null)
-            progressText.text = "Keputusan: " + step + "/" + maxStep;
+        if (lanjutButton == null) return;
+
+        lanjutButton.onClick.RemoveAllListeners();
+        lanjutButton.onClick.AddListener(FinishPuzzle);
+        lanjutButton.interactable = false;
     }
 
-    void NextStep()
+    void ToggleOption(int index)
     {
-        step++;
-        UpdateProgress();
+        if (finished) return;
+        if (index < 0 || index >= options.Length) return;
 
-        if (step >= maxStep)
-            FinishPuzzle();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayKlikTombol();
+
+        if (selectedOptions.Contains(index))
+        {
+            selectedOptions.Remove(index);
+            ApplyOptionEffect(index, -1);
+            SetButtonNormal(options[index].button);
+        }
+        else
+        {
+            if (selectedOptions.Count >= maxPilihan)
+                return;
+
+            selectedOptions.Add(index);
+            ApplyOptionEffect(index, 1);
+            SetButtonSelected(options[index].button);
+        }
+
+        UpdateLanjutButton();
     }
 
-    void ChooseGiveUlos()
+    void ApplyOptionEffect(int index, int multiplier)
     {
-        if (usedOption1 || finished) return;
+        OptionData option = options[index];
 
-        usedOption1 = true;
-        option1Button.interactable = false;
-
-        hulaHulaA.AddEmotion(2);
-        hulaHulaB.AddEmotion(1);
-        donganA.AddEmotion(-1);
-
-        feedbackText.text = "Hula-hula merasa dihormati, tetapi Dongan Tubu mulai merasa kurang didengar.";
-
-        NextStep();
+        rajaParhata.AddEmotion(option.efekRajaParhata * multiplier);
+        hulaHulaA.AddEmotion(option.efekHulaHulaA * multiplier);
+        hulaHulaB.AddEmotion(option.efekHulaHulaB * multiplier);
+        donganA.AddEmotion(option.efekDonganA * multiplier);
+        donganB.AddEmotion(option.efekDonganB * multiplier);
+        anakBoru.AddEmotion(option.efekAnakBoru * multiplier);
     }
 
-    void ChooseListenDongan()
+    void UpdateLanjutButton()
     {
-        if (usedOption2 || finished) return;
-
-        usedOption2 = true;
-        option2Button.interactable = false;
-
-        donganA.AddEmotion(2);
-        donganB.AddEmotion(1);
-
-        feedbackText.text = "Dongan Tubu merasa didengar. Suasana mulai lebih tenang.";
-
-        NextStep();
-    }
-
-    void ChooseAskRaja()
-    {
-        if (usedOption3 || finished) return;
-
-        usedOption3 = true;
-        option3Button.interactable = false;
-
-        rajaParhata.AddEmotion(2);
-
-        hulaHulaA.AddEmotion(1);
-        hulaHulaB.AddEmotion(1);
-        donganA.AddEmotion(1);
-        donganB.AddEmotion(1);
-        anakBoru.AddEmotion(1);
-
-        feedbackText.text = "Nasihat Raja Parhata membantu semua pihak lebih tenang.";
-
-        NextStep();
-    }
-
-    void ChooseMusyawarah()
-    {
-        if (usedOption4 || finished) return;
-
-        usedOption4 = true;
-        option4Button.interactable = false;
-
-        rajaParhata.AddEmotion(1);
-        hulaHulaA.AddEmotion(1);
-        hulaHulaB.AddEmotion(1);
-        donganA.AddEmotion(1);
-        donganB.AddEmotion(1);
-        anakBoru.AddEmotion(1);
-
-        feedbackText.text = "Musyawarah membuat semua pihak merasa dilibatkan.";
-
-        NextStep();
-    }
-
-    void ChooseStartTooFast()
-    {
-        if (usedOption5 || finished) return;
-
-        usedOption5 = true;
-        option5Button.interactable = false;
-
-        hulaHulaA.AddEmotion(1);
-        hulaHulaB.AddEmotion(1);
-        rajaParhata.AddEmotion(-2);
-        donganA.AddEmotion(-1);
-
-        feedbackText.text = "Acara dimulai terlalu cepat. Beberapa pihak merasa diabaikan.";
-
-        NextStep();
-    }
-
-    void ChooseBoruHelp()
-    {
-        if (usedOption6 || finished) return;
-
-        usedOption6 = true;
-        option6Button.interactable = false;
-
-        anakBoru.AddEmotion(2);
-        rajaParhata.AddEmotion(1);
-
-        feedbackText.text = "Anak Boru merasa dihargai karena diberi peran membantu persiapan.";
-
-        NextStep();
+        if (lanjutButton != null)
+            lanjutButton.interactable = selectedOptions.Count > 0;
     }
 
     void FinishPuzzle()
     {
+        if (finished) return;
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayKlikTombol();
+
         finished = true;
 
         DisableAllOptions();
 
-        bool allAtLeastNeutral = CheckAllAtLeastNeutral();
-        bool hulaHulaHappy = CheckHulaHulaHappy();
+        if (lanjutButton != null)
+            lanjutButton.interactable = false;
 
         if (resultPanel != null)
             resultPanel.SetActive(true);
 
+        bool allAtLeastNeutral = CheckAllAtLeastNeutral();
+        bool hulaHulaHappy = CheckHulaHulaHappy();
+
         if (allAtLeastNeutral && hulaHulaHappy)
         {
-            resultText.text =
-                "Prosesi berjalan harmonis.\n" +
-                "Semua pihak sudah tenang, dan Hula-hula merasa dihormati.";
+            if (resultText != null)
+            {
+                resultText.text =
+                    "Prosesi berjalan harmonis.\n" +
+                    "Semua pihak sudah tenang, dan Hula-hula merasa dihormati.";
+            }
 
             Invoke(nameof(CompletePuzzle), 2f);
         }
         else if (allAtLeastNeutral)
         {
-            resultText.text =
-                "Suasana sudah cukup stabil.\n" +
-                "Namun Hula-hula belum sepenuhnya merasa dihormati.";
+            if (resultText != null)
+            {
+                resultText.text =
+                    "Suasana sudah cukup stabil.\n" +
+                    "Namun Hula-hula belum sepenuhnya merasa dihormati.";
+            }
 
             Invoke(nameof(CompletePuzzle), 2f);
         }
         else
         {
-            resultText.text =
-                "Keseimbangan belum tercapai.\n" +
-                "Masih ada pihak yang merasa kecewa.";
+            if (resultText != null)
+            {
+                resultText.text =
+                    "Keseimbangan belum tercapai.\n" +
+                    "Masih ada pihak yang merasa kecewa.";
+            }
 
-            Invoke(nameof(RestartPuzzle), 2f);
+            Invoke(nameof(ResetGame), 2f);
         }
     }
 
@@ -294,21 +228,35 @@ public class KeseimbanganSosial : MonoBehaviour
 
     void DisableAllOptions()
     {
-        option1Button.interactable = false;
-        option2Button.interactable = false;
-        option3Button.interactable = false;
-        option4Button.interactable = false;
-        option5Button.interactable = false;
-        option6Button.interactable = false;
+        for (int i = 0; i < options.Length; i++)
+        {
+            if (options[i].button != null)
+                options[i].button.interactable = false;
+        }
+    }
+
+    void SetButtonSelected(Button button)
+    {
+        if (button == null) return;
+
+        Image image = button.GetComponent<Image>();
+
+        if (image != null)
+            image.color = new Color(0.65f, 0.85f, 1f, 1f);
+    }
+
+    void SetButtonNormal(Button button)
+    {
+        if (button == null) return;
+
+        Image image = button.GetComponent<Image>();
+
+        if (image != null)
+            image.color = Color.white;
     }
 
     void CompletePuzzle()
     {
         onPuzzleComplete.Invoke();
-    }
-
-    void RestartPuzzle()
-    {
-        ResetGame();
     }
 }

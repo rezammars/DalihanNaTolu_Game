@@ -4,29 +4,32 @@ using UnityEngine.EventSystems;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    [Header("Nama Item yang Benar")]
-    public string ItemID;
+    [Header("Jawaban Benar")]
+    public string itemID;
 
-    [Header("Gambar Slot")]
+    [Header("Visual Slot")]
     public Image gambarSlot;
     public Sprite spriteAwal;
-    public Sprite spriteSenang;
-    public Sprite spriteMarah;
+    public Sprite spriteBenar;
+    public Sprite spriteSalah;
 
-    [Header("Status Slot")]
+    [Header("Stage 4")]
+    public bool lockWrongDrop = false;
+
+    [HideInInspector]
     public bool isCorrect = false;
 
     public DragDropPuzzle puzzleManager;
 
     void Awake()
     {
-        if(gambarSlot == null)
+        if (gambarSlot == null)
             gambarSlot = GetComponent<Image>();
     }
 
     void Start()
     {
-        ShowGambarAwal();
+        SetSpriteAwal();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -34,15 +37,21 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (isCorrect) return;
 
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
-        if (item == null) return;
+
+        if (item == null)
+            return;
 
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayDrop();
 
-        if (item.itemNama == ItemID)
+        bool benar = item.itemNama == itemID;
+
+        if (benar)
         {
             isCorrect = true;
-            ShowGambarSenang();
+
+            SetSpriteBenar();
+
             item.gameObject.SetActive(false);
 
             if (puzzleManager != null)
@@ -50,29 +59,33 @@ public class DropSlot : MonoBehaviour, IDropHandler
         }
         else
         {
-            ShowGambarMarah();
-            if (puzzleManager != null)
-                puzzleManager.ShowWrongFeedback();
+            SetSpriteSalah();
 
-            Invoke(nameof(ShowGambarAwal), 0.7f);
+            if (lockWrongDrop)
+            {
+                item.gameObject.SetActive(false);
+
+                if (puzzleManager != null)
+                    puzzleManager.CheckPuzzle();
+            }
         }
     }
 
-    public void ShowGambarAwal()
+    void SetSpriteAwal()
     {
         if (gambarSlot != null && spriteAwal != null)
             gambarSlot.sprite = spriteAwal;
     }
 
-    public void ShowGambarSenang()
+    void SetSpriteBenar()
     {
-        if (gambarSlot != null && spriteSenang != null)
-            gambarSlot.sprite = spriteSenang;
+        if (gambarSlot != null && spriteBenar != null)
+            gambarSlot.sprite = spriteBenar;
     }
 
-    public void ShowGambarMarah()
+    void SetSpriteSalah()
     {
-        if (gambarSlot != null && spriteMarah != null)
-            gambarSlot.sprite = spriteMarah;
+        if (gambarSlot != null && spriteSalah != null)
+            gambarSlot.sprite = spriteSalah;
     }
 }

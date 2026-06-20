@@ -68,97 +68,139 @@ MonoBehaviour:
   deskripsiText: {fileID: 0}
   indexData:
   - nama: Dalihan Na Tolu
-    deskripsi: 
+    deskripsi: Dalihan Na Tolu merupakan falsafah hidup masyarakat Batak Toba yang
+      mengatur hubungan kekerabatan dan kehidupan sosial. Secara harfiah berarti
+      "tungku berkaki tiga", melambangkan keseimbangan antara Hula-Hula, Dongan Tubu,
+      dan Boru. Keharmonisan masyarakat adat tercapai apabila ketiga unsur tersebut
+      menjalankan perannya dengan baik.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Rumah Bolon
-    deskripsi: 
+    deskripsi: Rumah Bolon adalah rumah adat tradisional Batak Toba yang berfungsi
+      sebagai tempat tinggal sekaligus pusat kegiatan keluarga. Bangunan ini memiliki
+      bentuk panggung dengan atap tinggi dan melambangkan persatuan, gotong royong,
+      serta identitas budaya masyarakat Batak.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Tetua Adat
-    deskripsi: 
+    deskripsi: Tetua Adat adalah tokoh yang memahami aturan, tata cara, dan nilai-nilai
+      adat Batak. Mereka berperan memimpin musyawarah, memberikan nasihat, serta
+      memastikan pelaksanaan adat berjalan sesuai tradisi yang berlaku.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Hula-Hula
-    deskripsi: 
+    deskripsi: Hula-Hula adalah pihak pemberi perempuan dalam hubungan kekerabatan
+      Batak. Dalam falsafah Dalihan Na Tolu, Hula-Hula harus dihormati karena dianggap
+      sebagai sumber berkat dan nasihat bagi keluarga penerima perempuan.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Dongan Tubu
-    deskripsi: 
+    deskripsi: 'Dongan Tubu adalah kelompok kerabat yang berasal dari marga yang
+      sama. Mereka memiliki kedudukan setara dan diharapkan menjaga hubungan dengan
+      sikap saling menghormati, bekerja sama, dan menghindari perselisihan. '
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Boru
-    deskripsi: 
+    deskripsi: 'Boru adalah pihak penerima perempuan dalam hubungan kekerabatan.
+      Dalam adat Batak, Boru memiliki peran penting dalam membantu pelaksanaan acara
+      adat dan menjaga kelancaran berbagai kegiatan keluarga. '
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Ulos
-    deskripsi: 
+    deskripsi: Ulos adalah kain tenun tradisional Batak yang memiliki makna kasih
+      sayang, restu, dan penghormatan. Ulos sering diberikan dalam berbagai upacara
+      adat sebagai simbol doa dan harapan baik kepada penerimanya.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Persiapan Ulos
-    deskripsi: 
+    deskripsi: Persiapan Ulos merupakan tahap awal dalam prosesi adat yang melibatkan
+      penyiapan kain ulos sesuai jenis dan tujuan penggunaannya. Setiap jenis ulos
+      memiliki fungsi dan makna yang berbeda dalam upacara adat.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Penyambutan Keluarga
-    deskripsi: 
+    deskripsi: Penyambutan keluarga adalah prosesi penerimaan tamu dan kerabat yang
+      hadir dalam acara adat. Tahap ini menunjukkan rasa hormat, kebersamaan, dan
+      pentingnya hubungan kekeluargaan dalam budaya Batak.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Penyerahan Adat
-    deskripsi: 
+    deskripsi: Penyerahan adat adalah proses pemberian simbol, nasihat, atau perlengkapan
+      adat kepada pihak yang berkepentingan dalam upacara. Prosesi ini menandakan
+      perpindahan tanggung jawab, restu, atau penghormatan sesuai konteks acara.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Doa Penutup
-    deskripsi: 
+    deskripsi: Doa penutup merupakan bagian akhir dari rangkaian acara adat. Doa
+      dipanjatkan sebagai ungkapan syukur serta harapan agar seluruh peserta memperoleh
+      keselamatan, kesehatan, dan keberkahan.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Gondang
-    deskripsi: 
+    deskripsi: Gondang adalah ansambel musik tradisional Batak yang digunakan dalam
+      berbagai upacara adat. Gondang berfungsi sebagai media penghormatan, penyatuan
+      masyarakat, dan pengiring prosesi adat.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Pemain Gondang
-    deskripsi: 
+    deskripsi: Pemain Gondang adalah individu yang memainkan alat musik dalam kelompok
+      gondang. Mereka memiliki peran penting dalam menjaga ritme, suasana, dan kesakralan
+      acara adat.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Perlakuan pada Hula-Hula
-    deskripsi: 
+    deskripsi: Dalam adat Batak, Hula-Hula harus diperlakukan dengan penuh hormat.
+      Sikap ini dikenal dengan prinsip Somba Marhula-Hula, yaitu menghargai dan menghormati
+      pihak pemberi perempuan sebagai bagian penting dalam hubungan kekerabatan.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Perlakuan pada Dongan Tubu
-    deskripsi: 
+    deskripsi: Hubungan dengan Dongan Tubu didasarkan pada prinsip Manat Mardongan
+      Tubu, yaitu bersikap hati-hati, menjaga persaudaraan, dan menghindari konflik
+      dengan sesama kerabat semarga.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Perlakuan pada Boru
-    deskripsi: 
+    deskripsi: Perlakuan terhadap Boru mengikuti prinsip Elek Marboru, yaitu mengayomi,
+      menghargai, dan memperlakukan mereka dengan baik agar hubungan kekeluargaan
+      tetap harmonis.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Dekke
-    deskripsi: 
+    deskripsi: Dekke atau ikan mas merupakan simbol adat Batak yang melambangkan
+      harapan, kesejahteraan, dan doa untuk kehidupan yang baik. Dekke sering diberikan
+      dalam acara adat seperti pernikahan atau syukuran keluarga.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Piso Gaja Dompak
-    deskripsi: 
+    deskripsi: Piso Gaja Dompak adalah senjata tradisional Batak yang memiliki nilai
+      simbolis tinggi. Simbol ini melambangkan kehormatan, keberanian, kewibawaan,
+      dan tanggung jawab dalam menjaga keluarga maupun masyarakat.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}
   - nama: Ritual Adat Batak
-    deskripsi: 
+    deskripsi: Ritual Adat Batak merupakan rangkaian kegiatan adat yang melibatkan
+      berbagai unsur Dalihan Na Tolu, simbol budaya, musik tradisional, serta prosesi
+      yang diwariskan secara turun-temurun. Ritual ini bertujuan menjaga nilai kebersamaan,
+      penghormatan, dan identitas budaya masyarakat Batak Toba.
     button: {fileID: 0}
     iconImage: {fileID: 0}
     lockOverlay: {fileID: 0}

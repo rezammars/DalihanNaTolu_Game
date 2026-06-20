@@ -28,6 +28,7 @@ public class IndexManager : MonoBehaviour
 
     [Header("Info UI")]
     public Text namaText;
+    public ScrollRect deskripsiScrollRect;
     public Text deskripsiText;
 
     [Header("Data Index")]
@@ -106,6 +107,9 @@ public class IndexManager : MonoBehaviour
 
         if (deskripsiText != null)
             deskripsiText.text = indexData[index].deskripsi;
+
+        if (deskripsiScrollRect != null)
+            deskripsiScrollRect.verticalNormalizedPosition = 1f;
     }
 
     public void UnlockIndex(int index)

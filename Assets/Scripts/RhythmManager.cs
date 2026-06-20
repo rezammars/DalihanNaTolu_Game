@@ -28,6 +28,7 @@ public class RhythmManager : MonoBehaviour
     public RectTransform[] spawnPoints;
     public Transform noteContainer;
     public float noteSpeed = 300f;
+    public Sprite[] noteSpritesTiapLane;
 
     [Header("Hit Settings")]
     public float hitRange = 80f;
@@ -156,6 +157,13 @@ public class RhythmManager : MonoBehaviour
         RectTransform noteRect = noteObj.GetComponent<RectTransform>();
         noteRect.anchoredPosition = spawnPoints[lane].anchoredPosition;
 
+        Image noteImage = noteObj.GetComponent<Image>();
+        if (noteImage != null && noteSpritesTiapLane != null && lane < noteSpritesTiapLane.Length && noteSpritesTiapLane[lane] != null)
+        {
+            noteImage.sprite = noteSpritesTiapLane[lane];
+            noteImage.preserveAspect = true;
+        }
+
         RhythmNote note = noteObj.GetComponent<RhythmNote>();
 
         if (note == null)
@@ -220,7 +228,7 @@ public class RhythmManager : MonoBehaviour
         UpdateUI();
 
         if (feedbackText != null)
-            feedbackText.text = "Hit!";
+            feedbackText.text = "HIT!";
 
         Destroy(note.gameObject);
     }
@@ -228,7 +236,7 @@ public class RhythmManager : MonoBehaviour
     void Miss()
     {
         if (feedbackText != null)
-            feedbackText.text = "Miss!";
+            feedbackText.text = "MISS!";
     }
 
     public void MissNote(RhythmNote note)

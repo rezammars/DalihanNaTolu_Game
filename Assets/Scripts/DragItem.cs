@@ -1,9 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragItem : MonoBehaviour,
+    IBeginDragHandler,
+    IDragHandler,
+    IEndDragHandler
 {
+    [Header("Data Item")]
     public string itemNama;
+
+    [Header("Behavior")]
+    public bool returnToStart = true;
 
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
@@ -12,11 +19,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     Vector2 startPosition;
     Quaternion startRotation;
 
-    bool locked = false;
+    bool locked;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+
         canvasGroup = GetComponent<CanvasGroup>();
 
         if (canvasGroup == null)
@@ -57,7 +65,9 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (locked) return;
 
         canvasGroup.blocksRaycasts = true;
-        ResetPosition();
+
+        if (returnToStart)
+            ResetPosition();
     }
 
     public void ResetPosition()
