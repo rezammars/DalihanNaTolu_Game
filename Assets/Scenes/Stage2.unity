@@ -269,8 +269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -730, y: -200}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchoredPosition: {x: 645, y: -175}
+  m_SizeDelta: {x: 435, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40582272
 MonoBehaviour:
@@ -350,8 +350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 625, y: -120}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 650, y: 0}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &110717594
 CanvasGroup:
@@ -378,7 +378,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: adat
-  returnToStart: 1
 --- !u!114 &110717596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,14 +391,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.35125375, b: 0.381132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 86a588393cdbc4647bcecb1de787b180, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -761,8 +760,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -730, y: 200}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchoredPosition: {x: -520, y: -175}
+  m_SizeDelta: {x: 790, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &222318514
 MonoBehaviour:
@@ -869,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -280}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: 715, y: 105}
+  m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269168372
 MonoBehaviour:
@@ -885,14 +884,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -924,10 +923,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: doa
   gambarSlot: {fileID: 269168372}
-  spriteAwal: {fileID: 0}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteAwal: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
+  spriteBenar: {fileID: 21300000, guid: 3b98f1372d3632e4087d80d859ed6193, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &285906397
@@ -948,7 +945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &285906398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2762,8 +2759,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 145}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: -230, y: 105}
+  m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714931612
 MonoBehaviour:
@@ -2778,14 +2775,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2817,10 +2814,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: sambut
   gambarSlot: {fileID: 714931612}
-  spriteAwal: {fileID: 0}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteAwal: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
+  spriteBenar: {fileID: 21300000, guid: d632891f6cc02574294ecea2537249d9, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!114 &756531526 stripped
@@ -3123,7 +3118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -380}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &838072522 stripped
@@ -3167,8 +3162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 625, y: 100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -695, y: 0}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &849073325
 CanvasGroup:
@@ -3195,7 +3190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: sambut
-  returnToStart: 1
 --- !u!114 &849073327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,14 +3203,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.35125375, b: 0.381132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d632891f6cc02574294ecea2537249d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4204,7 +4198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1083032376
 Transform:
   m_ObjectHideFlags: 0
@@ -4980,8 +4974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 625, y: -350}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -245, y: 0}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1345324112
 CanvasGroup:
@@ -5008,7 +5002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: doa
-  returnToStart: 1
 --- !u!114 &1345324114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5022,14 +5015,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.35125375, b: 0.381132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3b98f1372d3632e4087d80d859ed6193, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5094,8 +5087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: -280}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: 245, y: 105}
+  m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398409593
 MonoBehaviour:
@@ -5110,14 +5103,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5149,10 +5142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: adat
   gambarSlot: {fileID: 1398409593}
-  spriteAwal: {fileID: 0}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteAwal: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
+  spriteBenar: {fileID: 21300000, guid: 86a588393cdbc4647bcecb1de787b180, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &1416391323
@@ -5996,7 +5987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1557795011
 Transform:
   m_ObjectHideFlags: 0
@@ -6182,8 +6173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 625, y: 320}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 205, y: 0}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1637582927
 CanvasGroup:
@@ -6210,7 +6201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: ulos
-  returnToStart: 1
 --- !u!114 &1637582929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6224,14 +6214,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.35125375, b: 0.381132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 40b1ee20d372e3348a839f6b0ca9ae3e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6279,11 +6269,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 396001346}
-  - {fileID: 1075929794}
-  - {fileID: 1981718972}
-  - {fileID: 395074596}
   - {fileID: 870094339}
+  - {fileID: 395074596}
+  - {fileID: 1981718972}
+  - {fileID: 1075929794}
+  - {fileID: 396001346}
   - {fileID: 1198406894}
   - {fileID: 1683010678}
   - {fileID: 322955948}
@@ -6504,14 +6494,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94716984, g: 0.43252584, b: 0.09114274, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1841429617, guid: 136d592d4f69fc04495b802ab8b445de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7203,8 +7193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 145}
-  m_SizeDelta: {x: 350, y: 350}
+  m_AnchoredPosition: {x: -695, y: 105}
+  m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2082371415
 MonoBehaviour:
@@ -7219,14 +7209,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7258,10 +7248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: ulos
   gambarSlot: {fileID: 2082371415}
-  spriteAwal: {fileID: 0}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteAwal: {fileID: 1145484696, guid: 20bac6b80d77fec4bb147cb1880ec79f, type: 3}
+  spriteBenar: {fileID: 21300000, guid: 40b1ee20d372e3348a839f6b0ca9ae3e, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1716011553}
 --- !u!1 &2094280562 stripped
@@ -7892,6 +7880,10 @@ PrefabInstance:
       propertyPath: panelPause
       value: 
       objectReference: {fileID: 939154764}
+    - target: {fileID: 7211863544941803132, guid: 2e09307aee2e86e44bc34e14c493e70d, type: 3}
+      propertyPath: startStepIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7211863544941803132, guid: 2e09307aee2e86e44bc34e14c493e70d, type: 3}
       propertyPath: steps.Array.size
       value: 3

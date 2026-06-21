@@ -3192,7 +3192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: Boru
-  returnToStart: 1
 --- !u!225 &765092697
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3295,7 +3294,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: Dongan
-  returnToStart: 1
 --- !u!225 &777223926
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4007,9 +4005,7 @@ MonoBehaviour:
   itemID: HulaHula
   gambarSlot: {fileID: 78258342}
   spriteAwal: {fileID: 391301511, guid: 319060febf1e2d9449baa6de10a2686c, type: 3}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteBenar: {fileID: 21300000, guid: a1f5a0b30e4c1684c9e1c58a5d94a59b, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1379095608}
 --- !u!222 &847671296
@@ -4876,9 +4872,7 @@ MonoBehaviour:
   itemID: Boru
   gambarSlot: {fileID: 49703725}
   spriteAwal: {fileID: 391301511, guid: 319060febf1e2d9449baa6de10a2686c, type: 3}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteBenar: {fileID: 21300000, guid: 89c2f48f21dd6ee4c9d5be43c13d9d53, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1379095608}
 --- !u!222 &914309164
@@ -5384,6 +5378,10 @@ PrefabInstance:
       propertyPath: panelPause
       value: 
       objectReference: {fileID: 161552565}
+    - target: {fileID: 7211863544941803132, guid: 2e09307aee2e86e44bc34e14c493e70d, type: 3}
+      propertyPath: startStepIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7211863544941803132, guid: 2e09307aee2e86e44bc34e14c493e70d, type: 3}
       propertyPath: steps.Array.size
       value: 4
@@ -8495,9 +8493,7 @@ MonoBehaviour:
   itemID: Dongan
   gambarSlot: {fileID: 454462168}
   spriteAwal: {fileID: 391301511, guid: 319060febf1e2d9449baa6de10a2686c, type: 3}
-  spriteBenar: {fileID: 0}
-  spriteSalah: {fileID: 0}
-  lockWrongDrop: 0
+  spriteBenar: {fileID: 21300000, guid: 6cf2fabb0ef88bc4ea73df7c27084ee8, type: 3}
   isCorrect: 0
   puzzleManager: {fileID: 1379095608}
 --- !u!222 &1430934389
@@ -10532,7 +10528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNama: HulaHula
-  returnToStart: 1
 --- !u!225 &1904277267
 CanvasGroup:
   m_ObjectHideFlags: 0

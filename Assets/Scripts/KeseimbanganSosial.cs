@@ -31,24 +31,27 @@ public class KeseimbanganSosial : MonoBehaviour
     public NPCStatusUI donganB;
     public NPCStatusUI anakBoru;
 
-    [Header("Option Data")]
+    [Header("Pilihan")]
     public OptionData[] options;
 
-    [Header("Control Button")]
+    [Header("Tombol")]
     public Button lanjutButton;
 
-    [Header("Result")]
+    [Header("Hasil")]
     public GameObject resultPanel;
     public Text resultText;
 
-    [Header("Rules")]
+    [Header("Aturan")]
     public int maxPilihan = 3;
 
-    [Header("After Complete")]
+    [Header("Stage 4")]
+    public Stage4Hasil stage4Hasil;
+
+    [Header("Selesai")]
     public UnityEvent onPuzzleComplete;
 
     List<int> selectedOptions = new List<int>();
-    bool finished = false;
+    bool finished;
 
     void OnEnable()
     {
@@ -93,6 +96,7 @@ public class KeseimbanganSosial : MonoBehaviour
             {
                 options[i].button.onClick.RemoveAllListeners();
                 options[i].button.onClick.AddListener(() => ToggleOption(index));
+
                 options[i].button.interactable = true;
                 SetButtonNormal(options[i].button);
             }
@@ -111,7 +115,6 @@ public class KeseimbanganSosial : MonoBehaviour
     void ToggleOption(int index)
     {
         if (finished) return;
-        if (index < 0 || index >= options.Length) return;
 
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayKlikTombol();
@@ -119,6 +122,7 @@ public class KeseimbanganSosial : MonoBehaviour
         if (selectedOptions.Contains(index))
         {
             selectedOptions.Remove(index);
+
             ApplyOptionEffect(index, -1);
             SetButtonNormal(options[index].button);
         }
@@ -128,11 +132,13 @@ public class KeseimbanganSosial : MonoBehaviour
                 return;
 
             selectedOptions.Add(index);
+
             ApplyOptionEffect(index, 1);
             SetButtonSelected(options[index].button);
         }
 
-        UpdateLanjutButton();
+        if (lanjutButton != null)
+            lanjutButton.interactable = selectedOptions.Count > 0;
     }
 
     void ApplyOptionEffect(int index, int multiplier)
@@ -147,65 +153,51 @@ public class KeseimbanganSosial : MonoBehaviour
         anakBoru.AddEmotion(option.efekAnakBoru * multiplier);
     }
 
-    void UpdateLanjutButton()
-    {
-        if (lanjutButton != null)
-            lanjutButton.interactable = selectedOptions.Count > 0;
-    }
-
     void FinishPuzzle()
     {
         if (finished) return;
 
+        finished = true;
+
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayKlikTombol();
-
-        finished = true;
 
         DisableAllOptions();
 
         if (lanjutButton != null)
             lanjutButton.interactable = false;
 
-        if (resultPanel != null)
-            resultPanel.SetActive(true);
-
         bool allAtLeastNeutral = CheckAllAtLeastNeutral();
         bool hulaHulaHappy = CheckHulaHulaHappy();
 
-        if (allAtLeastNeutral && hulaHulaHappy)
+        bool berhasil = allAtLeastNeutral && hulaHulaHappy;
+
+        if (stage4Hasil != null)
+            stage4Hasil.SetPuzzleKeseimbanganResult(berhasil);
+
+        if (resultPanel != null)
+            resultPanel.SetActive(true);
+
+        if (resultText != null)
         {
-            if (resultText != null)
+            if (berhasil)
             {
                 resultText.text =
-                    "Prosesi berjalan harmonis.\n" +
-                    "Semua pihak sudah tenang, dan Hula-hula merasa dihormati.";
+                    "Prosesi berjalan harmonis.";
             }
-
-            Invoke(nameof(CompletePuzzle), 2f);
-        }
-        else if (allAtLeastNeutral)
-        {
-            if (resultText != null)
+            else if (allAtLeastNeutral)
             {
                 resultText.text =
-                    "Suasana sudah cukup stabil.\n" +
-                    "Namun Hula-hula belum sepenuhnya merasa dihormati.";
+                    "Suasana sudah cukup stabil.";
             }
-
-            Invoke(nameof(CompletePuzzle), 2f);
-        }
-        else
-        {
-            if (resultText != null)
+            else
             {
                 resultText.text =
-                    "Keseimbangan belum tercapai.\n" +
-                    "Masih ada pihak yang merasa kecewa.";
+                    "Keseimbangan belum tercapai.";
             }
-
-            Invoke(nameof(ResetGame), 2f);
         }
+
+        Invoke(nameof(CompletePuzzle), 2f);
     }
 
     bool CheckAllAtLeastNeutral()

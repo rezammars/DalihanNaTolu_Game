@@ -12,7 +12,7 @@ public class DragDropPuzzle : MonoBehaviour
     public Text hintText;
 
     [Header("Text")]
-    public string startFeedback = "Seret item ke slot yang benar.";
+    public string startFeedback = "Seret kartu ke tempat yang benar.";
     public string correctFeedback = "Semua sudah tersusun dengan benar.";
     public string wrongFeedback1 = "Ada yang terasa kurang tepat.";
     public string wrongFeedback2 = "Coba perhatikan urutannya kembali.";
@@ -34,12 +34,8 @@ public class DragDropPuzzle : MonoBehaviour
 
     public void CheckPuzzle()
     {
-        if (finished) return;
-
         foreach (DropSlot slot in slots)
         {
-            if (slot == null) continue;
-
             if (!slot.isCorrect)
                 return;
         }
@@ -65,15 +61,23 @@ public class DragDropPuzzle : MonoBehaviour
             else
                 feedbackText.text = wrongFeedback2;
         }
-
-        if (hintText != null && wrongCount >= 2)
-        {
-            hintText.text = "Perhatikan kembali hubungan antara item dan slot.";
-        }
     }
 
     void CompletePuzzle()
     {
         onPuzzleComplete.Invoke();
+    }
+
+    public void ResetPuzzle()
+    {
+        finished = false;
+        wrongCount = 0;
+        if (feedbackText != null) feedbackText.text = startFeedback;
+        if (hintText != null) hintText.text = "";
+
+        foreach (DropSlot slot in slots)
+        {
+            slot.ResetSlot();
+        }
     }
 }

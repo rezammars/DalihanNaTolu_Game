@@ -1,32 +1,23 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour,
-    IBeginDragHandler,
-    IDragHandler,
-    IEndDragHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Data Item")]
     public string itemNama;
 
-    [Header("Behavior")]
-    public bool returnToStart = true;
-
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
-
     Transform startParent;
     Vector2 startPosition;
     Quaternion startRotation;
-
     bool locked;
+    bool isDroppedCorrect = false;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-
         canvasGroup = GetComponent<CanvasGroup>();
-
         if (canvasGroup == null)
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
     }
@@ -46,27 +37,22 @@ public class DragItem : MonoBehaviour,
             AudioManager.Instance.PlayDrag();
 
         canvasGroup.blocksRaycasts = false;
-
         transform.SetParent(startParent);
         transform.SetAsLastSibling();
-
         rectTransform.localRotation = Quaternion.identity;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (locked) return;
-
         rectTransform.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (locked) return;
-
         canvasGroup.blocksRaycasts = true;
-
-        if (returnToStart)
+        if (!isDroppedCorrect)
             ResetPosition();
     }
 
@@ -75,11 +61,15 @@ public class DragItem : MonoBehaviour,
         transform.SetParent(startParent);
         rectTransform.anchoredPosition = startPosition;
         rectTransform.localRotation = startRotation;
+        isDroppedCorrect = false;
     }
 
     public void SetLocked(bool value)
     {
         locked = value;
         canvasGroup.blocksRaycasts = !value;
+        gameObject.SetActive(!value);
+        if (value)
+            isDroppedCorrect = true;
     }
 }

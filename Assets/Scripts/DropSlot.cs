@@ -11,10 +11,6 @@ public class DropSlot : MonoBehaviour, IDropHandler
     public Image gambarSlot;
     public Sprite spriteAwal;
     public Sprite spriteBenar;
-    public Sprite spriteSalah;
-
-    [Header("Stage 4")]
-    public bool lockWrongDrop = false;
 
     [HideInInspector]
     public bool isCorrect = false;
@@ -37,9 +33,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (isCorrect) return;
 
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
-
-        if (item == null)
-            return;
+        if (item == null) return;
 
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayDrop();
@@ -49,9 +43,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (benar)
         {
             isCorrect = true;
-
             SetSpriteBenar();
-
             item.gameObject.SetActive(false);
 
             if (puzzleManager != null)
@@ -59,15 +51,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
         }
         else
         {
-            SetSpriteSalah();
-
-            if (lockWrongDrop)
-            {
-                item.gameObject.SetActive(false);
-
-                if (puzzleManager != null)
-                    puzzleManager.CheckPuzzle();
-            }
+            if (puzzleManager != null)
+                puzzleManager.ShowWrongFeedback();
         }
     }
 
@@ -83,9 +68,9 @@ public class DropSlot : MonoBehaviour, IDropHandler
             gambarSlot.sprite = spriteBenar;
     }
 
-    void SetSpriteSalah()
+    public void ResetSlot()
     {
-        if (gambarSlot != null && spriteSalah != null)
-            gambarSlot.sprite = spriteSalah;
+        isCorrect = false;
+        SetSpriteAwal();
     }
 }

@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Printil MUsikAsset 11_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 425.3333
+        width: 313
+        height: 212.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df1a3ada2d6bd549a04a0fdb087f8be
+      internalID: 1126154011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Printil MUsikAsset 11_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213.33333
+        width: 313
+        height: 212.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4867736a5a22954fa43e1d716784b58
+      internalID: 421958166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Printil MUsikAsset 11_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 313
+        height: 212.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a44f2b4bb3d794aad8e403bab15c98
+      internalID: 367324355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Printil MUsikAsset 11_0: 1126154011
+      Printil MUsikAsset 11_1: 421958166
+      Printil MUsikAsset 11_2: 367324355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
