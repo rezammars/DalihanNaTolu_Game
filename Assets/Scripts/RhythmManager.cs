@@ -94,6 +94,9 @@ public class RhythmManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (AudioManager.Instance)
+            AudioManager.Instance.StopBGM();
+
         Time.timeScale = 1f;
 
         score = 0;
@@ -129,6 +132,9 @@ public class RhythmManager : MonoBehaviour
 
         if (rhythmMusicSource != null)
             rhythmMusicSource.Stop();
+
+        if (AudioManager.Instance)
+            AudioManager.Instance.PlayBGM();
 
         ClearNotes();
     }

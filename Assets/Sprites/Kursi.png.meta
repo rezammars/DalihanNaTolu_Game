@@ -126,10 +126,10 @@ TextureImporter:
       name: Kursi_0
       rect:
         serializedVersion: 2
-        x: 313
-        y: 207
-        width: 391
-        height: 577
+        x: 280
+        y: 146
+        width: 464
+        height: 638
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

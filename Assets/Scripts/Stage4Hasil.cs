@@ -16,7 +16,8 @@ public class Stage4Hasil : MonoBehaviour
 
     [Header("Result UI")]
     public GameObject resultPanel;
-    public Text resultText;
+    public Text judulTeks;
+    public Text isiTeks;
 
     [Header("Unlock Index Stage 4")]
     public IndexManager indexManager;
@@ -61,10 +62,12 @@ public class Stage4Hasil : MonoBehaviour
         if (!puzzlePeranSelesai) return;
         if (!puzzleUrutanSelesai) return;
         if (!puzzleKeseimbanganSelesai) return;
-
-        TampilkanHasilAkhir();
     }
 
+    public void ShowFinal()
+    {
+        TampilkanHasilAkhir();
+    }
     void TampilkanHasilAkhir()
     {
         bool semuaBerhasil =
@@ -77,24 +80,17 @@ public class Stage4Hasil : MonoBehaviour
 
         if (semuaBerhasil)
         {
-            if (resultText != null)
-            {
-                resultText.text =
-                    "Semua berjalan sesuai adat.\n" +
-                    "Suasana terasa harmonis.\n" +
-                    "Index telah terbuka.";
-            }
+            judulTeks.text = "KAMU BERHASIL";
+
+            isiTeks.text = "Kamu sudah memahami Dalihan Na Tolu \n" + "INDEX UPDATE!";
 
             UnlockIndexStage4();
         }
         else
         {
-            if (resultText != null)
-            {
-                resultText.text =
-                    "Ada yang terasa kurang tepat.\n" +
-                    "Prosesi mulai kehilangan keteraturannya.\n";
-            }
+            judulTeks.text = "KAMU GAGAL";
+
+            isiTeks.text = "Perhatikan petunjuk yang kamu dapatkan di sekitar";
         }
 
         Invoke(nameof(LanjutSetelahHasil), delayLanjut);

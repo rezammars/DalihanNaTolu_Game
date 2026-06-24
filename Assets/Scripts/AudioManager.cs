@@ -60,6 +60,12 @@ public class AudioManager : MonoBehaviour
             sumberBGM.Play();
     }
 
+    public void StopBGM()
+    {
+        if (sumberBGM != null)
+            sumberBGM.Stop();
+    }
+
     public void SetBGMVolume(float value)
     {
         bgmVolume = value;
