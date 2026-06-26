@@ -17,7 +17,7 @@ public class NPCDialogManager : MonoBehaviour
     int indexDialog = 0;
     bool isDialogAktif = false;
 
-    UnityAction aksiSetelahDialog;
+    public UnityAction aksiSetelahDialog;
 
     void Start()
     {
