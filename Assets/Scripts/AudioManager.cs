@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip sfxGeser;
 
     [Header("Volume")]
-    [Range(0f, 1f)] public float bgmVolume = 1f;
+    [Range(0f, 1f)] public float bgmVolume = 0.2f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
 
     void Awake()
@@ -32,8 +32,8 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", bgmVolume);
+        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", sfxVolume);
 
         if (sumberBGM != null)
             sumberBGM.volume = bgmVolume;

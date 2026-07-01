@@ -69,7 +69,7 @@ public class MisiLevel2 : MonoBehaviour
         tetua.SetInteractable(false);
         boru.SetInteractable(true);
 
-        SetMisi("Susun rangkaian kegiatan acara");
+        SetMisi("Temui anak boru untuk susun rangkaian kegiatan acara");
     }
 
     // Interaksi Boru -> Puzzle Urutan
@@ -92,7 +92,7 @@ public class MisiLevel2 : MonoBehaviour
 
         pemusik.SetInteractable(true);
 
-        SetMisi("Bicara dengan pemusik gondang");
+        SetMisi("Bicara dengan pemusik gondang di ujung sana");
     }
 
     // Dialog Pemusik

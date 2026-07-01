@@ -16,6 +16,8 @@ public class NPCInteract : MonoBehaviour
     [Header("Mission")]
     public MisiLevel1 misiLevel1;
     public MisiLevel2 misiLevel2;
+    public MisiLevel3 misiLevel3;
+    public MisiLevel4 misiLevel4;
 
     [Header("Interaction")]
     public bool canInteract = true;
@@ -28,7 +30,10 @@ public class NPCInteract : MonoBehaviour
         BoruUlos,
         BoruPuzzleUrutan,
         TetuaDialogLevel2,
-        PemusikLagu
+        PemusikLagu,
+        TetuaDialogLevel3,
+        TetuaSimbolAdat,
+        TetuaDialogLevel4
     }
 
     public EventType eventType;
@@ -107,6 +112,18 @@ public class NPCInteract : MonoBehaviour
                 if (misiLevel2 != null)
                 misiLevel2.OnDialogPemusik();
                 break;
+            case EventType.TetuaDialogLevel3:
+                if (misiLevel3 != null)
+                misiLevel3.OnDialogAwal();
+                break;
+            case EventType.TetuaSimbolAdat:
+                if (misiLevel3 != null)
+                misiLevel3.OnPuzzleSimbol();
+                break;
+            case EventType.TetuaDialogLevel4:
+                if (misiLevel4 != null)
+                misiLevel4.OnDialogTetua();
+                break;
         }
     }
 
@@ -114,7 +131,7 @@ public class NPCInteract : MonoBehaviour
     {
         canInteract = value;
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
